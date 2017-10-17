@@ -1,7 +1,7 @@
 # Contributors
 
-- [@Denis Allard](www.github.com/allarddenis)
-- [@Elie Gourdeau](www.github.com/wolfgrawl)
+- [@Denis Allard](https://github.com/allarddenis)
+- [@Elie Gourdeau](https://github.com/wolfgrawl)
 
 # Browser automation syntax
 
