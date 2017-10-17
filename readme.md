@@ -1,7 +1,7 @@
 # Contributors
 
-Denis Allard
-Elie Gourdeau
+- [@Denis Allard](www.github.com/allarddenis)
+- [@Elie Gourdeau](www.github.com/wolfgrawl)
 
 # Browser automation syntax
 
@@ -32,8 +32,8 @@ browse <website-address>
 
 *Examples* :
 
-- `browse https://www.google.com`
-- `browse http://localhost:4200`
+- `browse "https://www.google.com"`
+- `browse "http://localhost:4200"`
 
 ## CLICK
 
