@@ -45,8 +45,8 @@ browse <website-address>
 
 *Examples* :
 
-- `click a "Log in"`
-- `click button (attribute "name" "Cliquez ici ou sur le logo...")`
+- `click link (value "Log in")`
+- `click button (value "Cliquez ici ou sur le logo...")`
 - `click input (attribute "type" "checkbox") (attribute "id" "warn")`
 
 ## TYPE
@@ -68,49 +68,49 @@ browse <website-address>
 
 *Syntax* :
 
-`check <element> <identifier> <constraint-type> <constraint>`
+`check <constraint-type> <constraint> <parameter>*`
 
 *Examples* :
 
-- `check link "Consulter le profil" contains "Massimo Tisi"`
-- `check button "Cliquez ici ou sur le logo..." enable false`
+- `check link contains "Massimo Tisi" (attribute name "Consulter le profil")`
+- `check button enable false (value "Cliquez ici ou sur le logo...")`
 
 # Code implentation
 
-## Code to implement
-
 Let's try to implement the test series beneath using the designed syntax.
 
-- open a browser window (e.g., Firefox)
-- go on “http://campus.mines-nantes.fr”
-- click on the link “Log in”
-- click on the button with text “Cliquez ici ou sur le logo C'zam pour vous identifier”
-- fill the text field “username” with “mtisi08”
-- fill the text field “password” with “12345”
-- select the checkbox named “warn”
-- click on the button with text “LOGIN”
-- go to the url « https://campusneo.mines-nantes.fr/campus/»
- -verify that the link “Consulter le profil” contains the string “Massimo Tisi”
+### TEST 0
 
-## Implementation
+```
+TEST 0
+* open a browser window (e.g., Firefox)
+* go on “http://campus.mines-nantes.fr”
+* click on the link “Log in”
+* click on the button with text “Cliquez ici ou sur le logo C'zam pour vous identifier”
+* fill the text field “username” with “mtisi08”
+* fill the text field “password” with “12345”
+* select the checkbox named “warn”
+* click on the button with text “LOGIN”
+* go to the url "https://campusneo.mines-nantes.fr/campus/"
+* verify that the link “Consulter le profil” contains the string “Massimo Tisi”
+ ```
 
 ``` 
+TEST 0
 open firefox true{ 
     [ 
         { browse “http://campus.mines-nantes.fr” },
-        { click link "Log in" },
-        { click button "Cliquez ici ou sur le logo C'zam pour vous identifier" },
-        { type textfield (attribute name "username") "mtisi08" },
-        { type textfield "password" "12345" },
-        { click checkbox "warn" },
-        { click button "LOGIN" },
+        { click link (value "Log in") },
+        { click button (value "Cliquez ici ou sur le logo C'zam pour vous identifier") },
+        { type "mtisi08" (attribute name "username")  },
+        { type "12345" (attribute name "password")  },
+        { click input (attribute "type" "checkbox") (attribute "id" "warn") },
+        { click button (value "LOGIN") },
         { browse "https://campusneo.mines-nantes.fr/campus" },
-        { check link "Consulter le profil" contains "Massimo Tisi"  }
+        { check link contains "Massimo Tisi" (attribute name "Consulter le profil")  }
     ]
 }
 ```
-
-## Other implementations
 
 ### TEST 1
 
@@ -126,12 +126,12 @@ TEST 1
 open firefox true {
     [
         { browse "http://www.imt-atlantique.fr/fr"},
-        { check page link contains "Toutes les actualités" }
+        { check link contains "Toutes les actualités" }
     ]
 }
 ```
 
-### TEST 2
+### TEST 3
 
 ```
 TEST 3
@@ -150,7 +150,7 @@ open firefox true {
         { browse "http://www.imt-atlantique.fr/fr"},
         { click "Toutes les actualités"},
         { click img (attribute "alt" "Acceuil")},
-        { check page link contains "Toutes les actualités" }
+        { check link contains "Toutes les actualités" }
     ]
 }
 ```
