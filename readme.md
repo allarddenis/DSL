@@ -1,3 +1,8 @@
+# Contributors
+
+Denis Allard
+Elie Gourdeau
+
 # Browser automation syntax
 
 This document describes a syntax creating automated tests on web applications.
