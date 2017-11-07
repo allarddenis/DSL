@@ -19,6 +19,99 @@ This document describes a syntax creating automated tests on web applications.
 
 - `all click input (attribute "type" "checkbox") (value "true")`
 
+## BROWSE
+
+*Action* : go to a website page
+
+*Syntax* : 
+
+`
+browse <website-address>
+`
+
+*Examples* :
+
+- `browse "https://www.google.com"`
+- `browse "http://localhost:4200"`
+
+## CHECK
+
+*Action* : verify that an element respects a contraint
+
+*Syntax* :
+
+`check <constraint-type> <constraint> <parameter>*`
+
+*Examples* :
+
+- `check link contains "Massimo Tisi" (attribute name "Consulter le profil")`
+- `check button enable false (value "Cliquez ici ou sur le logo...")`
+- `check comparator equal (var(var1)) (var(var2))`
+
+## CLICK
+
+*Action* : perform a click action on given element
+
+*Syntax* : 
+
+`click <markup> <parameter>*`
+
+*Examples* :
+
+- `click link (value "Log in")`
+- `click button (value "Cliquez ici ou sur le logo...")`
+- `click input (attribute "type" "checkbox") (attribute "id" "warn")`
+
+## COUNT
+*Action* : count the results of the action 
+
+*Syntax* :
+
+`count <action>`
+
+*Examples* :
+
+- `count click button (value "Cliquez ici ou sur le logo...")`
+- `count click input (attribute "type" "checkbox") (attribute "id" "warn")`
+
+## OPEN
+
+*Action* : open a browser with an expected return value as bool
+
+*Syntax* : 
+
+`open <browsername> <return>`
+
+*Examples* :
+
+- `open firefox true`
+- `open chrome false`
+
+## READ
+
+*Action* : reads the attribute or value of an element
+
+*Syntax* : 
+
+`read <markup> <parameters>*`
+
+*Example* :
+
+- `read link value (attribute name "Consulter le profil")`
+
+## TYPE
+
+*Action* : fill the given element with given text
+
+*Syntax* :
+
+`type <text-to-type> <parameter>*`
+
+*Examples* : 
+
+- `type "mtisi08" (attribute "name" "username")`
+- `type "I love DSL !" (attribute "type" "textbox") (attribute "name" "comment")`
+
 ## VARIABLES
 
 *Action* : save a data into a variable
@@ -36,85 +129,6 @@ This document describes a syntax creating automated tests on web applications.
 - `myvar = read link value (attribute name "Consulter le profil")` 
 - `type var(myvar) (attribute "name" "username")`
 
-## OPEN
-
-*Action* : open a browser with an expected return value as bool
-
-*Syntax* : 
-
-`open <browsername> <return>`
-
-*Examples* :
-
-- `open firefox true`
-- `open chrome false`
-
-## BROWSE
-
-*Action* : go to a website page
-
-*Syntax* : 
-
-`
-browse <website-address>
-`
-
-*Examples* :
-
-- `browse "https://www.google.com"`
-- `browse "http://localhost:4200"`
-
-## READ
-
-*Action* : reads the attribute or value of an element
-
-*Syntax* : 
-
-`read <markup> <parameters>*`
-
-*Example* :
-
-- `read link value (attribute name "Consulter le profil")`
-
-## CLICK
-
-*Action* : perform a click action on given element
-
-*Syntax* : 
-
-`click <markup> <parameter>*`
-
-*Examples* :
-
-- `click link (value "Log in")`
-- `click button (value "Cliquez ici ou sur le logo...")`
-- `click input (attribute "type" "checkbox") (attribute "id" "warn")`
-
-## TYPE
-
-*Action* : fill the given element with given text
-
-*Syntax* :
-
-`type <text-to-type> <parameter>*`
-
-*Examples* : 
-
-- `type "mtisi08" (attribute "name" "username")`
-- `type "I love DSL !" (attribute "type" "textbox") (attribute "name" "comment")`
-
-## CHECK
-
-*Action* : verify that an element respects a contraint
-
-*Syntax* :
-
-`check <constraint-type> <constraint> <parameter>*`
-
-*Examples* :
-
-- `check link contains "Massimo Tisi" (attribute name "Consulter le profil")`
-- `check button enable false (value "Cliquez ici ou sur le logo...")`
 
 # Code implentation
 
@@ -190,7 +204,7 @@ open firefox true {
     [
         browse "http://www.imt-atlantique.fr/fr",
         click "Toutes les actualités",
-        click img (attribute "alt" "Acceuil"),
+        click img (attribute "alt" "Accueil"),
         check link contains "Toutes les actualités"
     ]
 }
@@ -273,3 +287,72 @@ open firefox true {
     ]
 }
 ```
+
+### TEST 8
+
+```
+TEST 8
+(result=FALSE)
+* open a browser window
+* go to the url "http://www.imt-atlantique.fr/fr/rechercher"
+* insert "2007" in the search field
+* click on the button "Appliquer les filtres"* count how many results are shown
+* choose the option "Le mois dernier" in the combobox
+* click on the button "Appliquer les filtres"
+* verify that the number ofresults is the same of the previous one
+```
+
+```
+TEST 8
+open firefox false {
+    [
+        browse "http://www.imt-atlantique.fr/fr/rechercher",
+        type "2007" (attribute "id" "edit-search-api-fulltext"),
+        numberRes1 = count click button (value "Appliquer les filtres"),
+        click input (attribute "type" "checkbox") (attribute "id" "Le mois dernier"),        
+        numberRes2 = count click button (value "Appliquer les filtres"),
+        check comparator equal (var(numberRes1)) (var(numberRes2))
+    ]
+}
+```
+
+### TEST 9
+
+```
+TEST 9
+(result=TRUE)
+* open a browser window
+* go to the url "http://www.imt-atlantique.fr/fr"
+* go to the page "COMMUNIQUÉS DE PRESSE" by clicking its link
+* verify that the page contains an image "Imprimer"
+* click on the image
+* repeat all the procedure for the pages DOSSIERS DE PRESSE, VISUELS POUR LA PRESSE, LA PRESSE EN PARLE, TRIBUNES DE PRESSE, LES PALMARÈS
+```
+
+```
+TEST 9
+open firefox true {
+    [
+        browse "http://www.imt-atlantique.fr/fr",
+        click link contains "communiqué de presse",
+        check page contains image (attribute title "imprimer"),
+        click image contains (attribute title "imprimer"),
+        click link contains "dossiers de presse",
+        check page contains image (attribute title "imprimer"),
+        click image contains (attribute title "imprimer"),
+        click link contains "visuels pour la presse",
+        check page contains image (attribute title "imprimer"),
+        click image contains (attribute title "imprimer"),
+        click link contains "la presse en parle",
+        check page contains image (attribute title "imprimer"),
+        click image contains (attribute title "imprimer"),
+        click link contains "tribunes de presse",
+        check page contains image (attribute title "imprimer"),
+        click image contains (attribute title "imprimer"),
+        click link contains "le palmarès",
+        check page contains image (attribute title "imprimer"),
+        click image contains (attribute title "imprimer")
+    ]
+}
+```
+
