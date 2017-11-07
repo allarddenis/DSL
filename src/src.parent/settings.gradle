@@ -1,0 +1,3 @@
+include 'src'
+include 'src.ide'
+include 'src.idea'
