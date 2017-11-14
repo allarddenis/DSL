@@ -1,9 +1,0 @@
-grammar org.xtext.deniselie.seleniumdsl with org.eclipse.xtext.common.Terminals
-
-generate seleniumdsl "http://www.xtext.org/deniselie/seleniumdsl"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
