@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Count extends EObject
+public interface Count extends ActionReturn
 {
   /**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference.

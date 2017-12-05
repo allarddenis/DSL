@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.ActionReturn;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
@@ -30,7 +29,7 @@ import org.xtext.selenium.eliedenis.eDdsl.VariableSet;
  *
  * @generated
  */
-public class VariableSetImpl extends MinimalEObjectImpl.Container implements VariableSet
+public class VariableSetImpl extends ActionNoReturnImpl implements VariableSet
 {
   /**
    * The default value of the '{@link #getVarName() <em>Var Name</em>}' attribute.

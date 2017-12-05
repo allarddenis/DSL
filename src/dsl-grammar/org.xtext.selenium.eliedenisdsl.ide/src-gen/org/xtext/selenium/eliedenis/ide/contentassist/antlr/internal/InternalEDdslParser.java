@@ -98,20 +98,20 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
 
-    // $ANTLR start "entryRuleModel"
-    // InternalEDdsl.g:53:1: entryRuleModel : ruleModel EOF ;
-    public final void entryRuleModel() throws RecognitionException {
+    // $ANTLR start "entryRuleTest"
+    // InternalEDdsl.g:53:1: entryRuleTest : ruleTest EOF ;
+    public final void entryRuleTest() throws RecognitionException {
         try {
-            // InternalEDdsl.g:54:1: ( ruleModel EOF )
-            // InternalEDdsl.g:55:1: ruleModel EOF
+            // InternalEDdsl.g:54:1: ( ruleTest EOF )
+            // InternalEDdsl.g:55:1: ruleTest EOF
             {
-             before(grammarAccess.getModelRule()); 
+             before(grammarAccess.getTestRule()); 
             pushFollow(FOLLOW_1);
-            ruleModel();
+            ruleTest();
 
             state._fsp--;
 
-             after(grammarAccess.getModelRule()); 
+             after(grammarAccess.getTestRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -125,35 +125,35 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleModel"
+    // $ANTLR end "entryRuleTest"
 
 
-    // $ANTLR start "ruleModel"
-    // InternalEDdsl.g:62:1: ruleModel : ( ( rule__Model__ModelAssignment ) ) ;
-    public final void ruleModel() throws RecognitionException {
+    // $ANTLR start "ruleTest"
+    // InternalEDdsl.g:62:1: ruleTest : ( ( rule__Test__TestsAssignment ) ) ;
+    public final void ruleTest() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:66:2: ( ( ( rule__Model__ModelAssignment ) ) )
-            // InternalEDdsl.g:67:2: ( ( rule__Model__ModelAssignment ) )
+            // InternalEDdsl.g:66:2: ( ( ( rule__Test__TestsAssignment ) ) )
+            // InternalEDdsl.g:67:2: ( ( rule__Test__TestsAssignment ) )
             {
-            // InternalEDdsl.g:67:2: ( ( rule__Model__ModelAssignment ) )
-            // InternalEDdsl.g:68:3: ( rule__Model__ModelAssignment )
+            // InternalEDdsl.g:67:2: ( ( rule__Test__TestsAssignment ) )
+            // InternalEDdsl.g:68:3: ( rule__Test__TestsAssignment )
             {
-             before(grammarAccess.getModelAccess().getModelAssignment()); 
-            // InternalEDdsl.g:69:3: ( rule__Model__ModelAssignment )
-            // InternalEDdsl.g:69:4: rule__Model__ModelAssignment
+             before(grammarAccess.getTestAccess().getTestsAssignment()); 
+            // InternalEDdsl.g:69:3: ( rule__Test__TestsAssignment )
+            // InternalEDdsl.g:69:4: rule__Test__TestsAssignment
             {
             pushFollow(FOLLOW_2);
-            rule__Model__ModelAssignment();
+            rule__Test__TestsAssignment();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getModelAccess().getModelAssignment()); 
+             after(grammarAccess.getTestAccess().getTestsAssignment()); 
 
             }
 
@@ -172,7 +172,7 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleModel"
+    // $ANTLR end "ruleTest"
 
 
     // $ANTLR start "entryRuleActionNoReturn"
@@ -206,31 +206,31 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleActionNoReturn"
-    // InternalEDdsl.g:87:1: ruleActionNoReturn : ( ( rule__ActionNoReturn__ActionAssignment ) ) ;
+    // InternalEDdsl.g:87:1: ruleActionNoReturn : ( ( rule__ActionNoReturn__Alternatives ) ) ;
     public final void ruleActionNoReturn() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:91:2: ( ( ( rule__ActionNoReturn__ActionAssignment ) ) )
-            // InternalEDdsl.g:92:2: ( ( rule__ActionNoReturn__ActionAssignment ) )
+            // InternalEDdsl.g:91:2: ( ( ( rule__ActionNoReturn__Alternatives ) ) )
+            // InternalEDdsl.g:92:2: ( ( rule__ActionNoReturn__Alternatives ) )
             {
-            // InternalEDdsl.g:92:2: ( ( rule__ActionNoReturn__ActionAssignment ) )
-            // InternalEDdsl.g:93:3: ( rule__ActionNoReturn__ActionAssignment )
+            // InternalEDdsl.g:92:2: ( ( rule__ActionNoReturn__Alternatives ) )
+            // InternalEDdsl.g:93:3: ( rule__ActionNoReturn__Alternatives )
             {
-             before(grammarAccess.getActionNoReturnAccess().getActionAssignment()); 
-            // InternalEDdsl.g:94:3: ( rule__ActionNoReturn__ActionAssignment )
-            // InternalEDdsl.g:94:4: rule__ActionNoReturn__ActionAssignment
+             before(grammarAccess.getActionNoReturnAccess().getAlternatives()); 
+            // InternalEDdsl.g:94:3: ( rule__ActionNoReturn__Alternatives )
+            // InternalEDdsl.g:94:4: rule__ActionNoReturn__Alternatives
             {
             pushFollow(FOLLOW_2);
-            rule__ActionNoReturn__ActionAssignment();
+            rule__ActionNoReturn__Alternatives();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getActionNoReturnAccess().getActionAssignment()); 
+             after(grammarAccess.getActionNoReturnAccess().getAlternatives()); 
 
             }
 
@@ -283,31 +283,31 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleActionReturn"
-    // InternalEDdsl.g:112:1: ruleActionReturn : ( ( rule__ActionReturn__ActionAssignment ) ) ;
+    // InternalEDdsl.g:112:1: ruleActionReturn : ( ( rule__ActionReturn__Alternatives ) ) ;
     public final void ruleActionReturn() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:116:2: ( ( ( rule__ActionReturn__ActionAssignment ) ) )
-            // InternalEDdsl.g:117:2: ( ( rule__ActionReturn__ActionAssignment ) )
+            // InternalEDdsl.g:116:2: ( ( ( rule__ActionReturn__Alternatives ) ) )
+            // InternalEDdsl.g:117:2: ( ( rule__ActionReturn__Alternatives ) )
             {
-            // InternalEDdsl.g:117:2: ( ( rule__ActionReturn__ActionAssignment ) )
-            // InternalEDdsl.g:118:3: ( rule__ActionReturn__ActionAssignment )
+            // InternalEDdsl.g:117:2: ( ( rule__ActionReturn__Alternatives ) )
+            // InternalEDdsl.g:118:3: ( rule__ActionReturn__Alternatives )
             {
-             before(grammarAccess.getActionReturnAccess().getActionAssignment()); 
-            // InternalEDdsl.g:119:3: ( rule__ActionReturn__ActionAssignment )
-            // InternalEDdsl.g:119:4: rule__ActionReturn__ActionAssignment
+             before(grammarAccess.getActionReturnAccess().getAlternatives()); 
+            // InternalEDdsl.g:119:3: ( rule__ActionReturn__Alternatives )
+            // InternalEDdsl.g:119:4: rule__ActionReturn__Alternatives
             {
             pushFollow(FOLLOW_2);
-            rule__ActionReturn__ActionAssignment();
+            rule__ActionReturn__Alternatives();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getActionReturnAccess().getActionAssignment()); 
+             after(grammarAccess.getActionReturnAccess().getAlternatives()); 
 
             }
 
@@ -2092,9 +2092,9 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleReadableEnum"
 
 
-    // $ANTLR start "rule__ActionNoReturn__ActionAlternatives_0"
-    // InternalEDdsl.g:698:1: rule__ActionNoReturn__ActionAlternatives_0 : ( ( ruleAll ) | ( ruleBrowse ) | ( ruleCheck ) | ( ruleClick ) | ( ruleType ) | ( ruleVariableSet ) );
-    public final void rule__ActionNoReturn__ActionAlternatives_0() throws RecognitionException {
+    // $ANTLR start "rule__ActionNoReturn__Alternatives"
+    // InternalEDdsl.g:698:1: rule__ActionNoReturn__Alternatives : ( ( ruleAll ) | ( ruleBrowse ) | ( ruleCheck ) | ( ruleClick ) | ( ruleType ) | ( ruleVariableSet ) );
+    public final void rule__ActionNoReturn__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -2146,13 +2146,13 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
                     // InternalEDdsl.g:703:2: ( ruleAll )
                     // InternalEDdsl.g:704:3: ruleAll
                     {
-                     before(grammarAccess.getActionNoReturnAccess().getActionAllParserRuleCall_0_0()); 
+                     before(grammarAccess.getActionNoReturnAccess().getAllParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
                     ruleAll();
 
                     state._fsp--;
 
-                     after(grammarAccess.getActionNoReturnAccess().getActionAllParserRuleCall_0_0()); 
+                     after(grammarAccess.getActionNoReturnAccess().getAllParserRuleCall_0()); 
 
                     }
 
@@ -2165,13 +2165,13 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
                     // InternalEDdsl.g:709:2: ( ruleBrowse )
                     // InternalEDdsl.g:710:3: ruleBrowse
                     {
-                     before(grammarAccess.getActionNoReturnAccess().getActionBrowseParserRuleCall_0_1()); 
+                     before(grammarAccess.getActionNoReturnAccess().getBrowseParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
                     ruleBrowse();
 
                     state._fsp--;
 
-                     after(grammarAccess.getActionNoReturnAccess().getActionBrowseParserRuleCall_0_1()); 
+                     after(grammarAccess.getActionNoReturnAccess().getBrowseParserRuleCall_1()); 
 
                     }
 
@@ -2184,13 +2184,13 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
                     // InternalEDdsl.g:715:2: ( ruleCheck )
                     // InternalEDdsl.g:716:3: ruleCheck
                     {
-                     before(grammarAccess.getActionNoReturnAccess().getActionCheckParserRuleCall_0_2()); 
+                     before(grammarAccess.getActionNoReturnAccess().getCheckParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
                     ruleCheck();
 
                     state._fsp--;
 
-                     after(grammarAccess.getActionNoReturnAccess().getActionCheckParserRuleCall_0_2()); 
+                     after(grammarAccess.getActionNoReturnAccess().getCheckParserRuleCall_2()); 
 
                     }
 
@@ -2203,13 +2203,13 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
                     // InternalEDdsl.g:721:2: ( ruleClick )
                     // InternalEDdsl.g:722:3: ruleClick
                     {
-                     before(grammarAccess.getActionNoReturnAccess().getActionClickParserRuleCall_0_3()); 
+                     before(grammarAccess.getActionNoReturnAccess().getClickParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
                     ruleClick();
 
                     state._fsp--;
 
-                     after(grammarAccess.getActionNoReturnAccess().getActionClickParserRuleCall_0_3()); 
+                     after(grammarAccess.getActionNoReturnAccess().getClickParserRuleCall_3()); 
 
                     }
 
@@ -2222,13 +2222,13 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
                     // InternalEDdsl.g:727:2: ( ruleType )
                     // InternalEDdsl.g:728:3: ruleType
                     {
-                     before(grammarAccess.getActionNoReturnAccess().getActionTypeParserRuleCall_0_4()); 
+                     before(grammarAccess.getActionNoReturnAccess().getTypeParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
                     ruleType();
 
                     state._fsp--;
 
-                     after(grammarAccess.getActionNoReturnAccess().getActionTypeParserRuleCall_0_4()); 
+                     after(grammarAccess.getActionNoReturnAccess().getTypeParserRuleCall_4()); 
 
                     }
 
@@ -2241,13 +2241,13 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
                     // InternalEDdsl.g:733:2: ( ruleVariableSet )
                     // InternalEDdsl.g:734:3: ruleVariableSet
                     {
-                     before(grammarAccess.getActionNoReturnAccess().getActionVariableSetParserRuleCall_0_5()); 
+                     before(grammarAccess.getActionNoReturnAccess().getVariableSetParserRuleCall_5()); 
                     pushFollow(FOLLOW_2);
                     ruleVariableSet();
 
                     state._fsp--;
 
-                     after(grammarAccess.getActionNoReturnAccess().getActionVariableSetParserRuleCall_0_5()); 
+                     after(grammarAccess.getActionNoReturnAccess().getVariableSetParserRuleCall_5()); 
 
                     }
 
@@ -2268,12 +2268,12 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ActionNoReturn__ActionAlternatives_0"
+    // $ANTLR end "rule__ActionNoReturn__Alternatives"
 
 
-    // $ANTLR start "rule__ActionReturn__ActionAlternatives_0"
-    // InternalEDdsl.g:743:1: rule__ActionReturn__ActionAlternatives_0 : ( ( ruleCount ) | ( ruleRead ) );
-    public final void rule__ActionReturn__ActionAlternatives_0() throws RecognitionException {
+    // $ANTLR start "rule__ActionReturn__Alternatives"
+    // InternalEDdsl.g:743:1: rule__ActionReturn__Alternatives : ( ( ruleCount ) | ( ruleRead ) );
+    public final void rule__ActionReturn__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -2301,13 +2301,13 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
                     // InternalEDdsl.g:748:2: ( ruleCount )
                     // InternalEDdsl.g:749:3: ruleCount
                     {
-                     before(grammarAccess.getActionReturnAccess().getActionCountParserRuleCall_0_0()); 
+                     before(grammarAccess.getActionReturnAccess().getCountParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
                     ruleCount();
 
                     state._fsp--;
 
-                     after(grammarAccess.getActionReturnAccess().getActionCountParserRuleCall_0_0()); 
+                     after(grammarAccess.getActionReturnAccess().getCountParserRuleCall_0()); 
 
                     }
 
@@ -2320,13 +2320,13 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
                     // InternalEDdsl.g:754:2: ( ruleRead )
                     // InternalEDdsl.g:755:3: ruleRead
                     {
-                     before(grammarAccess.getActionReturnAccess().getActionReadParserRuleCall_0_1()); 
+                     before(grammarAccess.getActionReturnAccess().getReadParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
                     ruleRead();
 
                     state._fsp--;
 
-                     after(grammarAccess.getActionReturnAccess().getActionReadParserRuleCall_0_1()); 
+                     after(grammarAccess.getActionReturnAccess().getReadParserRuleCall_1()); 
 
                     }
 
@@ -2347,7 +2347,7 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ActionReturn__ActionAlternatives_0"
+    // $ANTLR end "rule__ActionReturn__Alternatives"
 
 
     // $ANTLR start "rule__ActionBoolReturn__Alternatives"
@@ -5162,25 +5162,31 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__0__Impl"
-    // InternalEDdsl.g:1622:1: rule__Operation__Group__0__Impl : ( ruleActionNoReturn ) ;
+    // InternalEDdsl.g:1622:1: rule__Operation__Group__0__Impl : ( ( rule__Operation__ActionAssignment_0 ) ) ;
     public final void rule__Operation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:1626:1: ( ( ruleActionNoReturn ) )
-            // InternalEDdsl.g:1627:1: ( ruleActionNoReturn )
+            // InternalEDdsl.g:1626:1: ( ( ( rule__Operation__ActionAssignment_0 ) ) )
+            // InternalEDdsl.g:1627:1: ( ( rule__Operation__ActionAssignment_0 ) )
             {
-            // InternalEDdsl.g:1627:1: ( ruleActionNoReturn )
-            // InternalEDdsl.g:1628:2: ruleActionNoReturn
+            // InternalEDdsl.g:1627:1: ( ( rule__Operation__ActionAssignment_0 ) )
+            // InternalEDdsl.g:1628:2: ( rule__Operation__ActionAssignment_0 )
             {
-             before(grammarAccess.getOperationAccess().getActionNoReturnParserRuleCall_0()); 
+             before(grammarAccess.getOperationAccess().getActionAssignment_0()); 
+            // InternalEDdsl.g:1629:2: ( rule__Operation__ActionAssignment_0 )
+            // InternalEDdsl.g:1629:3: rule__Operation__ActionAssignment_0
+            {
             pushFollow(FOLLOW_2);
-            ruleActionNoReturn();
+            rule__Operation__ActionAssignment_0();
 
             state._fsp--;
 
-             after(grammarAccess.getOperationAccess().getActionNoReturnParserRuleCall_0()); 
+
+            }
+
+             after(grammarAccess.getOperationAccess().getActionAssignment_0()); 
 
             }
 
@@ -6795,9 +6801,9 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__VariableSet__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Model__ModelAssignment"
-    // InternalEDdsl.g:2177:1: rule__Model__ModelAssignment : ( ruleSeries ) ;
-    public final void rule__Model__ModelAssignment() throws RecognitionException {
+    // $ANTLR start "rule__Test__TestsAssignment"
+    // InternalEDdsl.g:2177:1: rule__Test__TestsAssignment : ( ruleSeries ) ;
+    public final void rule__Test__TestsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -6808,13 +6814,13 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
             // InternalEDdsl.g:2182:2: ( ruleSeries )
             // InternalEDdsl.g:2183:3: ruleSeries
             {
-             before(grammarAccess.getModelAccess().getModelSeriesParserRuleCall_0()); 
+             before(grammarAccess.getTestAccess().getTestsSeriesParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
             ruleSeries();
 
             state._fsp--;
 
-             after(grammarAccess.getModelAccess().getModelSeriesParserRuleCall_0()); 
+             after(grammarAccess.getTestAccess().getTestsSeriesParserRuleCall_0()); 
 
             }
 
@@ -6833,115 +6839,21 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Model__ModelAssignment"
-
-
-    // $ANTLR start "rule__ActionNoReturn__ActionAssignment"
-    // InternalEDdsl.g:2192:1: rule__ActionNoReturn__ActionAssignment : ( ( rule__ActionNoReturn__ActionAlternatives_0 ) ) ;
-    public final void rule__ActionNoReturn__ActionAssignment() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEDdsl.g:2196:1: ( ( ( rule__ActionNoReturn__ActionAlternatives_0 ) ) )
-            // InternalEDdsl.g:2197:2: ( ( rule__ActionNoReturn__ActionAlternatives_0 ) )
-            {
-            // InternalEDdsl.g:2197:2: ( ( rule__ActionNoReturn__ActionAlternatives_0 ) )
-            // InternalEDdsl.g:2198:3: ( rule__ActionNoReturn__ActionAlternatives_0 )
-            {
-             before(grammarAccess.getActionNoReturnAccess().getActionAlternatives_0()); 
-            // InternalEDdsl.g:2199:3: ( rule__ActionNoReturn__ActionAlternatives_0 )
-            // InternalEDdsl.g:2199:4: rule__ActionNoReturn__ActionAlternatives_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__ActionNoReturn__ActionAlternatives_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getActionNoReturnAccess().getActionAlternatives_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ActionNoReturn__ActionAssignment"
-
-
-    // $ANTLR start "rule__ActionReturn__ActionAssignment"
-    // InternalEDdsl.g:2207:1: rule__ActionReturn__ActionAssignment : ( ( rule__ActionReturn__ActionAlternatives_0 ) ) ;
-    public final void rule__ActionReturn__ActionAssignment() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEDdsl.g:2211:1: ( ( ( rule__ActionReturn__ActionAlternatives_0 ) ) )
-            // InternalEDdsl.g:2212:2: ( ( rule__ActionReturn__ActionAlternatives_0 ) )
-            {
-            // InternalEDdsl.g:2212:2: ( ( rule__ActionReturn__ActionAlternatives_0 ) )
-            // InternalEDdsl.g:2213:3: ( rule__ActionReturn__ActionAlternatives_0 )
-            {
-             before(grammarAccess.getActionReturnAccess().getActionAlternatives_0()); 
-            // InternalEDdsl.g:2214:3: ( rule__ActionReturn__ActionAlternatives_0 )
-            // InternalEDdsl.g:2214:4: rule__ActionReturn__ActionAlternatives_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__ActionReturn__ActionAlternatives_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getActionReturnAccess().getActionAlternatives_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ActionReturn__ActionAssignment"
+    // $ANTLR end "rule__Test__TestsAssignment"
 
 
     // $ANTLR start "rule__All__OperationAssignment_1"
-    // InternalEDdsl.g:2222:1: rule__All__OperationAssignment_1 : ( ruleActionNoReturn ) ;
+    // InternalEDdsl.g:2192:1: rule__All__OperationAssignment_1 : ( ruleActionNoReturn ) ;
     public final void rule__All__OperationAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2226:1: ( ( ruleActionNoReturn ) )
-            // InternalEDdsl.g:2227:2: ( ruleActionNoReturn )
+            // InternalEDdsl.g:2196:1: ( ( ruleActionNoReturn ) )
+            // InternalEDdsl.g:2197:2: ( ruleActionNoReturn )
             {
-            // InternalEDdsl.g:2227:2: ( ruleActionNoReturn )
-            // InternalEDdsl.g:2228:3: ruleActionNoReturn
+            // InternalEDdsl.g:2197:2: ( ruleActionNoReturn )
+            // InternalEDdsl.g:2198:3: ruleActionNoReturn
             {
              before(grammarAccess.getAllAccess().getOperationActionNoReturnParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6972,17 +6884,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__AttributeNameAssignment_1"
-    // InternalEDdsl.g:2237:1: rule__Attribute__AttributeNameAssignment_1 : ( RULE_STRING ) ;
+    // InternalEDdsl.g:2207:1: rule__Attribute__AttributeNameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Attribute__AttributeNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2241:1: ( ( RULE_STRING ) )
-            // InternalEDdsl.g:2242:2: ( RULE_STRING )
+            // InternalEDdsl.g:2211:1: ( ( RULE_STRING ) )
+            // InternalEDdsl.g:2212:2: ( RULE_STRING )
             {
-            // InternalEDdsl.g:2242:2: ( RULE_STRING )
-            // InternalEDdsl.g:2243:3: RULE_STRING
+            // InternalEDdsl.g:2212:2: ( RULE_STRING )
+            // InternalEDdsl.g:2213:3: RULE_STRING
             {
              before(grammarAccess.getAttributeAccess().getAttributeNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -7009,17 +6921,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__AttributeValueAssignment_2"
-    // InternalEDdsl.g:2252:1: rule__Attribute__AttributeValueAssignment_2 : ( RULE_STRING ) ;
+    // InternalEDdsl.g:2222:1: rule__Attribute__AttributeValueAssignment_2 : ( RULE_STRING ) ;
     public final void rule__Attribute__AttributeValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2256:1: ( ( RULE_STRING ) )
-            // InternalEDdsl.g:2257:2: ( RULE_STRING )
+            // InternalEDdsl.g:2226:1: ( ( RULE_STRING ) )
+            // InternalEDdsl.g:2227:2: ( RULE_STRING )
             {
-            // InternalEDdsl.g:2257:2: ( RULE_STRING )
-            // InternalEDdsl.g:2258:3: RULE_STRING
+            // InternalEDdsl.g:2227:2: ( RULE_STRING )
+            // InternalEDdsl.g:2228:3: RULE_STRING
             {
              before(grammarAccess.getAttributeAccess().getAttributeValueSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -7046,17 +6958,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Browse__UrlAssignment_1"
-    // InternalEDdsl.g:2267:1: rule__Browse__UrlAssignment_1 : ( RULE_STRING ) ;
+    // InternalEDdsl.g:2237:1: rule__Browse__UrlAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Browse__UrlAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2271:1: ( ( RULE_STRING ) )
-            // InternalEDdsl.g:2272:2: ( RULE_STRING )
+            // InternalEDdsl.g:2241:1: ( ( RULE_STRING ) )
+            // InternalEDdsl.g:2242:2: ( RULE_STRING )
             {
-            // InternalEDdsl.g:2272:2: ( RULE_STRING )
-            // InternalEDdsl.g:2273:3: RULE_STRING
+            // InternalEDdsl.g:2242:2: ( RULE_STRING )
+            // InternalEDdsl.g:2243:3: RULE_STRING
             {
              before(grammarAccess.getBrowseAccess().getUrlSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -7083,17 +6995,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Check__ActionAssignment_1"
-    // InternalEDdsl.g:2282:1: rule__Check__ActionAssignment_1 : ( ruleActionBoolReturn ) ;
+    // InternalEDdsl.g:2252:1: rule__Check__ActionAssignment_1 : ( ruleActionBoolReturn ) ;
     public final void rule__Check__ActionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2286:1: ( ( ruleActionBoolReturn ) )
-            // InternalEDdsl.g:2287:2: ( ruleActionBoolReturn )
+            // InternalEDdsl.g:2256:1: ( ( ruleActionBoolReturn ) )
+            // InternalEDdsl.g:2257:2: ( ruleActionBoolReturn )
             {
-            // InternalEDdsl.g:2287:2: ( ruleActionBoolReturn )
-            // InternalEDdsl.g:2288:3: ruleActionBoolReturn
+            // InternalEDdsl.g:2257:2: ( ruleActionBoolReturn )
+            // InternalEDdsl.g:2258:3: ruleActionBoolReturn
             {
              before(grammarAccess.getCheckAccess().getActionActionBoolReturnParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7124,17 +7036,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__FirstValAssignment_1"
-    // InternalEDdsl.g:2297:1: rule__Comparison__FirstValAssignment_1 : ( ruleVal ) ;
+    // InternalEDdsl.g:2267:1: rule__Comparison__FirstValAssignment_1 : ( ruleVal ) ;
     public final void rule__Comparison__FirstValAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2301:1: ( ( ruleVal ) )
-            // InternalEDdsl.g:2302:2: ( ruleVal )
+            // InternalEDdsl.g:2271:1: ( ( ruleVal ) )
+            // InternalEDdsl.g:2272:2: ( ruleVal )
             {
-            // InternalEDdsl.g:2302:2: ( ruleVal )
-            // InternalEDdsl.g:2303:3: ruleVal
+            // InternalEDdsl.g:2272:2: ( ruleVal )
+            // InternalEDdsl.g:2273:3: ruleVal
             {
              before(grammarAccess.getComparisonAccess().getFirstValValParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7165,17 +7077,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__ComparatorOperatorAssignment_2"
-    // InternalEDdsl.g:2312:1: rule__Comparison__ComparatorOperatorAssignment_2 : ( ruleComparisonOperatorEnum ) ;
+    // InternalEDdsl.g:2282:1: rule__Comparison__ComparatorOperatorAssignment_2 : ( ruleComparisonOperatorEnum ) ;
     public final void rule__Comparison__ComparatorOperatorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2316:1: ( ( ruleComparisonOperatorEnum ) )
-            // InternalEDdsl.g:2317:2: ( ruleComparisonOperatorEnum )
+            // InternalEDdsl.g:2286:1: ( ( ruleComparisonOperatorEnum ) )
+            // InternalEDdsl.g:2287:2: ( ruleComparisonOperatorEnum )
             {
-            // InternalEDdsl.g:2317:2: ( ruleComparisonOperatorEnum )
-            // InternalEDdsl.g:2318:3: ruleComparisonOperatorEnum
+            // InternalEDdsl.g:2287:2: ( ruleComparisonOperatorEnum )
+            // InternalEDdsl.g:2288:3: ruleComparisonOperatorEnum
             {
              before(grammarAccess.getComparisonAccess().getComparatorOperatorComparisonOperatorEnumEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7206,17 +7118,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__SecondValAssignment_3"
-    // InternalEDdsl.g:2327:1: rule__Comparison__SecondValAssignment_3 : ( ruleVal ) ;
+    // InternalEDdsl.g:2297:1: rule__Comparison__SecondValAssignment_3 : ( ruleVal ) ;
     public final void rule__Comparison__SecondValAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2331:1: ( ( ruleVal ) )
-            // InternalEDdsl.g:2332:2: ( ruleVal )
+            // InternalEDdsl.g:2301:1: ( ( ruleVal ) )
+            // InternalEDdsl.g:2302:2: ( ruleVal )
             {
-            // InternalEDdsl.g:2332:2: ( ruleVal )
-            // InternalEDdsl.g:2333:3: ruleVal
+            // InternalEDdsl.g:2302:2: ( ruleVal )
+            // InternalEDdsl.g:2303:3: ruleVal
             {
              before(grammarAccess.getComparisonAccess().getSecondValValParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -7247,17 +7159,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Constraint__ReadableElementAssignment_0"
-    // InternalEDdsl.g:2342:1: rule__Constraint__ReadableElementAssignment_0 : ( ruleReadableEnum ) ;
+    // InternalEDdsl.g:2312:1: rule__Constraint__ReadableElementAssignment_0 : ( ruleReadableEnum ) ;
     public final void rule__Constraint__ReadableElementAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2346:1: ( ( ruleReadableEnum ) )
-            // InternalEDdsl.g:2347:2: ( ruleReadableEnum )
+            // InternalEDdsl.g:2316:1: ( ( ruleReadableEnum ) )
+            // InternalEDdsl.g:2317:2: ( ruleReadableEnum )
             {
-            // InternalEDdsl.g:2347:2: ( ruleReadableEnum )
-            // InternalEDdsl.g:2348:3: ruleReadableEnum
+            // InternalEDdsl.g:2317:2: ( ruleReadableEnum )
+            // InternalEDdsl.g:2318:3: ruleReadableEnum
             {
              before(grammarAccess.getConstraintAccess().getReadableElementReadableEnumEnumRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -7288,17 +7200,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Constraint__ConstraintTypeAssignment_1"
-    // InternalEDdsl.g:2357:1: rule__Constraint__ConstraintTypeAssignment_1 : ( ruleConstraintTypeEnum ) ;
+    // InternalEDdsl.g:2327:1: rule__Constraint__ConstraintTypeAssignment_1 : ( ruleConstraintTypeEnum ) ;
     public final void rule__Constraint__ConstraintTypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2361:1: ( ( ruleConstraintTypeEnum ) )
-            // InternalEDdsl.g:2362:2: ( ruleConstraintTypeEnum )
+            // InternalEDdsl.g:2331:1: ( ( ruleConstraintTypeEnum ) )
+            // InternalEDdsl.g:2332:2: ( ruleConstraintTypeEnum )
             {
-            // InternalEDdsl.g:2362:2: ( ruleConstraintTypeEnum )
-            // InternalEDdsl.g:2363:3: ruleConstraintTypeEnum
+            // InternalEDdsl.g:2332:2: ( ruleConstraintTypeEnum )
+            // InternalEDdsl.g:2333:3: ruleConstraintTypeEnum
             {
              before(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeEnumEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7329,17 +7241,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Constraint__ExpectedValAssignment_2"
-    // InternalEDdsl.g:2372:1: rule__Constraint__ExpectedValAssignment_2 : ( ruleVal ) ;
+    // InternalEDdsl.g:2342:1: rule__Constraint__ExpectedValAssignment_2 : ( ruleVal ) ;
     public final void rule__Constraint__ExpectedValAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2376:1: ( ( ruleVal ) )
-            // InternalEDdsl.g:2377:2: ( ruleVal )
+            // InternalEDdsl.g:2346:1: ( ( ruleVal ) )
+            // InternalEDdsl.g:2347:2: ( ruleVal )
             {
-            // InternalEDdsl.g:2377:2: ( ruleVal )
-            // InternalEDdsl.g:2378:3: ruleVal
+            // InternalEDdsl.g:2347:2: ( ruleVal )
+            // InternalEDdsl.g:2348:3: ruleVal
             {
              before(grammarAccess.getConstraintAccess().getExpectedValValParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7370,17 +7282,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Constraint__ParametersAssignment_3"
-    // InternalEDdsl.g:2387:1: rule__Constraint__ParametersAssignment_3 : ( ruleParameters ) ;
+    // InternalEDdsl.g:2357:1: rule__Constraint__ParametersAssignment_3 : ( ruleParameters ) ;
     public final void rule__Constraint__ParametersAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2391:1: ( ( ruleParameters ) )
-            // InternalEDdsl.g:2392:2: ( ruleParameters )
+            // InternalEDdsl.g:2361:1: ( ( ruleParameters ) )
+            // InternalEDdsl.g:2362:2: ( ruleParameters )
             {
-            // InternalEDdsl.g:2392:2: ( ruleParameters )
-            // InternalEDdsl.g:2393:3: ruleParameters
+            // InternalEDdsl.g:2362:2: ( ruleParameters )
+            // InternalEDdsl.g:2363:3: ruleParameters
             {
              before(grammarAccess.getConstraintAccess().getParametersParametersParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -7411,21 +7323,21 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Count__ParametersAssignment_1"
-    // InternalEDdsl.g:2402:1: rule__Count__ParametersAssignment_1 : ( ( rule__Count__ParametersAlternatives_1_0 ) ) ;
+    // InternalEDdsl.g:2372:1: rule__Count__ParametersAssignment_1 : ( ( rule__Count__ParametersAlternatives_1_0 ) ) ;
     public final void rule__Count__ParametersAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2406:1: ( ( ( rule__Count__ParametersAlternatives_1_0 ) ) )
-            // InternalEDdsl.g:2407:2: ( ( rule__Count__ParametersAlternatives_1_0 ) )
+            // InternalEDdsl.g:2376:1: ( ( ( rule__Count__ParametersAlternatives_1_0 ) ) )
+            // InternalEDdsl.g:2377:2: ( ( rule__Count__ParametersAlternatives_1_0 ) )
             {
-            // InternalEDdsl.g:2407:2: ( ( rule__Count__ParametersAlternatives_1_0 ) )
-            // InternalEDdsl.g:2408:3: ( rule__Count__ParametersAlternatives_1_0 )
+            // InternalEDdsl.g:2377:2: ( ( rule__Count__ParametersAlternatives_1_0 ) )
+            // InternalEDdsl.g:2378:3: ( rule__Count__ParametersAlternatives_1_0 )
             {
              before(grammarAccess.getCountAccess().getParametersAlternatives_1_0()); 
-            // InternalEDdsl.g:2409:3: ( rule__Count__ParametersAlternatives_1_0 )
-            // InternalEDdsl.g:2409:4: rule__Count__ParametersAlternatives_1_0
+            // InternalEDdsl.g:2379:3: ( rule__Count__ParametersAlternatives_1_0 )
+            // InternalEDdsl.g:2379:4: rule__Count__ParametersAlternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Count__ParametersAlternatives_1_0();
@@ -7458,17 +7370,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Click__ClickableElementAssignment_1"
-    // InternalEDdsl.g:2417:1: rule__Click__ClickableElementAssignment_1 : ( ruleClickableEnum ) ;
+    // InternalEDdsl.g:2387:1: rule__Click__ClickableElementAssignment_1 : ( ruleClickableEnum ) ;
     public final void rule__Click__ClickableElementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2421:1: ( ( ruleClickableEnum ) )
-            // InternalEDdsl.g:2422:2: ( ruleClickableEnum )
+            // InternalEDdsl.g:2391:1: ( ( ruleClickableEnum ) )
+            // InternalEDdsl.g:2392:2: ( ruleClickableEnum )
             {
-            // InternalEDdsl.g:2422:2: ( ruleClickableEnum )
-            // InternalEDdsl.g:2423:3: ruleClickableEnum
+            // InternalEDdsl.g:2392:2: ( ruleClickableEnum )
+            // InternalEDdsl.g:2393:3: ruleClickableEnum
             {
              before(grammarAccess.getClickAccess().getClickableElementClickableEnumEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7499,17 +7411,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Click__ParametersAssignment_2"
-    // InternalEDdsl.g:2432:1: rule__Click__ParametersAssignment_2 : ( ruleParameters ) ;
+    // InternalEDdsl.g:2402:1: rule__Click__ParametersAssignment_2 : ( ruleParameters ) ;
     public final void rule__Click__ParametersAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2436:1: ( ( ruleParameters ) )
-            // InternalEDdsl.g:2437:2: ( ruleParameters )
+            // InternalEDdsl.g:2406:1: ( ( ruleParameters ) )
+            // InternalEDdsl.g:2407:2: ( ruleParameters )
             {
-            // InternalEDdsl.g:2437:2: ( ruleParameters )
-            // InternalEDdsl.g:2438:3: ruleParameters
+            // InternalEDdsl.g:2407:2: ( ruleParameters )
+            // InternalEDdsl.g:2408:3: ruleParameters
             {
              before(grammarAccess.getClickAccess().getParametersParametersParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7539,22 +7451,63 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Click__ParametersAssignment_2"
 
 
+    // $ANTLR start "rule__Operation__ActionAssignment_0"
+    // InternalEDdsl.g:2417:1: rule__Operation__ActionAssignment_0 : ( ruleActionNoReturn ) ;
+    public final void rule__Operation__ActionAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEDdsl.g:2421:1: ( ( ruleActionNoReturn ) )
+            // InternalEDdsl.g:2422:2: ( ruleActionNoReturn )
+            {
+            // InternalEDdsl.g:2422:2: ( ruleActionNoReturn )
+            // InternalEDdsl.g:2423:3: ruleActionNoReturn
+            {
+             before(grammarAccess.getOperationAccess().getActionActionNoReturnParserRuleCall_0_0()); 
+            pushFollow(FOLLOW_2);
+            ruleActionNoReturn();
+
+            state._fsp--;
+
+             after(grammarAccess.getOperationAccess().getActionActionNoReturnParserRuleCall_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Operation__ActionAssignment_0"
+
+
     // $ANTLR start "rule__Parameter__ParameterAssignment_1"
-    // InternalEDdsl.g:2447:1: rule__Parameter__ParameterAssignment_1 : ( ( rule__Parameter__ParameterAlternatives_1_0 ) ) ;
+    // InternalEDdsl.g:2432:1: rule__Parameter__ParameterAssignment_1 : ( ( rule__Parameter__ParameterAlternatives_1_0 ) ) ;
     public final void rule__Parameter__ParameterAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2451:1: ( ( ( rule__Parameter__ParameterAlternatives_1_0 ) ) )
-            // InternalEDdsl.g:2452:2: ( ( rule__Parameter__ParameterAlternatives_1_0 ) )
+            // InternalEDdsl.g:2436:1: ( ( ( rule__Parameter__ParameterAlternatives_1_0 ) ) )
+            // InternalEDdsl.g:2437:2: ( ( rule__Parameter__ParameterAlternatives_1_0 ) )
             {
-            // InternalEDdsl.g:2452:2: ( ( rule__Parameter__ParameterAlternatives_1_0 ) )
-            // InternalEDdsl.g:2453:3: ( rule__Parameter__ParameterAlternatives_1_0 )
+            // InternalEDdsl.g:2437:2: ( ( rule__Parameter__ParameterAlternatives_1_0 ) )
+            // InternalEDdsl.g:2438:3: ( rule__Parameter__ParameterAlternatives_1_0 )
             {
              before(grammarAccess.getParameterAccess().getParameterAlternatives_1_0()); 
-            // InternalEDdsl.g:2454:3: ( rule__Parameter__ParameterAlternatives_1_0 )
-            // InternalEDdsl.g:2454:4: rule__Parameter__ParameterAlternatives_1_0
+            // InternalEDdsl.g:2439:3: ( rule__Parameter__ParameterAlternatives_1_0 )
+            // InternalEDdsl.g:2439:4: rule__Parameter__ParameterAlternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Parameter__ParameterAlternatives_1_0();
@@ -7587,17 +7540,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameters__ParametersAssignment"
-    // InternalEDdsl.g:2462:1: rule__Parameters__ParametersAssignment : ( ruleParameter ) ;
+    // InternalEDdsl.g:2447:1: rule__Parameters__ParametersAssignment : ( ruleParameter ) ;
     public final void rule__Parameters__ParametersAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2466:1: ( ( ruleParameter ) )
-            // InternalEDdsl.g:2467:2: ( ruleParameter )
+            // InternalEDdsl.g:2451:1: ( ( ruleParameter ) )
+            // InternalEDdsl.g:2452:2: ( ruleParameter )
             {
-            // InternalEDdsl.g:2467:2: ( ruleParameter )
-            // InternalEDdsl.g:2468:3: ruleParameter
+            // InternalEDdsl.g:2452:2: ( ruleParameter )
+            // InternalEDdsl.g:2453:3: ruleParameter
             {
              before(grammarAccess.getParametersAccess().getParametersParameterParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -7628,17 +7581,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Read__ReadableElementAssignment_1"
-    // InternalEDdsl.g:2477:1: rule__Read__ReadableElementAssignment_1 : ( ruleReadableEnum ) ;
+    // InternalEDdsl.g:2462:1: rule__Read__ReadableElementAssignment_1 : ( ruleReadableEnum ) ;
     public final void rule__Read__ReadableElementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2481:1: ( ( ruleReadableEnum ) )
-            // InternalEDdsl.g:2482:2: ( ruleReadableEnum )
+            // InternalEDdsl.g:2466:1: ( ( ruleReadableEnum ) )
+            // InternalEDdsl.g:2467:2: ( ruleReadableEnum )
             {
-            // InternalEDdsl.g:2482:2: ( ruleReadableEnum )
-            // InternalEDdsl.g:2483:3: ruleReadableEnum
+            // InternalEDdsl.g:2467:2: ( ruleReadableEnum )
+            // InternalEDdsl.g:2468:3: ruleReadableEnum
             {
              before(grammarAccess.getReadAccess().getReadableElementReadableEnumEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7669,17 +7622,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Read__ParametersAssignment_2"
-    // InternalEDdsl.g:2492:1: rule__Read__ParametersAssignment_2 : ( ruleParameters ) ;
+    // InternalEDdsl.g:2477:1: rule__Read__ParametersAssignment_2 : ( ruleParameters ) ;
     public final void rule__Read__ParametersAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2496:1: ( ( ruleParameters ) )
-            // InternalEDdsl.g:2497:2: ( ruleParameters )
+            // InternalEDdsl.g:2481:1: ( ( ruleParameters ) )
+            // InternalEDdsl.g:2482:2: ( ruleParameters )
             {
-            // InternalEDdsl.g:2497:2: ( ruleParameters )
-            // InternalEDdsl.g:2498:3: ruleParameters
+            // InternalEDdsl.g:2482:2: ( ruleParameters )
+            // InternalEDdsl.g:2483:3: ruleParameters
             {
              before(grammarAccess.getReadAccess().getParametersParametersParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7710,17 +7663,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Series__BrowserAssignment_1"
-    // InternalEDdsl.g:2507:1: rule__Series__BrowserAssignment_1 : ( ruleBrowserEnum ) ;
+    // InternalEDdsl.g:2492:1: rule__Series__BrowserAssignment_1 : ( ruleBrowserEnum ) ;
     public final void rule__Series__BrowserAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2511:1: ( ( ruleBrowserEnum ) )
-            // InternalEDdsl.g:2512:2: ( ruleBrowserEnum )
+            // InternalEDdsl.g:2496:1: ( ( ruleBrowserEnum ) )
+            // InternalEDdsl.g:2497:2: ( ruleBrowserEnum )
             {
-            // InternalEDdsl.g:2512:2: ( ruleBrowserEnum )
-            // InternalEDdsl.g:2513:3: ruleBrowserEnum
+            // InternalEDdsl.g:2497:2: ( ruleBrowserEnum )
+            // InternalEDdsl.g:2498:3: ruleBrowserEnum
             {
              before(grammarAccess.getSeriesAccess().getBrowserBrowserEnumEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7751,17 +7704,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Series__ExpectedReturnAssignment_2"
-    // InternalEDdsl.g:2522:1: rule__Series__ExpectedReturnAssignment_2 : ( ruleBoolEnum ) ;
+    // InternalEDdsl.g:2507:1: rule__Series__ExpectedReturnAssignment_2 : ( ruleBoolEnum ) ;
     public final void rule__Series__ExpectedReturnAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2526:1: ( ( ruleBoolEnum ) )
-            // InternalEDdsl.g:2527:2: ( ruleBoolEnum )
+            // InternalEDdsl.g:2511:1: ( ( ruleBoolEnum ) )
+            // InternalEDdsl.g:2512:2: ( ruleBoolEnum )
             {
-            // InternalEDdsl.g:2527:2: ( ruleBoolEnum )
-            // InternalEDdsl.g:2528:3: ruleBoolEnum
+            // InternalEDdsl.g:2512:2: ( ruleBoolEnum )
+            // InternalEDdsl.g:2513:3: ruleBoolEnum
             {
              before(grammarAccess.getSeriesAccess().getExpectedReturnBoolEnumEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7792,17 +7745,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Series__OperationsAssignment_4"
-    // InternalEDdsl.g:2537:1: rule__Series__OperationsAssignment_4 : ( ruleOperation ) ;
+    // InternalEDdsl.g:2522:1: rule__Series__OperationsAssignment_4 : ( ruleOperation ) ;
     public final void rule__Series__OperationsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2541:1: ( ( ruleOperation ) )
-            // InternalEDdsl.g:2542:2: ( ruleOperation )
+            // InternalEDdsl.g:2526:1: ( ( ruleOperation ) )
+            // InternalEDdsl.g:2527:2: ( ruleOperation )
             {
-            // InternalEDdsl.g:2542:2: ( ruleOperation )
-            // InternalEDdsl.g:2543:3: ruleOperation
+            // InternalEDdsl.g:2527:2: ( ruleOperation )
+            // InternalEDdsl.g:2528:3: ruleOperation
             {
              before(grammarAccess.getSeriesAccess().getOperationsOperationParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -7833,17 +7786,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Type__TextToTypeAssignment_1"
-    // InternalEDdsl.g:2552:1: rule__Type__TextToTypeAssignment_1 : ( ruleVal ) ;
+    // InternalEDdsl.g:2537:1: rule__Type__TextToTypeAssignment_1 : ( ruleVal ) ;
     public final void rule__Type__TextToTypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2556:1: ( ( ruleVal ) )
-            // InternalEDdsl.g:2557:2: ( ruleVal )
+            // InternalEDdsl.g:2541:1: ( ( ruleVal ) )
+            // InternalEDdsl.g:2542:2: ( ruleVal )
             {
-            // InternalEDdsl.g:2557:2: ( ruleVal )
-            // InternalEDdsl.g:2558:3: ruleVal
+            // InternalEDdsl.g:2542:2: ( ruleVal )
+            // InternalEDdsl.g:2543:3: ruleVal
             {
              before(grammarAccess.getTypeAccess().getTextToTypeValParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7874,17 +7827,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Type__ParametersAssignment_2"
-    // InternalEDdsl.g:2567:1: rule__Type__ParametersAssignment_2 : ( ruleParameters ) ;
+    // InternalEDdsl.g:2552:1: rule__Type__ParametersAssignment_2 : ( ruleParameters ) ;
     public final void rule__Type__ParametersAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2571:1: ( ( ruleParameters ) )
-            // InternalEDdsl.g:2572:2: ( ruleParameters )
+            // InternalEDdsl.g:2556:1: ( ( ruleParameters ) )
+            // InternalEDdsl.g:2557:2: ( ruleParameters )
             {
-            // InternalEDdsl.g:2572:2: ( ruleParameters )
-            // InternalEDdsl.g:2573:3: ruleParameters
+            // InternalEDdsl.g:2557:2: ( ruleParameters )
+            // InternalEDdsl.g:2558:3: ruleParameters
             {
              before(grammarAccess.getTypeAccess().getParametersParametersParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7915,17 +7868,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Val__BoolAssignment_2"
-    // InternalEDdsl.g:2582:1: rule__Val__BoolAssignment_2 : ( ruleBoolEnum ) ;
+    // InternalEDdsl.g:2567:1: rule__Val__BoolAssignment_2 : ( ruleBoolEnum ) ;
     public final void rule__Val__BoolAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2586:1: ( ( ruleBoolEnum ) )
-            // InternalEDdsl.g:2587:2: ( ruleBoolEnum )
+            // InternalEDdsl.g:2571:1: ( ( ruleBoolEnum ) )
+            // InternalEDdsl.g:2572:2: ( ruleBoolEnum )
             {
-            // InternalEDdsl.g:2587:2: ( ruleBoolEnum )
-            // InternalEDdsl.g:2588:3: ruleBoolEnum
+            // InternalEDdsl.g:2572:2: ( ruleBoolEnum )
+            // InternalEDdsl.g:2573:3: ruleBoolEnum
             {
              before(grammarAccess.getValAccess().getBoolBoolEnumEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7956,17 +7909,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Value__ValueAssignment_1"
-    // InternalEDdsl.g:2597:1: rule__Value__ValueAssignment_1 : ( ruleVal ) ;
+    // InternalEDdsl.g:2582:1: rule__Value__ValueAssignment_1 : ( ruleVal ) ;
     public final void rule__Value__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2601:1: ( ( ruleVal ) )
-            // InternalEDdsl.g:2602:2: ( ruleVal )
+            // InternalEDdsl.g:2586:1: ( ( ruleVal ) )
+            // InternalEDdsl.g:2587:2: ( ruleVal )
             {
-            // InternalEDdsl.g:2602:2: ( ruleVal )
-            // InternalEDdsl.g:2603:3: ruleVal
+            // InternalEDdsl.g:2587:2: ( ruleVal )
+            // InternalEDdsl.g:2588:3: ruleVal
             {
              before(grammarAccess.getValueAccess().getValueValParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7997,17 +7950,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableGet__VarNameAssignment"
-    // InternalEDdsl.g:2612:1: rule__VariableGet__VarNameAssignment : ( RULE_ID ) ;
+    // InternalEDdsl.g:2597:1: rule__VariableGet__VarNameAssignment : ( RULE_ID ) ;
     public final void rule__VariableGet__VarNameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2616:1: ( ( RULE_ID ) )
-            // InternalEDdsl.g:2617:2: ( RULE_ID )
+            // InternalEDdsl.g:2601:1: ( ( RULE_ID ) )
+            // InternalEDdsl.g:2602:2: ( RULE_ID )
             {
-            // InternalEDdsl.g:2617:2: ( RULE_ID )
-            // InternalEDdsl.g:2618:3: RULE_ID
+            // InternalEDdsl.g:2602:2: ( RULE_ID )
+            // InternalEDdsl.g:2603:3: RULE_ID
             {
              before(grammarAccess.getVariableGetAccess().getVarNameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -8034,17 +7987,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableSet__VarNameAssignment_0"
-    // InternalEDdsl.g:2627:1: rule__VariableSet__VarNameAssignment_0 : ( RULE_ID ) ;
+    // InternalEDdsl.g:2612:1: rule__VariableSet__VarNameAssignment_0 : ( RULE_ID ) ;
     public final void rule__VariableSet__VarNameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2631:1: ( ( RULE_ID ) )
-            // InternalEDdsl.g:2632:2: ( RULE_ID )
+            // InternalEDdsl.g:2616:1: ( ( RULE_ID ) )
+            // InternalEDdsl.g:2617:2: ( RULE_ID )
             {
-            // InternalEDdsl.g:2632:2: ( RULE_ID )
-            // InternalEDdsl.g:2633:3: RULE_ID
+            // InternalEDdsl.g:2617:2: ( RULE_ID )
+            // InternalEDdsl.g:2618:3: RULE_ID
             {
              before(grammarAccess.getVariableSetAccess().getVarNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -8071,17 +8024,17 @@ public class InternalEDdslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableSet__ActionAssignment_2"
-    // InternalEDdsl.g:2642:1: rule__VariableSet__ActionAssignment_2 : ( ruleActionReturn ) ;
+    // InternalEDdsl.g:2627:1: rule__VariableSet__ActionAssignment_2 : ( ruleActionReturn ) ;
     public final void rule__VariableSet__ActionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEDdsl.g:2646:1: ( ( ruleActionReturn ) )
-            // InternalEDdsl.g:2647:2: ( ruleActionReturn )
+            // InternalEDdsl.g:2631:1: ( ( ruleActionReturn ) )
+            // InternalEDdsl.g:2632:2: ( ruleActionReturn )
             {
-            // InternalEDdsl.g:2647:2: ( ruleActionReturn )
-            // InternalEDdsl.g:2648:3: ruleActionReturn
+            // InternalEDdsl.g:2632:2: ( ruleActionReturn )
+            // InternalEDdsl.g:2633:3: ruleActionReturn
             {
              before(grammarAccess.getVariableSetAccess().getActionActionReturnParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);

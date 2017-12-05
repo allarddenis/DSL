@@ -2,20 +2,14 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="eDdsl" nsURI="http://www.xtext.org/selenium/eliedenis/EDdsl"
     nsPrefix="eDdsl">
-  <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Series"
+  <eClassifiers xsi:type="ecore:EClass" name="Test">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tests" eType="#//Series"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionNoReturn" eSuperTypes="#//Operation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionReturn">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionNoReturn"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionReturn"/>
   <eClassifiers xsi:type="ecore:EClass" name="ActionBoolReturn"/>
-  <eClassifiers xsi:type="ecore:EClass" name="All">
+  <eClassifiers xsi:type="ecore:EClass" name="All" eSuperTypes="#//ActionNoReturn">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//ActionNoReturn"
         containment="true"/>
   </eClassifiers>
@@ -23,10 +17,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Browse">
+  <eClassifiers xsi:type="ecore:EClass" name="Browse" eSuperTypes="#//ActionNoReturn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Check">
+  <eClassifiers xsi:type="ecore:EClass" name="Check" eSuperTypes="#//ActionNoReturn">
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//ActionBoolReturn"
         containment="true"/>
   </eClassifiers>
@@ -45,16 +39,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="#//Parameters"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Count">
+  <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//ActionReturn">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Click">
+  <eClassifiers xsi:type="ecore:EClass" name="Click" eSuperTypes="#//ActionNoReturn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="clickableElement" eType="#//ClickableEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="#//Parameters"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//ActionNoReturn"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
@@ -63,7 +60,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Read">
+  <eClassifiers xsi:type="ecore:EClass" name="Read" eSuperTypes="#//ActionReturn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readableElement" eType="#//ReadableEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="#//Parameters"
         containment="true"/>
@@ -74,7 +71,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
         eType="#//Operation" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Type">
+  <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//ActionNoReturn">
     <eStructuralFeatures xsi:type="ecore:EReference" name="textToType" eType="#//Val"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="#//Parameters"
@@ -89,7 +86,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="VariableGet" eSuperTypes="#//Val">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableSet">
+  <eClassifiers xsi:type="ecore:EClass" name="VariableSet" eSuperTypes="#//ActionNoReturn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//ActionReturn"
         containment="true"/>

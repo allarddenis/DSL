@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.Count;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
@@ -29,7 +28,7 @@ import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
  *
  * @generated
  */
-public class CountImpl extends MinimalEObjectImpl.Container implements Count
+public class CountImpl extends ActionReturnImpl implements Count
 {
   /**
    * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.

@@ -31,8 +31,8 @@ public class EDdslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getActionNoReturnAccess().getActionAlternatives_0(), "rule__ActionNoReturn__ActionAlternatives_0");
-					put(grammarAccess.getActionReturnAccess().getActionAlternatives_0(), "rule__ActionReturn__ActionAlternatives_0");
+					put(grammarAccess.getActionNoReturnAccess().getAlternatives(), "rule__ActionNoReturn__Alternatives");
+					put(grammarAccess.getActionReturnAccess().getAlternatives(), "rule__ActionReturn__Alternatives");
 					put(grammarAccess.getActionBoolReturnAccess().getAlternatives(), "rule__ActionBoolReturn__Alternatives");
 					put(grammarAccess.getCountAccess().getParametersAlternatives_1_0(), "rule__Count__ParametersAlternatives_1_0");
 					put(grammarAccess.getParameterAccess().getParameterAlternatives_1_0(), "rule__Parameter__ParameterAlternatives_1_0");
@@ -58,9 +58,7 @@ public class EDdslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAccess().getGroup(), "rule__Type__Group__0");
 					put(grammarAccess.getValueAccess().getGroup(), "rule__Value__Group__0");
 					put(grammarAccess.getVariableSetAccess().getGroup(), "rule__VariableSet__Group__0");
-					put(grammarAccess.getModelAccess().getModelAssignment(), "rule__Model__ModelAssignment");
-					put(grammarAccess.getActionNoReturnAccess().getActionAssignment(), "rule__ActionNoReturn__ActionAssignment");
-					put(grammarAccess.getActionReturnAccess().getActionAssignment(), "rule__ActionReturn__ActionAssignment");
+					put(grammarAccess.getTestAccess().getTestsAssignment(), "rule__Test__TestsAssignment");
 					put(grammarAccess.getAllAccess().getOperationAssignment_1(), "rule__All__OperationAssignment_1");
 					put(grammarAccess.getAttributeAccess().getAttributeNameAssignment_1(), "rule__Attribute__AttributeNameAssignment_1");
 					put(grammarAccess.getAttributeAccess().getAttributeValueAssignment_2(), "rule__Attribute__AttributeValueAssignment_2");
@@ -76,6 +74,7 @@ public class EDdslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCountAccess().getParametersAssignment_1(), "rule__Count__ParametersAssignment_1");
 					put(grammarAccess.getClickAccess().getClickableElementAssignment_1(), "rule__Click__ClickableElementAssignment_1");
 					put(grammarAccess.getClickAccess().getParametersAssignment_2(), "rule__Click__ParametersAssignment_2");
+					put(grammarAccess.getOperationAccess().getActionAssignment_0(), "rule__Operation__ActionAssignment_0");
 					put(grammarAccess.getParameterAccess().getParameterAssignment_1(), "rule__Parameter__ParameterAssignment_1");
 					put(grammarAccess.getParametersAccess().getParametersAssignment(), "rule__Parameters__ParametersAssignment");
 					put(grammarAccess.getReadAccess().getReadableElementAssignment_1(), "rule__Read__ReadableElementAssignment_1");

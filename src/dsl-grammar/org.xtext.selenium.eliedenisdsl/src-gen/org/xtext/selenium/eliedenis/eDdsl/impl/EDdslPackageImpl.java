@@ -29,13 +29,13 @@ import org.xtext.selenium.eliedenis.eDdsl.ConstraintTypeEnum;
 import org.xtext.selenium.eliedenis.eDdsl.Count;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslFactory;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
-import org.xtext.selenium.eliedenis.eDdsl.Model;
 import org.xtext.selenium.eliedenis.eDdsl.Operation;
 import org.xtext.selenium.eliedenis.eDdsl.Parameter;
 import org.xtext.selenium.eliedenis.eDdsl.Parameters;
 import org.xtext.selenium.eliedenis.eDdsl.Read;
 import org.xtext.selenium.eliedenis.eDdsl.ReadableEnum;
 import org.xtext.selenium.eliedenis.eDdsl.Series;
+import org.xtext.selenium.eliedenis.eDdsl.Test;
 import org.xtext.selenium.eliedenis.eDdsl.Type;
 import org.xtext.selenium.eliedenis.eDdsl.Val;
 import org.xtext.selenium.eliedenis.eDdsl.Value;
@@ -55,7 +55,7 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass modelEClass = null;
+  private EClass testEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -314,9 +314,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getModel()
+  public EClass getTest()
   {
-    return modelEClass;
+    return testEClass;
   }
 
   /**
@@ -324,9 +324,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Model()
+  public EReference getTest_Tests()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)testEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -344,29 +344,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getActionNoReturn_Action()
-  {
-    return (EReference)actionNoReturnEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getActionReturn()
   {
     return actionReturnEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getActionReturn_Action()
-  {
-    return (EReference)actionReturnEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -617,6 +597,16 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
   public EClass getOperation()
   {
     return operationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOperation_Action()
+  {
+    return (EReference)operationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -939,14 +929,12 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__MODEL);
+    testEClass = createEClass(TEST);
+    createEReference(testEClass, TEST__TESTS);
 
     actionNoReturnEClass = createEClass(ACTION_NO_RETURN);
-    createEReference(actionNoReturnEClass, ACTION_NO_RETURN__ACTION);
 
     actionReturnEClass = createEClass(ACTION_RETURN);
-    createEReference(actionReturnEClass, ACTION_RETURN__ACTION);
 
     actionBoolReturnEClass = createEClass(ACTION_BOOL_RETURN);
 
@@ -982,6 +970,7 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
     createEReference(clickEClass, CLICK__PARAMETERS);
 
     operationEClass = createEClass(OPERATION);
+    createEReference(operationEClass, OPERATION__ACTION);
 
     parameterEClass = createEClass(PARAMETER);
     createEReference(parameterEClass, PARAMETER__PARAMETER);
@@ -1053,20 +1042,25 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    actionNoReturnEClass.getESuperTypes().add(this.getOperation());
+    allEClass.getESuperTypes().add(this.getActionNoReturn());
+    browseEClass.getESuperTypes().add(this.getActionNoReturn());
+    checkEClass.getESuperTypes().add(this.getActionNoReturn());
     comparisonEClass.getESuperTypes().add(this.getActionBoolReturn());
     constraintEClass.getESuperTypes().add(this.getActionBoolReturn());
+    countEClass.getESuperTypes().add(this.getActionReturn());
+    clickEClass.getESuperTypes().add(this.getActionNoReturn());
+    readEClass.getESuperTypes().add(this.getActionReturn());
+    typeEClass.getESuperTypes().add(this.getActionNoReturn());
     variableGetEClass.getESuperTypes().add(this.getVal());
+    variableSetEClass.getESuperTypes().add(this.getActionNoReturn());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Model(), this.getSeries(), null, "model", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(testEClass, Test.class, "Test", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTest_Tests(), this.getSeries(), null, "tests", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionNoReturnEClass, ActionNoReturn.class, "ActionNoReturn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getActionNoReturn_Action(), ecorePackage.getEObject(), null, "action", null, 0, 1, ActionNoReturn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionReturnEClass, ActionReturn.class, "ActionReturn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getActionReturn_Action(), ecorePackage.getEObject(), null, "action", null, 0, 1, ActionReturn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionBoolReturnEClass, ActionBoolReturn.class, "ActionBoolReturn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1102,6 +1096,7 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
     initEReference(getClick_Parameters(), this.getParameters(), null, "parameters", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOperation_Action(), this.getActionNoReturn(), null, "action", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameter_Parameter(), ecorePackage.getEObject(), null, "parameter", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

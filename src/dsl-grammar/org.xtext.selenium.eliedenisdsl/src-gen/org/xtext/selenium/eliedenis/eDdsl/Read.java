@@ -3,7 +3,6 @@
  */
 package org.xtext.selenium.eliedenis.eDdsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Read extends EObject
+public interface Read extends ActionReturn
 {
   /**
    * Returns the value of the '<em><b>Readable Element</b></em>' attribute.

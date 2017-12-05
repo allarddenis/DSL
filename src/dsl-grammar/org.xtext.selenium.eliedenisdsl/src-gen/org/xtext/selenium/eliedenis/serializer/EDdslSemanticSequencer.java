@@ -14,8 +14,6 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn;
-import org.xtext.selenium.eliedenis.eDdsl.ActionReturn;
 import org.xtext.selenium.eliedenis.eDdsl.All;
 import org.xtext.selenium.eliedenis.eDdsl.Attribute;
 import org.xtext.selenium.eliedenis.eDdsl.Browse;
@@ -25,10 +23,11 @@ import org.xtext.selenium.eliedenis.eDdsl.Comparison;
 import org.xtext.selenium.eliedenis.eDdsl.Constraint;
 import org.xtext.selenium.eliedenis.eDdsl.Count;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
-import org.xtext.selenium.eliedenis.eDdsl.Model;
+import org.xtext.selenium.eliedenis.eDdsl.Operation;
 import org.xtext.selenium.eliedenis.eDdsl.Parameters;
 import org.xtext.selenium.eliedenis.eDdsl.Read;
 import org.xtext.selenium.eliedenis.eDdsl.Series;
+import org.xtext.selenium.eliedenis.eDdsl.Test;
 import org.xtext.selenium.eliedenis.eDdsl.Type;
 import org.xtext.selenium.eliedenis.eDdsl.Val;
 import org.xtext.selenium.eliedenis.eDdsl.Value;
@@ -50,12 +49,6 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == EDdslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case EDdslPackage.ACTION_NO_RETURN:
-				sequence_ActionNoReturn(context, (ActionNoReturn) semanticObject); 
-				return; 
-			case EDdslPackage.ACTION_RETURN:
-				sequence_ActionReturn(context, (ActionReturn) semanticObject); 
-				return; 
 			case EDdslPackage.ALL:
 				sequence_All(context, (All) semanticObject); 
 				return; 
@@ -80,8 +73,8 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case EDdslPackage.COUNT:
 				sequence_Count(context, (Count) semanticObject); 
 				return; 
-			case EDdslPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case EDdslPackage.OPERATION:
+				sequence_Operation(context, (Operation) semanticObject); 
 				return; 
 			case EDdslPackage.PARAMETER:
 				sequence_Parameter(context, (org.xtext.selenium.eliedenis.eDdsl.Parameter) semanticObject); 
@@ -94,6 +87,9 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case EDdslPackage.SERIES:
 				sequence_Series(context, (Series) semanticObject); 
+				return; 
+			case EDdslPackage.TEST:
+				sequence_Test(context, (Test) semanticObject); 
 				return; 
 			case EDdslPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
@@ -117,38 +113,7 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     ActionNoReturn returns ActionNoReturn
-	 *     Operation returns ActionNoReturn
-	 *
-	 * Constraint:
-	 *     (
-	 *         action=All | 
-	 *         action=Browse | 
-	 *         action=Check | 
-	 *         action=Click | 
-	 *         action=Type | 
-	 *         action=VariableSet
-	 *     )
-	 */
-	protected void sequence_ActionNoReturn(ISerializationContext context, ActionNoReturn semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ActionReturn returns ActionReturn
-	 *
-	 * Constraint:
-	 *     (action=Count | action=Read)
-	 */
-	protected void sequence_ActionReturn(ISerializationContext context, ActionReturn semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     ActionNoReturn returns All
 	 *     All returns All
 	 *
 	 * Constraint:
@@ -188,6 +153,7 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ActionNoReturn returns Browse
 	 *     Browse returns Browse
 	 *
 	 * Constraint:
@@ -206,6 +172,7 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ActionNoReturn returns Check
 	 *     Check returns Check
 	 *
 	 * Constraint:
@@ -224,6 +191,7 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ActionNoReturn returns Click
 	 *     Click returns Click
 	 *
 	 * Constraint:
@@ -298,6 +266,7 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ActionReturn returns Count
 	 *     Count returns Count
 	 *
 	 * Constraint:
@@ -310,18 +279,18 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Model returns Model
+	 *     Operation returns Operation
 	 *
 	 * Constraint:
-	 *     model=Series
+	 *     action=ActionNoReturn
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.MODEL__MODEL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.MODEL__MODEL));
+			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.OPERATION__ACTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.OPERATION__ACTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getModelAccess().getModelSeriesParserRuleCall_0(), semanticObject.getModel());
+		feeder.accept(grammarAccess.getOperationAccess().getActionActionNoReturnParserRuleCall_0_0(), semanticObject.getAction());
 		feeder.finish();
 	}
 	
@@ -352,6 +321,7 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ActionReturn returns Read
 	 *     Read returns Read
 	 *
 	 * Constraint:
@@ -385,6 +355,25 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Test returns Test
+	 *
+	 * Constraint:
+	 *     tests=Series
+	 */
+	protected void sequence_Test(ISerializationContext context, Test semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.TEST__TESTS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.TEST__TESTS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTestAccess().getTestsSeriesParserRuleCall_0(), semanticObject.getTests());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ActionNoReturn returns Type
 	 *     Type returns Type
 	 *
 	 * Constraint:
@@ -461,6 +450,7 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ActionNoReturn returns VariableSet
 	 *     VariableSet returns VariableSet
 	 *
 	 * Constraint:

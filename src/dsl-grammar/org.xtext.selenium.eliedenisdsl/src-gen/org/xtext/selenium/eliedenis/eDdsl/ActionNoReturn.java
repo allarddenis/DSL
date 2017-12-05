@@ -10,43 +10,11 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Action No Return</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn#getAction <em>Action</em>}</li>
- * </ul>
  *
  * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getActionNoReturn()
  * @model
  * @generated
  */
-public interface ActionNoReturn extends Operation
+public interface ActionNoReturn extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Action</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Action</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Action</em>' containment reference.
-   * @see #setAction(EObject)
-   * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getActionNoReturn_Action()
-   * @model containment="true"
-   * @generated
-   */
-  EObject getAction();
-
-  /**
-   * Sets the value of the '{@link org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn#getAction <em>Action</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Action</em>' containment reference.
-   * @see #getAction()
-   * @generated
-   */
-  void setAction(EObject value);
-
 } // ActionNoReturn

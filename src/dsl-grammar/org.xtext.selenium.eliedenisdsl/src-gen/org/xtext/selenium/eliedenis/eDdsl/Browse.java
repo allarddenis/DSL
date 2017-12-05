@@ -3,7 +3,6 @@
  */
 package org.xtext.selenium.eliedenis.eDdsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Browse extends EObject
+public interface Browse extends ActionNoReturn
 {
   /**
    * Returns the value of the '<em><b>Url</b></em>' attribute.

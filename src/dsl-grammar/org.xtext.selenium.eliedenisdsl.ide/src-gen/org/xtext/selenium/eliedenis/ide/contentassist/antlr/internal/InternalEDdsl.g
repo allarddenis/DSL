@@ -49,25 +49,25 @@ import org.xtext.selenium.eliedenis.services.EDdslGrammarAccess;
 	}
 }
 
-// Entry rule entryRuleModel
-entryRuleModel
+// Entry rule entryRuleTest
+entryRuleTest
 :
-{ before(grammarAccess.getModelRule()); }
-	 ruleModel
-{ after(grammarAccess.getModelRule()); } 
+{ before(grammarAccess.getTestRule()); }
+	 ruleTest
+{ after(grammarAccess.getTestRule()); } 
 	 EOF 
 ;
 
-// Rule Model
-ruleModel 
+// Rule Test
+ruleTest 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getModelAccess().getModelAssignment()); }
-		(rule__Model__ModelAssignment)
-		{ after(grammarAccess.getModelAccess().getModelAssignment()); }
+		{ before(grammarAccess.getTestAccess().getTestsAssignment()); }
+		(rule__Test__TestsAssignment)
+		{ after(grammarAccess.getTestAccess().getTestsAssignment()); }
 	)
 ;
 finally {
@@ -90,9 +90,9 @@ ruleActionNoReturn
 	}
 	:
 	(
-		{ before(grammarAccess.getActionNoReturnAccess().getActionAssignment()); }
-		(rule__ActionNoReturn__ActionAssignment)
-		{ after(grammarAccess.getActionNoReturnAccess().getActionAssignment()); }
+		{ before(grammarAccess.getActionNoReturnAccess().getAlternatives()); }
+		(rule__ActionNoReturn__Alternatives)
+		{ after(grammarAccess.getActionNoReturnAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -115,9 +115,9 @@ ruleActionReturn
 	}
 	:
 	(
-		{ before(grammarAccess.getActionReturnAccess().getActionAssignment()); }
-		(rule__ActionReturn__ActionAssignment)
-		{ after(grammarAccess.getActionReturnAccess().getActionAssignment()); }
+		{ before(grammarAccess.getActionReturnAccess().getAlternatives()); }
+		(rule__ActionReturn__Alternatives)
+		{ after(grammarAccess.getActionReturnAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -695,66 +695,66 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ActionNoReturn__ActionAlternatives_0
+rule__ActionNoReturn__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getActionNoReturnAccess().getActionAllParserRuleCall_0_0()); }
+		{ before(grammarAccess.getActionNoReturnAccess().getAllParserRuleCall_0()); }
 		ruleAll
-		{ after(grammarAccess.getActionNoReturnAccess().getActionAllParserRuleCall_0_0()); }
+		{ after(grammarAccess.getActionNoReturnAccess().getAllParserRuleCall_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getActionNoReturnAccess().getActionBrowseParserRuleCall_0_1()); }
+		{ before(grammarAccess.getActionNoReturnAccess().getBrowseParserRuleCall_1()); }
 		ruleBrowse
-		{ after(grammarAccess.getActionNoReturnAccess().getActionBrowseParserRuleCall_0_1()); }
+		{ after(grammarAccess.getActionNoReturnAccess().getBrowseParserRuleCall_1()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getActionNoReturnAccess().getActionCheckParserRuleCall_0_2()); }
+		{ before(grammarAccess.getActionNoReturnAccess().getCheckParserRuleCall_2()); }
 		ruleCheck
-		{ after(grammarAccess.getActionNoReturnAccess().getActionCheckParserRuleCall_0_2()); }
+		{ after(grammarAccess.getActionNoReturnAccess().getCheckParserRuleCall_2()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getActionNoReturnAccess().getActionClickParserRuleCall_0_3()); }
+		{ before(grammarAccess.getActionNoReturnAccess().getClickParserRuleCall_3()); }
 		ruleClick
-		{ after(grammarAccess.getActionNoReturnAccess().getActionClickParserRuleCall_0_3()); }
+		{ after(grammarAccess.getActionNoReturnAccess().getClickParserRuleCall_3()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getActionNoReturnAccess().getActionTypeParserRuleCall_0_4()); }
+		{ before(grammarAccess.getActionNoReturnAccess().getTypeParserRuleCall_4()); }
 		ruleType
-		{ after(grammarAccess.getActionNoReturnAccess().getActionTypeParserRuleCall_0_4()); }
+		{ after(grammarAccess.getActionNoReturnAccess().getTypeParserRuleCall_4()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getActionNoReturnAccess().getActionVariableSetParserRuleCall_0_5()); }
+		{ before(grammarAccess.getActionNoReturnAccess().getVariableSetParserRuleCall_5()); }
 		ruleVariableSet
-		{ after(grammarAccess.getActionNoReturnAccess().getActionVariableSetParserRuleCall_0_5()); }
+		{ after(grammarAccess.getActionNoReturnAccess().getVariableSetParserRuleCall_5()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ActionReturn__ActionAlternatives_0
+rule__ActionReturn__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getActionReturnAccess().getActionCountParserRuleCall_0_0()); }
+		{ before(grammarAccess.getActionReturnAccess().getCountParserRuleCall_0()); }
 		ruleCount
-		{ after(grammarAccess.getActionReturnAccess().getActionCountParserRuleCall_0_0()); }
+		{ after(grammarAccess.getActionReturnAccess().getCountParserRuleCall_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getActionReturnAccess().getActionReadParserRuleCall_0_1()); }
+		{ before(grammarAccess.getActionReturnAccess().getReadParserRuleCall_1()); }
 		ruleRead
-		{ after(grammarAccess.getActionReturnAccess().getActionReadParserRuleCall_0_1()); }
+		{ after(grammarAccess.getActionReturnAccess().getReadParserRuleCall_1()); }
 	)
 ;
 finally {
@@ -1625,9 +1625,9 @@ rule__Operation__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getOperationAccess().getActionNoReturnParserRuleCall_0()); }
-	ruleActionNoReturn
-	{ after(grammarAccess.getOperationAccess().getActionNoReturnParserRuleCall_0()); }
+	{ before(grammarAccess.getOperationAccess().getActionAssignment_0()); }
+	(rule__Operation__ActionAssignment_0)
+	{ after(grammarAccess.getOperationAccess().getActionAssignment_0()); }
 )
 ;
 finally {
@@ -2174,45 +2174,15 @@ finally {
 }
 
 
-rule__Model__ModelAssignment
+rule__Test__TestsAssignment
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getModelAccess().getModelSeriesParserRuleCall_0()); }
+		{ before(grammarAccess.getTestAccess().getTestsSeriesParserRuleCall_0()); }
 		ruleSeries
-		{ after(grammarAccess.getModelAccess().getModelSeriesParserRuleCall_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ActionNoReturn__ActionAssignment
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getActionNoReturnAccess().getActionAlternatives_0()); }
-		(rule__ActionNoReturn__ActionAlternatives_0)
-		{ after(grammarAccess.getActionNoReturnAccess().getActionAlternatives_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ActionReturn__ActionAssignment
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getActionReturnAccess().getActionAlternatives_0()); }
-		(rule__ActionReturn__ActionAlternatives_0)
-		{ after(grammarAccess.getActionReturnAccess().getActionAlternatives_0()); }
+		{ after(grammarAccess.getTestAccess().getTestsSeriesParserRuleCall_0()); }
 	)
 ;
 finally {
@@ -2438,6 +2408,21 @@ rule__Click__ParametersAssignment_2
 		{ before(grammarAccess.getClickAccess().getParametersParametersParserRuleCall_2_0()); }
 		ruleParameters
 		{ after(grammarAccess.getClickAccess().getParametersParametersParserRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Operation__ActionAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getOperationAccess().getActionActionNoReturnParserRuleCall_0_0()); }
+		ruleActionNoReturn
+		{ after(grammarAccess.getOperationAccess().getActionActionNoReturnParserRuleCall_0_0()); }
 	)
 ;
 finally {

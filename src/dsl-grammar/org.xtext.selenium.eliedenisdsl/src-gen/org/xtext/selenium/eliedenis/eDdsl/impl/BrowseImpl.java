@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.Browse;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
@@ -26,7 +25,7 @@ import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
  *
  * @generated
  */
-public class BrowseImpl extends MinimalEObjectImpl.Container implements Browse
+public class BrowseImpl extends ActionNoReturnImpl implements Browse
 {
   /**
    * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.

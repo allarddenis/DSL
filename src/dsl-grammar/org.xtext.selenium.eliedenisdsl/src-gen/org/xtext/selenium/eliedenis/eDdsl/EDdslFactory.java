@@ -24,13 +24,13 @@ public interface EDdslFactory extends EFactory
   EDdslFactory eINSTANCE = org.xtext.selenium.eliedenis.eDdsl.impl.EDdslFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Test</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Test</em>'.
    * @generated
    */
-  Model createModel();
+  Test createTest();
 
   /**
    * Returns a new object of class '<em>Action No Return</em>'.

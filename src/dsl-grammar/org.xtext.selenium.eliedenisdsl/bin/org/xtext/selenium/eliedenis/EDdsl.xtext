@@ -2,25 +2,23 @@ grammar org.xtext.selenium.eliedenis.EDdsl with org.eclipse.xtext.common.Termina
 
 generate eDdsl "http://www.xtext.org/selenium/eliedenis/EDdsl"
 
-Model:
-	model = Series
+Test:
+	tests=Series
 ;
 
 // ----- MODELS (ALPHABETICAL ORDER) -----
 
 ActionNoReturn:
-	action = (
-		All |
-		Browse |
-		Check |
-		Click | 
-		Type |
-		VariableSet
-	)
+	All |
+	Browse |
+	Check |
+	Click | 
+	Type |
+	VariableSet
 ;
 
 ActionReturn:
-	action= (
+	(
 		Count |
 		Read
 	)
@@ -63,7 +61,7 @@ Click:
 ;
 
 Operation:
-	ActionNoReturn ';'
+	action=ActionNoReturn ';'
 ;
 
 Parameter:

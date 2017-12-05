@@ -3,7 +3,6 @@
  */
 package org.xtext.selenium.eliedenis.eDdsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Type extends EObject
+public interface Type extends ActionNoReturn
 {
   /**
    * Returns the value of the '<em><b>Text To Type</b></em>' containment reference.

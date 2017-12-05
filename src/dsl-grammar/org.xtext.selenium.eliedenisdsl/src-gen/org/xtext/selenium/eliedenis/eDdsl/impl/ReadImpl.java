@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
 import org.xtext.selenium.eliedenis.eDdsl.Parameters;
@@ -31,7 +30,7 @@ import org.xtext.selenium.eliedenis.eDdsl.ReadableEnum;
  *
  * @generated
  */
-public class ReadImpl extends MinimalEObjectImpl.Container implements Read
+public class ReadImpl extends ActionReturnImpl implements Read
 {
   /**
    * The default value of the '{@link #getReadableElement() <em>Readable Element</em>}' attribute.

@@ -3,7 +3,6 @@
  */
 package org.xtext.selenium.eliedenis.eDdsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface All extends EObject
+public interface All extends ActionNoReturn
 {
   /**
    * Returns the value of the '<em><b>Operation</b></em>' containment reference.

@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.Click;
 import org.xtext.selenium.eliedenis.eDdsl.ClickableEnum;
@@ -31,7 +30,7 @@ import org.xtext.selenium.eliedenis.eDdsl.Parameters;
  *
  * @generated
  */
-public class ClickImpl extends MinimalEObjectImpl.Container implements Click
+public class ClickImpl extends ActionNoReturnImpl implements Click
 {
   /**
    * The default value of the '{@link #getClickableElement() <em>Clickable Element</em>}' attribute.

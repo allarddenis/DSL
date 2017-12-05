@@ -25,83 +25,75 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Model");
-		private final Assignment cModelAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cModelSeriesParserRuleCall_0 = (RuleCall)cModelAssignment.eContents().get(0);
+	public class TestElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Test");
+		private final Assignment cTestsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cTestsSeriesParserRuleCall_0 = (RuleCall)cTestsAssignment.eContents().get(0);
 		
-		//Model:
-		//	model=Series;
+		//Test:
+		//	tests=Series;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//model=Series
-		public Assignment getModelAssignment() { return cModelAssignment; }
+		//tests=Series
+		public Assignment getTestsAssignment() { return cTestsAssignment; }
 		
 		//Series
-		public RuleCall getModelSeriesParserRuleCall_0() { return cModelSeriesParserRuleCall_0; }
+		public RuleCall getTestsSeriesParserRuleCall_0() { return cTestsSeriesParserRuleCall_0; }
 	}
 	public class ActionNoReturnElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ActionNoReturn");
-		private final Assignment cActionAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cActionAlternatives_0 = (Alternatives)cActionAssignment.eContents().get(0);
-		private final RuleCall cActionAllParserRuleCall_0_0 = (RuleCall)cActionAlternatives_0.eContents().get(0);
-		private final RuleCall cActionBrowseParserRuleCall_0_1 = (RuleCall)cActionAlternatives_0.eContents().get(1);
-		private final RuleCall cActionCheckParserRuleCall_0_2 = (RuleCall)cActionAlternatives_0.eContents().get(2);
-		private final RuleCall cActionClickParserRuleCall_0_3 = (RuleCall)cActionAlternatives_0.eContents().get(3);
-		private final RuleCall cActionTypeParserRuleCall_0_4 = (RuleCall)cActionAlternatives_0.eContents().get(4);
-		private final RuleCall cActionVariableSetParserRuleCall_0_5 = (RuleCall)cActionAlternatives_0.eContents().get(5);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAllParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBrowseParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cCheckParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cClickParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cVariableSetParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//// ----- MODELS (ALPHABETICAL ORDER) -----
 		//ActionNoReturn:
-		//	action=(All | Browse | Check | Click | Type | VariableSet);
+		//	All | Browse | Check | Click | Type | VariableSet;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//action=(All | Browse | Check | Click | Type | VariableSet)
-		public Assignment getActionAssignment() { return cActionAssignment; }
-		
-		//(All | Browse | Check | Click | Type | VariableSet)
-		public Alternatives getActionAlternatives_0() { return cActionAlternatives_0; }
+		//All | Browse | Check | Click | Type | VariableSet
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//All
-		public RuleCall getActionAllParserRuleCall_0_0() { return cActionAllParserRuleCall_0_0; }
+		public RuleCall getAllParserRuleCall_0() { return cAllParserRuleCall_0; }
 		
 		//Browse
-		public RuleCall getActionBrowseParserRuleCall_0_1() { return cActionBrowseParserRuleCall_0_1; }
+		public RuleCall getBrowseParserRuleCall_1() { return cBrowseParserRuleCall_1; }
 		
 		//Check
-		public RuleCall getActionCheckParserRuleCall_0_2() { return cActionCheckParserRuleCall_0_2; }
+		public RuleCall getCheckParserRuleCall_2() { return cCheckParserRuleCall_2; }
 		
 		//Click
-		public RuleCall getActionClickParserRuleCall_0_3() { return cActionClickParserRuleCall_0_3; }
+		public RuleCall getClickParserRuleCall_3() { return cClickParserRuleCall_3; }
 		
 		//Type
-		public RuleCall getActionTypeParserRuleCall_0_4() { return cActionTypeParserRuleCall_0_4; }
+		public RuleCall getTypeParserRuleCall_4() { return cTypeParserRuleCall_4; }
 		
 		//VariableSet
-		public RuleCall getActionVariableSetParserRuleCall_0_5() { return cActionVariableSetParserRuleCall_0_5; }
+		public RuleCall getVariableSetParserRuleCall_5() { return cVariableSetParserRuleCall_5; }
 	}
 	public class ActionReturnElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ActionReturn");
-		private final Assignment cActionAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cActionAlternatives_0 = (Alternatives)cActionAssignment.eContents().get(0);
-		private final RuleCall cActionCountParserRuleCall_0_0 = (RuleCall)cActionAlternatives_0.eContents().get(0);
-		private final RuleCall cActionReadParserRuleCall_0_1 = (RuleCall)cActionAlternatives_0.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCountParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cReadParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//ActionReturn:
-		//	action=(Count | Read);
+		//	Count | Read;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//action=(Count | Read)
-		public Assignment getActionAssignment() { return cActionAssignment; }
-		
-		//(Count | Read)
-		public Alternatives getActionAlternatives_0() { return cActionAlternatives_0; }
+		//Count | Read
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Count
-		public RuleCall getActionCountParserRuleCall_0_0() { return cActionCountParserRuleCall_0_0; }
+		public RuleCall getCountParserRuleCall_0() { return cCountParserRuleCall_0; }
 		
 		//Read
-		public RuleCall getActionReadParserRuleCall_0_1() { return cActionReadParserRuleCall_0_1; }
+		public RuleCall getReadParserRuleCall_1() { return cReadParserRuleCall_1; }
 	}
 	public class ActionBoolReturnElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ActionBoolReturn");
@@ -369,18 +361,22 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 	public class OperationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Operation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cActionNoReturnParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cActionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cActionActionNoReturnParserRuleCall_0_0 = (RuleCall)cActionAssignment_0.eContents().get(0);
 		private final Keyword cSemicolonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Operation:
-		//	ActionNoReturn ';';
+		//	action=ActionNoReturn ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ActionNoReturn ';'
+		//action=ActionNoReturn ';'
 		public Group getGroup() { return cGroup; }
 		
+		//action=ActionNoReturn
+		public Assignment getActionAssignment_0() { return cActionAssignment_0; }
+		
 		//ActionNoReturn
-		public RuleCall getActionNoReturnParserRuleCall_0() { return cActionNoReturnParserRuleCall_0; }
+		public RuleCall getActionActionNoReturnParserRuleCall_0_0() { return cActionActionNoReturnParserRuleCall_0_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_1() { return cSemicolonKeyword_1; }
@@ -848,7 +844,7 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getH1H1Keyword_3_0() { return cH1H1Keyword_3_0; }
 	}
 	
-	private final ModelElements pModel;
+	private final TestElements pTest;
 	private final ActionNoReturnElements pActionNoReturn;
 	private final ActionReturnElements pActionReturn;
 	private final ActionBoolReturnElements pActionBoolReturn;
@@ -886,7 +882,7 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pModel = new ModelElements();
+		this.pTest = new TestElements();
 		this.pActionNoReturn = new ActionNoReturnElements();
 		this.pActionReturn = new ActionReturnElements();
 		this.pActionBoolReturn = new ActionBoolReturnElements();
@@ -943,19 +939,19 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model:
-	//	model=Series;
-	public ModelElements getModelAccess() {
-		return pModel;
+	//Test:
+	//	tests=Series;
+	public TestElements getTestAccess() {
+		return pTest;
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getTestRule() {
+		return getTestAccess().getRule();
 	}
 	
 	//// ----- MODELS (ALPHABETICAL ORDER) -----
 	//ActionNoReturn:
-	//	action=(All | Browse | Check | Click | Type | VariableSet);
+	//	All | Browse | Check | Click | Type | VariableSet;
 	public ActionNoReturnElements getActionNoReturnAccess() {
 		return pActionNoReturn;
 	}
@@ -965,7 +961,7 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ActionReturn:
-	//	action=(Count | Read);
+	//	Count | Read;
 	public ActionReturnElements getActionReturnAccess() {
 		return pActionReturn;
 	}
@@ -1065,7 +1061,7 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Operation:
-	//	ActionNoReturn ';';
+	//	action=ActionNoReturn ';';
 	public OperationElements getOperationAccess() {
 		return pOperation;
 	}

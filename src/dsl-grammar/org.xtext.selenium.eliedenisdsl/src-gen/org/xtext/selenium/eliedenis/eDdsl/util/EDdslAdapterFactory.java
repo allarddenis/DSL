@@ -76,9 +76,9 @@ public class EDdslAdapterFactory extends AdapterFactoryImpl
     new EDdslSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseTest(Test object)
       {
-        return createModelAdapter();
+        return createTestAdapter();
       }
       @Override
       public Adapter caseActionNoReturn(ActionNoReturn object)
@@ -208,16 +208,16 @@ public class EDdslAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Test <em>Test</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Model
+   * @see org.xtext.selenium.eliedenis.eDdsl.Test
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createTestAdapter()
   {
     return null;
   }

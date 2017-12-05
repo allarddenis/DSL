@@ -73,10 +73,10 @@ public class EDdslSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case EDdslPackage.MODEL:
+      case EDdslPackage.TEST:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        Test test = (Test)theEObject;
+        T result = caseTest(test);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -84,7 +84,6 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         ActionNoReturn actionNoReturn = (ActionNoReturn)theEObject;
         T result = caseActionNoReturn(actionNoReturn);
-        if (result == null) result = caseOperation(actionNoReturn);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -106,6 +105,7 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         All all = (All)theEObject;
         T result = caseAll(all);
+        if (result == null) result = caseActionNoReturn(all);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -120,6 +120,7 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         Browse browse = (Browse)theEObject;
         T result = caseBrowse(browse);
+        if (result == null) result = caseActionNoReturn(browse);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -127,6 +128,7 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         Check check = (Check)theEObject;
         T result = caseCheck(check);
+        if (result == null) result = caseActionNoReturn(check);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -150,6 +152,7 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         Count count = (Count)theEObject;
         T result = caseCount(count);
+        if (result == null) result = caseActionReturn(count);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -157,6 +160,7 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         Click click = (Click)theEObject;
         T result = caseClick(click);
+        if (result == null) result = caseActionNoReturn(click);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -185,6 +189,7 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         Read read = (Read)theEObject;
         T result = caseRead(read);
+        if (result == null) result = caseActionReturn(read);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -199,6 +204,7 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
+        if (result == null) result = caseActionNoReturn(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -228,6 +234,7 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         VariableSet variableSet = (VariableSet)theEObject;
         T result = caseVariableSet(variableSet);
+        if (result == null) result = caseActionNoReturn(variableSet);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -236,17 +243,17 @@ public class EDdslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Test</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Test</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T caseTest(Test object)
   {
     return null;
   }

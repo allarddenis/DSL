@@ -59,51 +59,32 @@ public interface EDdslPackage extends EPackage
   EDdslPackage eINSTANCE = org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.TestImpl <em>Test</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ModelImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getModel()
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.TestImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getTest()
    * @generated
    */
-  int MODEL = 0;
+  int TEST = 0;
 
   /**
-   * The feature id for the '<em><b>Model</b></em>' containment reference.
+   * The feature id for the '<em><b>Tests</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__MODEL = 0;
+  int TEST__TESTS = 0;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The number of structural features of the '<em>Test</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.OperationImpl <em>Operation</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.OperationImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getOperation()
-   * @generated
-   */
-  int OPERATION = 12;
-
-  /**
-   * The number of structural features of the '<em>Operation</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION_FEATURE_COUNT = 0;
+  int TEST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionNoReturnImpl <em>Action No Return</em>}' class.
@@ -116,22 +97,13 @@ public interface EDdslPackage extends EPackage
   int ACTION_NO_RETURN = 1;
 
   /**
-   * The feature id for the '<em><b>Action</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_NO_RETURN__ACTION = OPERATION_FEATURE_COUNT + 0;
-
-  /**
    * The number of structural features of the '<em>Action No Return</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_NO_RETURN_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 1;
+  int ACTION_NO_RETURN_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionReturnImpl <em>Action Return</em>}' class.
@@ -144,22 +116,13 @@ public interface EDdslPackage extends EPackage
   int ACTION_RETURN = 2;
 
   /**
-   * The feature id for the '<em><b>Action</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_RETURN__ACTION = 0;
-
-  /**
    * The number of structural features of the '<em>Action Return</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_RETURN_FEATURE_COUNT = 1;
+  int ACTION_RETURN_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionBoolReturnImpl <em>Action Bool Return</em>}' class.
@@ -197,7 +160,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ALL__OPERATION = 0;
+  int ALL__OPERATION = ACTION_NO_RETURN_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>All</em>' class.
@@ -206,7 +169,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ALL_FEATURE_COUNT = 1;
+  int ALL_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -262,7 +225,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BROWSE__URL = 0;
+  int BROWSE__URL = ACTION_NO_RETURN_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Browse</em>' class.
@@ -271,7 +234,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BROWSE_FEATURE_COUNT = 1;
+  int BROWSE_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.CheckImpl <em>Check</em>}' class.
@@ -290,7 +253,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK__ACTION = 0;
+  int CHECK__ACTION = ACTION_NO_RETURN_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Check</em>' class.
@@ -299,7 +262,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_FEATURE_COUNT = 1;
+  int CHECK_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -419,7 +382,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COUNT__PARAMETERS = 0;
+  int COUNT__PARAMETERS = ACTION_RETURN_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Count</em>' class.
@@ -428,7 +391,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COUNT_FEATURE_COUNT = 1;
+  int COUNT_FEATURE_COUNT = ACTION_RETURN_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ClickImpl <em>Click</em>}' class.
@@ -447,7 +410,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLICK__CLICKABLE_ELEMENT = 0;
+  int CLICK__CLICKABLE_ELEMENT = ACTION_NO_RETURN_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference.
@@ -456,7 +419,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLICK__PARAMETERS = 1;
+  int CLICK__PARAMETERS = ACTION_NO_RETURN_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Click</em>' class.
@@ -465,7 +428,35 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLICK_FEATURE_COUNT = 2;
+  int CLICK_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.OperationImpl <em>Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.OperationImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getOperation()
+   * @generated
+   */
+  int OPERATION = 12;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__ACTION = 0;
+
+  /**
+   * The number of structural features of the '<em>Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -540,7 +531,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int READ__READABLE_ELEMENT = 0;
+  int READ__READABLE_ELEMENT = ACTION_RETURN_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference.
@@ -549,7 +540,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int READ__PARAMETERS = 1;
+  int READ__PARAMETERS = ACTION_RETURN_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Read</em>' class.
@@ -558,7 +549,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int READ_FEATURE_COUNT = 2;
+  int READ_FEATURE_COUNT = ACTION_RETURN_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.SeriesImpl <em>Series</em>}' class.
@@ -623,7 +614,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__TEXT_TO_TYPE = 0;
+  int TYPE__TEXT_TO_TYPE = ACTION_NO_RETURN_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference.
@@ -632,7 +623,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__PARAMETERS = 1;
+  int TYPE__PARAMETERS = ACTION_NO_RETURN_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -641,7 +632,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = 2;
+  int TYPE_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ValImpl <em>Val</em>}' class.
@@ -753,7 +744,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_SET__VAR_NAME = 0;
+  int VARIABLE_SET__VAR_NAME = ACTION_NO_RETURN_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Action</b></em>' containment reference.
@@ -762,7 +753,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_SET__ACTION = 1;
+  int VARIABLE_SET__ACTION = ACTION_NO_RETURN_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Variable Set</em>' class.
@@ -771,7 +762,7 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_SET_FEATURE_COUNT = 2;
+  int VARIABLE_SET_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.BoolEnum <em>Bool Enum</em>}' enum.
@@ -835,25 +826,25 @@ public interface EDdslPackage extends EPackage
 
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Model <em>Model</em>}'.
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Test <em>Test</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Model
+   * @return the meta object for class '<em>Test</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Test
    * @generated
    */
-  EClass getModel();
+  EClass getTest();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Model#getModel <em>Model</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Test#getTests <em>Tests</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Model</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Model#getModel()
-   * @see #getModel()
+   * @return the meta object for the containment reference '<em>Tests</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Test#getTests()
+   * @see #getTest()
    * @generated
    */
-  EReference getModel_Model();
+  EReference getTest_Tests();
 
   /**
    * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn <em>Action No Return</em>}'.
@@ -866,17 +857,6 @@ public interface EDdslPackage extends EPackage
   EClass getActionNoReturn();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn#getAction <em>Action</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Action</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn#getAction()
-   * @see #getActionNoReturn()
-   * @generated
-   */
-  EReference getActionNoReturn_Action();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.ActionReturn <em>Action Return</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -885,17 +865,6 @@ public interface EDdslPackage extends EPackage
    * @generated
    */
   EClass getActionReturn();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.ActionReturn#getAction <em>Action</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Action</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ActionReturn#getAction()
-   * @see #getActionReturn()
-   * @generated
-   */
-  EReference getActionReturn_Action();
 
   /**
    * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.ActionBoolReturn <em>Action Bool Return</em>}'.
@@ -1161,6 +1130,17 @@ public interface EDdslPackage extends EPackage
    * @generated
    */
   EClass getOperation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Operation#getAction <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Action</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Operation#getAction()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_Action();
 
   /**
    * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Parameter <em>Parameter</em>}'.
@@ -1490,22 +1470,22 @@ public interface EDdslPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.TestImpl <em>Test</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ModelImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getModel()
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.TestImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getTest()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass TEST = eINSTANCE.getTest();
 
     /**
-     * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Tests</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__MODEL = eINSTANCE.getModel_Model();
+    EReference TEST__TESTS = eINSTANCE.getTest_Tests();
 
     /**
      * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionNoReturnImpl <em>Action No Return</em>}' class.
@@ -1518,14 +1498,6 @@ public interface EDdslPackage extends EPackage
     EClass ACTION_NO_RETURN = eINSTANCE.getActionNoReturn();
 
     /**
-     * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACTION_NO_RETURN__ACTION = eINSTANCE.getActionNoReturn_Action();
-
-    /**
      * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionReturnImpl <em>Action Return</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1534,14 +1506,6 @@ public interface EDdslPackage extends EPackage
      * @generated
      */
     EClass ACTION_RETURN = eINSTANCE.getActionReturn();
-
-    /**
-     * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACTION_RETURN__ACTION = eINSTANCE.getActionReturn_Action();
 
     /**
      * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionBoolReturnImpl <em>Action Bool Return</em>}' class.
@@ -1762,6 +1726,14 @@ public interface EDdslPackage extends EPackage
      * @generated
      */
     EClass OPERATION = eINSTANCE.getOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__ACTION = eINSTANCE.getOperation_Action();
 
     /**
      * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ParameterImpl <em>Parameter</em>}' class.

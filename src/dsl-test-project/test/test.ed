@@ -1,5 +1,5 @@
 // Open
-open firefox false;
+open firefox true;
 
 // Browse
 browse 'https://www.google.com' ; 

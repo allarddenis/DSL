@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
 import org.xtext.selenium.eliedenis.eDdsl.Parameters;
@@ -31,7 +30,7 @@ import org.xtext.selenium.eliedenis.eDdsl.Val;
  *
  * @generated
  */
-public class TypeImpl extends MinimalEObjectImpl.Container implements Type
+public class TypeImpl extends ActionNoReturnImpl implements Type
 {
   /**
    * The cached value of the '{@link #getTextToType() <em>Text To Type</em>}' containment reference.

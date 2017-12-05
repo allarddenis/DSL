@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.ActionBoolReturn;
 import org.xtext.selenium.eliedenis.eDdsl.Check;
@@ -29,7 +28,7 @@ import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
  *
  * @generated
  */
-public class CheckImpl extends MinimalEObjectImpl.Container implements Check
+public class CheckImpl extends ActionNoReturnImpl implements Check
 {
   /**
    * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference.

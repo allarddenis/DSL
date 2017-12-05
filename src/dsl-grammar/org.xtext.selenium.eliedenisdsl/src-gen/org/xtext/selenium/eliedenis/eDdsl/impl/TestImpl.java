@@ -13,40 +13,40 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
-import org.xtext.selenium.eliedenis.eDdsl.Model;
 import org.xtext.selenium.eliedenis.eDdsl.Series;
+import org.xtext.selenium.eliedenis.eDdsl.Test;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Test</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.ModelImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.TestImpl#getTests <em>Tests</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class TestImpl extends MinimalEObjectImpl.Container implements Test
 {
   /**
-   * The cached value of the '{@link #getModel() <em>Model</em>}' containment reference.
+   * The cached value of the '{@link #getTests() <em>Tests</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getModel()
+   * @see #getTests()
    * @generated
    * @ordered
    */
-  protected Series model;
+  protected Series tests;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected TestImpl()
   {
     super();
   }
@@ -59,7 +59,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return EDdslPackage.Literals.MODEL;
+    return EDdslPackage.Literals.TEST;
   }
 
   /**
@@ -67,9 +67,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public Series getModel()
+  public Series getTests()
   {
-    return model;
+    return tests;
   }
 
   /**
@@ -77,13 +77,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetModel(Series newModel, NotificationChain msgs)
+  public NotificationChain basicSetTests(Series newTests, NotificationChain msgs)
   {
-    Series oldModel = model;
-    model = newModel;
+    Series oldTests = tests;
+    tests = newTests;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EDdslPackage.MODEL__MODEL, oldModel, newModel);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EDdslPackage.TEST__TESTS, oldTests, newTests);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +94,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setModel(Series newModel)
+  public void setTests(Series newTests)
   {
-    if (newModel != model)
+    if (newTests != tests)
     {
       NotificationChain msgs = null;
-      if (model != null)
-        msgs = ((InternalEObject)model).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.MODEL__MODEL, null, msgs);
-      if (newModel != null)
-        msgs = ((InternalEObject)newModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.MODEL__MODEL, null, msgs);
-      msgs = basicSetModel(newModel, msgs);
+      if (tests != null)
+        msgs = ((InternalEObject)tests).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.TEST__TESTS, null, msgs);
+      if (newTests != null)
+        msgs = ((InternalEObject)newTests).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.TEST__TESTS, null, msgs);
+      msgs = basicSetTests(newTests, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.MODEL__MODEL, newModel, newModel));
+      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.TEST__TESTS, newTests, newTests));
   }
 
   /**
@@ -120,8 +120,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EDdslPackage.MODEL__MODEL:
-        return basicSetModel(null, msgs);
+      case EDdslPackage.TEST__TESTS:
+        return basicSetTests(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +136,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EDdslPackage.MODEL__MODEL:
-        return getModel();
+      case EDdslPackage.TEST__TESTS:
+        return getTests();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +152,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EDdslPackage.MODEL__MODEL:
-        setModel((Series)newValue);
+      case EDdslPackage.TEST__TESTS:
+        setTests((Series)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +169,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EDdslPackage.MODEL__MODEL:
-        setModel((Series)null);
+      case EDdslPackage.TEST__TESTS:
+        setTests((Series)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +186,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EDdslPackage.MODEL__MODEL:
-        return model != null;
+      case EDdslPackage.TEST__TESTS:
+        return tests != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //TestImpl

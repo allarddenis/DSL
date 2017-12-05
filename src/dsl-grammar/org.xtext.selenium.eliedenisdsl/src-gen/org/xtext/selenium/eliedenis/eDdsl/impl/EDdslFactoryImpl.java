@@ -66,7 +66,7 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
   {
     switch (eClass.getClassifierID())
     {
-      case EDdslPackage.MODEL: return createModel();
+      case EDdslPackage.TEST: return createTest();
       case EDdslPackage.ACTION_NO_RETURN: return createActionNoReturn();
       case EDdslPackage.ACTION_RETURN: return createActionReturn();
       case EDdslPackage.ACTION_BOOL_RETURN: return createActionBoolReturn();
@@ -152,10 +152,10 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Model createModel()
+  public Test createTest()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    TestImpl test = new TestImpl();
+    return test;
   }
 
   /**

@@ -36,15 +36,11 @@
       <genEnumLiterals ecoreEnumLiteral="EDdsl.ecore#//ReadableEnum/Input"/>
       <genEnumLiterals ecoreEnumLiteral="EDdsl.ecore#//ReadableEnum/H1"/>
     </genEnums>
-    <genClasses ecoreClass="EDdsl.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDdsl.ecore#//Model/model"/>
+    <genClasses ecoreClass="EDdsl.ecore#//Test">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDdsl.ecore#//Test/tests"/>
     </genClasses>
-    <genClasses ecoreClass="EDdsl.ecore#//ActionNoReturn">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDdsl.ecore#//ActionNoReturn/action"/>
-    </genClasses>
-    <genClasses ecoreClass="EDdsl.ecore#//ActionReturn">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDdsl.ecore#//ActionReturn/action"/>
-    </genClasses>
+    <genClasses ecoreClass="EDdsl.ecore#//ActionNoReturn"/>
+    <genClasses ecoreClass="EDdsl.ecore#//ActionReturn"/>
     <genClasses ecoreClass="EDdsl.ecore#//ActionBoolReturn"/>
     <genClasses ecoreClass="EDdsl.ecore#//All">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDdsl.ecore#//All/operation"/>
@@ -77,7 +73,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDdsl.ecore#//Click/clickableElement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDdsl.ecore#//Click/parameters"/>
     </genClasses>
-    <genClasses ecoreClass="EDdsl.ecore#//Operation"/>
+    <genClasses ecoreClass="EDdsl.ecore#//Operation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDdsl.ecore#//Operation/action"/>
+    </genClasses>
     <genClasses ecoreClass="EDdsl.ecore#//Parameter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDdsl.ecore#//Parameter/parameter"/>
     </genClasses>
