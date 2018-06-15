@@ -2,125 +2,41 @@ grammar org.xtext.selenium.eliedenis.EDdsl with org.eclipse.xtext.common.Termina
 
 generate eDdsl "http://www.xtext.org/selenium/eliedenis/EDdsl"
 
+// Program
 Test:
-	tests=Series
+  procedures+=Procedure*
+  main = MainProcedure;
+
+Procedure: 'def' Name=IDENTIFIER ('(' (Parameters+=IDENTIFIER (COMMA Parameters+=IDENTIFIER)*) ')')? '{'
+  instructions+=Instruction*
+ '}';
+
+MainProcedure:{MainProcedure} 'def' + 'main' + '{'
+  instructions+=Instruction*
+  '}';
+
+//Instruction is abstract
+Instruction: 
+  (Click | Fill | Select | Tick | Navigate | Assert | Read | CallProcedure)
 ;
 
-// ----- MODELS (ALPHABETICAL ORDER) -----
+Click: 'click' Type=('input'|'link'|'name'|'xpath') Value=STRING;
 
-ActionNoReturn:
-	All |
-	Browse |
-	Check |
-	Click | 
-	Type |
-	VariableSet
-;
+Fill: 'fill' Name=STRING Value=(STRING|IDENTIFIER);
 
-ActionReturn:
-	(
-		Count |
-		Read
-	)
-;
+Select: 'select' Name=STRING Value=(STRING|IDENTIFIER);
 
-ActionBoolReturn:
-	(Comparison|Constraint)
-;
+Tick: 'tick' Name=STRING;
 
-All:
-	'all' operation=ActionNoReturn
-;
+Navigate: 'navigate' url=(STRING|IDENTIFIER);
 
-Attribute:
-	'attribute' 	attributeName=STRING attributeValue=STRING
-;
+Read: Variable=IDENTIFIER '=' 'read' Name=STRING;
 
-Browse:
-	'browse' url=STRING
-;
+Assert:  'assert' (Type=('input'|'link'|'name'|'xpath') (Name=STRING Method=('contains'|'equals') Value=(STRING|IDENTIFIER)) |
+                  (Type=('input'|'link'|'name'|'xpath') Name=STRING Method='exists'));
 
-Check:
-	'check' action=ActionBoolReturn
-;
+CallProcedure: ProcedureName=IDENTIFIER ('(' (Parameters+=(IDENTIFIER|STRING) (COMMA Parameters+=(IDENTIFIER|STRING))*) ')')?;
 
-Comparison:
-	'comparison' firstVal=Val comparatorOperator=ComparisonOperatorEnum secondVal=Val
-;
+terminal IDENTIFIER: '^'?('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*;
 
-Constraint:
-	readableElement=ReadableEnum constraintType=ConstraintTypeEnum expectedVal=Val parameters=Parameters
-;
-
-Count:
-	'count' parameters=(Parameters|ActionReturn)
-;
-
-Click:
-	'click' clickableElement=ClickableEnum parameters=Parameters
-;
-
-Operation:
-	action=ActionNoReturn ';'
-;
-
-Parameter:
-	'(' parameter=(Attribute|Value) ')'
-;
-
-Parameters:
-	parameters+=Parameter*
-;
-
-Read:
-	'read' readableElement=ReadableEnum parameters=Parameters
-;
-
-Series:
-	'open' browser=BrowserEnum expectedReturn=BoolEnum ';' operations+=Operation*
-;
-
-Type:
-	'type' textToType=Val parameters=Parameters
-;
-
-Val:
-	(VariableGet|STRING|bool=BoolEnum)
-;
-
-Value:
-	'value' value=Val
-;
-
-VariableGet:
-	varName=ID
-;
-
-VariableSet:
-	varName=ID '=' action=ActionReturn
-;
-
-// ----- ENUMS -----
-
-enum BoolEnum :
-	True = 'true' | False = 'false'
-;
-enum BrowserEnum : 
-	Firefox = 'firefox' | IE = 'ie'
-;
-
-enum ClickableEnum : 
-	Button = 'button' | Link = 'link' | Input = 'input'
-;
-
-enum ComparisonOperatorEnum:
-	Equal= '==' | Superior = '>' | Inferior = '<' | SupEqual = '>=' | InfEqual = '<='
-;
-
-enum ConstraintTypeEnum:
-	Contain = 'contain' | Enabled = 'enabled'
-;
-
-enum ReadableEnum:
-	Button = 'button' | Link = 'link' | Input = 'input' | H1='h1'
-;
+terminal COMMA: ',';

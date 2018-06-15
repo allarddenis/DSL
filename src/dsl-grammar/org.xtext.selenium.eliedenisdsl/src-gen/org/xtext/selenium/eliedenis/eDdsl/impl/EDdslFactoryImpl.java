@@ -4,7 +4,6 @@
 package org.xtext.selenium.eliedenis.eDdsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -67,83 +66,19 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
     switch (eClass.getClassifierID())
     {
       case EDdslPackage.TEST: return createTest();
-      case EDdslPackage.ACTION_NO_RETURN: return createActionNoReturn();
-      case EDdslPackage.ACTION_RETURN: return createActionReturn();
-      case EDdslPackage.ACTION_BOOL_RETURN: return createActionBoolReturn();
-      case EDdslPackage.ALL: return createAll();
-      case EDdslPackage.ATTRIBUTE: return createAttribute();
-      case EDdslPackage.BROWSE: return createBrowse();
-      case EDdslPackage.CHECK: return createCheck();
-      case EDdslPackage.COMPARISON: return createComparison();
-      case EDdslPackage.CONSTRAINT: return createConstraint();
-      case EDdslPackage.COUNT: return createCount();
+      case EDdslPackage.PROCEDURE: return createProcedure();
+      case EDdslPackage.MAIN_PROCEDURE: return createMainProcedure();
+      case EDdslPackage.INSTRUCTION: return createInstruction();
       case EDdslPackage.CLICK: return createClick();
-      case EDdslPackage.OPERATION: return createOperation();
-      case EDdslPackage.PARAMETER: return createParameter();
-      case EDdslPackage.PARAMETERS: return createParameters();
+      case EDdslPackage.FILL: return createFill();
+      case EDdslPackage.SELECT: return createSelect();
+      case EDdslPackage.TICK: return createTick();
+      case EDdslPackage.NAVIGATE: return createNavigate();
       case EDdslPackage.READ: return createRead();
-      case EDdslPackage.SERIES: return createSeries();
-      case EDdslPackage.TYPE: return createType();
-      case EDdslPackage.VAL: return createVal();
-      case EDdslPackage.VALUE: return createValue();
-      case EDdslPackage.VARIABLE_GET: return createVariableGet();
-      case EDdslPackage.VARIABLE_SET: return createVariableSet();
+      case EDdslPackage.ASSERT: return createAssert();
+      case EDdslPackage.CALL_PROCEDURE: return createCallProcedure();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object createFromString(EDataType eDataType, String initialValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case EDdslPackage.BOOL_ENUM:
-        return createBoolEnumFromString(eDataType, initialValue);
-      case EDdslPackage.BROWSER_ENUM:
-        return createBrowserEnumFromString(eDataType, initialValue);
-      case EDdslPackage.CLICKABLE_ENUM:
-        return createClickableEnumFromString(eDataType, initialValue);
-      case EDdslPackage.COMPARISON_OPERATOR_ENUM:
-        return createComparisonOperatorEnumFromString(eDataType, initialValue);
-      case EDdslPackage.CONSTRAINT_TYPE_ENUM:
-        return createConstraintTypeEnumFromString(eDataType, initialValue);
-      case EDdslPackage.READABLE_ENUM:
-        return createReadableEnumFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String convertToString(EDataType eDataType, Object instanceValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case EDdslPackage.BOOL_ENUM:
-        return convertBoolEnumToString(eDataType, instanceValue);
-      case EDdslPackage.BROWSER_ENUM:
-        return convertBrowserEnumToString(eDataType, instanceValue);
-      case EDdslPackage.CLICKABLE_ENUM:
-        return convertClickableEnumToString(eDataType, instanceValue);
-      case EDdslPackage.COMPARISON_OPERATOR_ENUM:
-        return convertComparisonOperatorEnumToString(eDataType, instanceValue);
-      case EDdslPackage.CONSTRAINT_TYPE_ENUM:
-        return convertConstraintTypeEnumToString(eDataType, instanceValue);
-      case EDdslPackage.READABLE_ENUM:
-        return convertReadableEnumToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -163,10 +98,10 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ActionNoReturn createActionNoReturn()
+  public Procedure createProcedure()
   {
-    ActionNoReturnImpl actionNoReturn = new ActionNoReturnImpl();
-    return actionNoReturn;
+    ProcedureImpl procedure = new ProcedureImpl();
+    return procedure;
   }
 
   /**
@@ -174,10 +109,10 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ActionReturn createActionReturn()
+  public MainProcedure createMainProcedure()
   {
-    ActionReturnImpl actionReturn = new ActionReturnImpl();
-    return actionReturn;
+    MainProcedureImpl mainProcedure = new MainProcedureImpl();
+    return mainProcedure;
   }
 
   /**
@@ -185,87 +120,10 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ActionBoolReturn createActionBoolReturn()
+  public Instruction createInstruction()
   {
-    ActionBoolReturnImpl actionBoolReturn = new ActionBoolReturnImpl();
-    return actionBoolReturn;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public All createAll()
-  {
-    AllImpl all = new AllImpl();
-    return all;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Attribute createAttribute()
-  {
-    AttributeImpl attribute = new AttributeImpl();
-    return attribute;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Browse createBrowse()
-  {
-    BrowseImpl browse = new BrowseImpl();
-    return browse;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Check createCheck()
-  {
-    CheckImpl check = new CheckImpl();
-    return check;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Comparison createComparison()
-  {
-    ComparisonImpl comparison = new ComparisonImpl();
-    return comparison;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Constraint createConstraint()
-  {
-    ConstraintImpl constraint = new ConstraintImpl();
-    return constraint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Count createCount()
-  {
-    CountImpl count = new CountImpl();
-    return count;
+    InstructionImpl instruction = new InstructionImpl();
+    return instruction;
   }
 
   /**
@@ -284,10 +142,10 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Operation createOperation()
+  public Fill createFill()
   {
-    OperationImpl operation = new OperationImpl();
-    return operation;
+    FillImpl fill = new FillImpl();
+    return fill;
   }
 
   /**
@@ -295,10 +153,10 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameter createParameter()
+  public Select createSelect()
   {
-    ParameterImpl parameter = new ParameterImpl();
-    return parameter;
+    SelectImpl select = new SelectImpl();
+    return select;
   }
 
   /**
@@ -306,10 +164,21 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameters createParameters()
+  public Tick createTick()
   {
-    ParametersImpl parameters = new ParametersImpl();
-    return parameters;
+    TickImpl tick = new TickImpl();
+    return tick;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Navigate createNavigate()
+  {
+    NavigateImpl navigate = new NavigateImpl();
+    return navigate;
   }
 
   /**
@@ -328,10 +197,10 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Series createSeries()
+  public Assert createAssert()
   {
-    SeriesImpl series = new SeriesImpl();
-    return series;
+    AssertImpl assert_ = new AssertImpl();
+    return assert_;
   }
 
   /**
@@ -339,186 +208,10 @@ public class EDdslFactoryImpl extends EFactoryImpl implements EDdslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type createType()
+  public CallProcedure createCallProcedure()
   {
-    TypeImpl type = new TypeImpl();
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Val createVal()
-  {
-    ValImpl val = new ValImpl();
-    return val;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Value createValue()
-  {
-    ValueImpl value = new ValueImpl();
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VariableGet createVariableGet()
-  {
-    VariableGetImpl variableGet = new VariableGetImpl();
-    return variableGet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VariableSet createVariableSet()
-  {
-    VariableSetImpl variableSet = new VariableSetImpl();
-    return variableSet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BoolEnum createBoolEnumFromString(EDataType eDataType, String initialValue)
-  {
-    BoolEnum result = BoolEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertBoolEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BrowserEnum createBrowserEnumFromString(EDataType eDataType, String initialValue)
-  {
-    BrowserEnum result = BrowserEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertBrowserEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ClickableEnum createClickableEnumFromString(EDataType eDataType, String initialValue)
-  {
-    ClickableEnum result = ClickableEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertClickableEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ComparisonOperatorEnum createComparisonOperatorEnumFromString(EDataType eDataType, String initialValue)
-  {
-    ComparisonOperatorEnum result = ComparisonOperatorEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertComparisonOperatorEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ConstraintTypeEnum createConstraintTypeEnumFromString(EDataType eDataType, String initialValue)
-  {
-    ConstraintTypeEnum result = ConstraintTypeEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertConstraintTypeEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ReadableEnum createReadableEnumFromString(EDataType eDataType, String initialValue)
-  {
-    ReadableEnum result = ReadableEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertReadableEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
+    CallProcedureImpl callProcedure = new CallProcedureImpl();
+    return callProcedure;
   }
 
   /**

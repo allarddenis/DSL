@@ -5,42 +5,25 @@ package org.xtext.selenium.eliedenis.eDdsl.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.selenium.eliedenis.eDdsl.ActionBoolReturn;
-import org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn;
-import org.xtext.selenium.eliedenis.eDdsl.ActionReturn;
-import org.xtext.selenium.eliedenis.eDdsl.All;
-import org.xtext.selenium.eliedenis.eDdsl.Attribute;
-import org.xtext.selenium.eliedenis.eDdsl.BoolEnum;
-import org.xtext.selenium.eliedenis.eDdsl.Browse;
-import org.xtext.selenium.eliedenis.eDdsl.BrowserEnum;
-import org.xtext.selenium.eliedenis.eDdsl.Check;
+import org.xtext.selenium.eliedenis.eDdsl.Assert;
+import org.xtext.selenium.eliedenis.eDdsl.CallProcedure;
 import org.xtext.selenium.eliedenis.eDdsl.Click;
-import org.xtext.selenium.eliedenis.eDdsl.ClickableEnum;
-import org.xtext.selenium.eliedenis.eDdsl.Comparison;
-import org.xtext.selenium.eliedenis.eDdsl.ComparisonOperatorEnum;
-import org.xtext.selenium.eliedenis.eDdsl.Constraint;
-import org.xtext.selenium.eliedenis.eDdsl.ConstraintTypeEnum;
-import org.xtext.selenium.eliedenis.eDdsl.Count;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslFactory;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
-import org.xtext.selenium.eliedenis.eDdsl.Operation;
-import org.xtext.selenium.eliedenis.eDdsl.Parameter;
-import org.xtext.selenium.eliedenis.eDdsl.Parameters;
+import org.xtext.selenium.eliedenis.eDdsl.Fill;
+import org.xtext.selenium.eliedenis.eDdsl.Instruction;
+import org.xtext.selenium.eliedenis.eDdsl.MainProcedure;
+import org.xtext.selenium.eliedenis.eDdsl.Navigate;
+import org.xtext.selenium.eliedenis.eDdsl.Procedure;
 import org.xtext.selenium.eliedenis.eDdsl.Read;
-import org.xtext.selenium.eliedenis.eDdsl.ReadableEnum;
-import org.xtext.selenium.eliedenis.eDdsl.Series;
+import org.xtext.selenium.eliedenis.eDdsl.Select;
 import org.xtext.selenium.eliedenis.eDdsl.Test;
-import org.xtext.selenium.eliedenis.eDdsl.Type;
-import org.xtext.selenium.eliedenis.eDdsl.Val;
-import org.xtext.selenium.eliedenis.eDdsl.Value;
-import org.xtext.selenium.eliedenis.eDdsl.VariableGet;
-import org.xtext.selenium.eliedenis.eDdsl.VariableSet;
+import org.xtext.selenium.eliedenis.eDdsl.Tick;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,70 +45,21 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass actionNoReturnEClass = null;
+  private EClass procedureEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass actionReturnEClass = null;
+  private EClass mainProcedureEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass actionBoolReturnEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass allEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass attributeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass browseEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass checkEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass comparisonEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass constraintEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass countEClass = null;
+  private EClass instructionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -139,21 +73,28 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass operationEClass = null;
+  private EClass fillEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass parameterEClass = null;
+  private EClass selectEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass parametersEClass = null;
+  private EClass tickEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass navigateEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -167,84 +108,14 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass seriesEClass = null;
+  private EClass assertEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass typeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass valEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass valueEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass variableGetEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass variableSetEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum boolEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum browserEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum clickableEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum comparisonOperatorEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum constraintTypeEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum readableEnumEEnum = null;
+  private EClass callProcedureEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -324,7 +195,7 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTest_Tests()
+  public EReference getTest_Procedures()
   {
     return (EReference)testEClass.getEStructuralFeatures().get(0);
   }
@@ -334,9 +205,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getActionNoReturn()
+  public EReference getTest_Main()
   {
-    return actionNoReturnEClass;
+    return (EReference)testEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -344,9 +215,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getActionReturn()
+  public EClass getProcedure()
   {
-    return actionReturnEClass;
+    return procedureEClass;
   }
 
   /**
@@ -354,9 +225,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getActionBoolReturn()
+  public EAttribute getProcedure_Name()
   {
-    return actionBoolReturnEClass;
+    return (EAttribute)procedureEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -364,9 +235,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAll()
+  public EAttribute getProcedure_Parameters()
   {
-    return allEClass;
+    return (EAttribute)procedureEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -374,9 +245,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAll_Operation()
+  public EReference getProcedure_Instructions()
   {
-    return (EReference)allEClass.getEStructuralFeatures().get(0);
+    return (EReference)procedureEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -384,9 +255,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAttribute()
+  public EClass getMainProcedure()
   {
-    return attributeEClass;
+    return mainProcedureEClass;
   }
 
   /**
@@ -394,9 +265,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttribute_AttributeName()
+  public EReference getMainProcedure_Instructions()
   {
-    return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
+    return (EReference)mainProcedureEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -404,159 +275,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttribute_AttributeValue()
+  public EClass getInstruction()
   {
-    return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBrowse()
-  {
-    return browseEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBrowse_Url()
-  {
-    return (EAttribute)browseEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCheck()
-  {
-    return checkEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCheck_Action()
-  {
-    return (EReference)checkEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getComparison()
-  {
-    return comparisonEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getComparison_FirstVal()
-  {
-    return (EReference)comparisonEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getComparison_ComparatorOperator()
-  {
-    return (EAttribute)comparisonEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getComparison_SecondVal()
-  {
-    return (EReference)comparisonEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getConstraint()
-  {
-    return constraintEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstraint_ReadableElement()
-  {
-    return (EAttribute)constraintEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstraint_ConstraintType()
-  {
-    return (EAttribute)constraintEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getConstraint_ExpectedVal()
-  {
-    return (EReference)constraintEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getConstraint_Parameters()
-  {
-    return (EReference)constraintEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCount()
-  {
-    return countEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCount_Parameters()
-  {
-    return (EReference)countEClass.getEStructuralFeatures().get(0);
+    return instructionEClass;
   }
 
   /**
@@ -574,7 +295,7 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClick_ClickableElement()
+  public EAttribute getClick_Type()
   {
     return (EAttribute)clickEClass.getEStructuralFeatures().get(0);
   }
@@ -584,9 +305,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClick_Parameters()
+  public EAttribute getClick_Value()
   {
-    return (EReference)clickEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)clickEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -594,9 +315,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getOperation()
+  public EClass getFill()
   {
-    return operationEClass;
+    return fillEClass;
   }
 
   /**
@@ -604,9 +325,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOperation_Action()
+  public EAttribute getFill_Name()
   {
-    return (EReference)operationEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)fillEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -614,9 +335,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getParameter()
+  public EAttribute getFill_Value()
   {
-    return parameterEClass;
+    return (EAttribute)fillEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -624,9 +345,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParameter_Parameter()
+  public EClass getSelect()
   {
-    return (EReference)parameterEClass.getEStructuralFeatures().get(0);
+    return selectEClass;
   }
 
   /**
@@ -634,9 +355,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getParameters()
+  public EAttribute getSelect_Name()
   {
-    return parametersEClass;
+    return (EAttribute)selectEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -644,9 +365,49 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParameters_Parameters()
+  public EAttribute getSelect_Value()
   {
-    return (EReference)parametersEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)selectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTick()
+  {
+    return tickEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTick_Name()
+  {
+    return (EAttribute)tickEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNavigate()
+  {
+    return navigateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNavigate_Url()
+  {
+    return (EAttribute)navigateEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -664,7 +425,7 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRead_ReadableElement()
+  public EAttribute getRead_Variable()
   {
     return (EAttribute)readEClass.getEStructuralFeatures().get(0);
   }
@@ -674,9 +435,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRead_Parameters()
+  public EAttribute getRead_Name()
   {
-    return (EReference)readEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)readEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -684,9 +445,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSeries()
+  public EClass getAssert()
   {
-    return seriesEClass;
+    return assertEClass;
   }
 
   /**
@@ -694,9 +455,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSeries_Browser()
+  public EAttribute getAssert_Type()
   {
-    return (EAttribute)seriesEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)assertEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -704,9 +465,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSeries_ExpectedReturn()
+  public EAttribute getAssert_Name()
   {
-    return (EAttribute)seriesEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)assertEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -714,9 +475,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSeries_Operations()
+  public EAttribute getAssert_Method()
   {
-    return (EReference)seriesEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)assertEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -724,9 +485,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getType()
+  public EAttribute getAssert_Value()
   {
-    return typeEClass;
+    return (EAttribute)assertEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -734,9 +495,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_TextToType()
+  public EClass getCallProcedure()
   {
-    return (EReference)typeEClass.getEStructuralFeatures().get(0);
+    return callProcedureEClass;
   }
 
   /**
@@ -744,9 +505,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_Parameters()
+  public EAttribute getCallProcedure_ProcedureName()
   {
-    return (EReference)typeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)callProcedureEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -754,149 +515,9 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getVal()
+  public EAttribute getCallProcedure_Parameters()
   {
-    return valEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getVal_Bool()
-  {
-    return (EAttribute)valEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getValue()
-  {
-    return valueEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getValue_Value()
-  {
-    return (EReference)valueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getVariableGet()
-  {
-    return variableGetEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getVariableGet_VarName()
-  {
-    return (EAttribute)variableGetEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getVariableSet()
-  {
-    return variableSetEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getVariableSet_VarName()
-  {
-    return (EAttribute)variableSetEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getVariableSet_Action()
-  {
-    return (EReference)variableSetEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getBoolEnum()
-  {
-    return boolEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getBrowserEnum()
-  {
-    return browserEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getClickableEnum()
-  {
-    return clickableEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getComparisonOperatorEnum()
-  {
-    return comparisonOperatorEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getConstraintTypeEnum()
-  {
-    return constraintTypeEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getReadableEnum()
-  {
-    return readableEnumEEnum;
+    return (EAttribute)callProcedureEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -930,87 +551,50 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
 
     // Create classes and their features
     testEClass = createEClass(TEST);
-    createEReference(testEClass, TEST__TESTS);
+    createEReference(testEClass, TEST__PROCEDURES);
+    createEReference(testEClass, TEST__MAIN);
 
-    actionNoReturnEClass = createEClass(ACTION_NO_RETURN);
+    procedureEClass = createEClass(PROCEDURE);
+    createEAttribute(procedureEClass, PROCEDURE__NAME);
+    createEAttribute(procedureEClass, PROCEDURE__PARAMETERS);
+    createEReference(procedureEClass, PROCEDURE__INSTRUCTIONS);
 
-    actionReturnEClass = createEClass(ACTION_RETURN);
+    mainProcedureEClass = createEClass(MAIN_PROCEDURE);
+    createEReference(mainProcedureEClass, MAIN_PROCEDURE__INSTRUCTIONS);
 
-    actionBoolReturnEClass = createEClass(ACTION_BOOL_RETURN);
-
-    allEClass = createEClass(ALL);
-    createEReference(allEClass, ALL__OPERATION);
-
-    attributeEClass = createEClass(ATTRIBUTE);
-    createEAttribute(attributeEClass, ATTRIBUTE__ATTRIBUTE_NAME);
-    createEAttribute(attributeEClass, ATTRIBUTE__ATTRIBUTE_VALUE);
-
-    browseEClass = createEClass(BROWSE);
-    createEAttribute(browseEClass, BROWSE__URL);
-
-    checkEClass = createEClass(CHECK);
-    createEReference(checkEClass, CHECK__ACTION);
-
-    comparisonEClass = createEClass(COMPARISON);
-    createEReference(comparisonEClass, COMPARISON__FIRST_VAL);
-    createEAttribute(comparisonEClass, COMPARISON__COMPARATOR_OPERATOR);
-    createEReference(comparisonEClass, COMPARISON__SECOND_VAL);
-
-    constraintEClass = createEClass(CONSTRAINT);
-    createEAttribute(constraintEClass, CONSTRAINT__READABLE_ELEMENT);
-    createEAttribute(constraintEClass, CONSTRAINT__CONSTRAINT_TYPE);
-    createEReference(constraintEClass, CONSTRAINT__EXPECTED_VAL);
-    createEReference(constraintEClass, CONSTRAINT__PARAMETERS);
-
-    countEClass = createEClass(COUNT);
-    createEReference(countEClass, COUNT__PARAMETERS);
+    instructionEClass = createEClass(INSTRUCTION);
 
     clickEClass = createEClass(CLICK);
-    createEAttribute(clickEClass, CLICK__CLICKABLE_ELEMENT);
-    createEReference(clickEClass, CLICK__PARAMETERS);
+    createEAttribute(clickEClass, CLICK__TYPE);
+    createEAttribute(clickEClass, CLICK__VALUE);
 
-    operationEClass = createEClass(OPERATION);
-    createEReference(operationEClass, OPERATION__ACTION);
+    fillEClass = createEClass(FILL);
+    createEAttribute(fillEClass, FILL__NAME);
+    createEAttribute(fillEClass, FILL__VALUE);
 
-    parameterEClass = createEClass(PARAMETER);
-    createEReference(parameterEClass, PARAMETER__PARAMETER);
+    selectEClass = createEClass(SELECT);
+    createEAttribute(selectEClass, SELECT__NAME);
+    createEAttribute(selectEClass, SELECT__VALUE);
 
-    parametersEClass = createEClass(PARAMETERS);
-    createEReference(parametersEClass, PARAMETERS__PARAMETERS);
+    tickEClass = createEClass(TICK);
+    createEAttribute(tickEClass, TICK__NAME);
+
+    navigateEClass = createEClass(NAVIGATE);
+    createEAttribute(navigateEClass, NAVIGATE__URL);
 
     readEClass = createEClass(READ);
-    createEAttribute(readEClass, READ__READABLE_ELEMENT);
-    createEReference(readEClass, READ__PARAMETERS);
+    createEAttribute(readEClass, READ__VARIABLE);
+    createEAttribute(readEClass, READ__NAME);
 
-    seriesEClass = createEClass(SERIES);
-    createEAttribute(seriesEClass, SERIES__BROWSER);
-    createEAttribute(seriesEClass, SERIES__EXPECTED_RETURN);
-    createEReference(seriesEClass, SERIES__OPERATIONS);
+    assertEClass = createEClass(ASSERT);
+    createEAttribute(assertEClass, ASSERT__TYPE);
+    createEAttribute(assertEClass, ASSERT__NAME);
+    createEAttribute(assertEClass, ASSERT__METHOD);
+    createEAttribute(assertEClass, ASSERT__VALUE);
 
-    typeEClass = createEClass(TYPE);
-    createEReference(typeEClass, TYPE__TEXT_TO_TYPE);
-    createEReference(typeEClass, TYPE__PARAMETERS);
-
-    valEClass = createEClass(VAL);
-    createEAttribute(valEClass, VAL__BOOL);
-
-    valueEClass = createEClass(VALUE);
-    createEReference(valueEClass, VALUE__VALUE);
-
-    variableGetEClass = createEClass(VARIABLE_GET);
-    createEAttribute(variableGetEClass, VARIABLE_GET__VAR_NAME);
-
-    variableSetEClass = createEClass(VARIABLE_SET);
-    createEAttribute(variableSetEClass, VARIABLE_SET__VAR_NAME);
-    createEReference(variableSetEClass, VARIABLE_SET__ACTION);
-
-    // Create enums
-    boolEnumEEnum = createEEnum(BOOL_ENUM);
-    browserEnumEEnum = createEEnum(BROWSER_ENUM);
-    clickableEnumEEnum = createEEnum(CLICKABLE_ENUM);
-    comparisonOperatorEnumEEnum = createEEnum(COMPARISON_OPERATOR_ENUM);
-    constraintTypeEnumEEnum = createEEnum(CONSTRAINT_TYPE_ENUM);
-    readableEnumEEnum = createEEnum(READABLE_ENUM);
+    callProcedureEClass = createEClass(CALL_PROCEDURE);
+    createEAttribute(callProcedureEClass, CALL_PROCEDURE__PROCEDURE_NAME);
+    createEAttribute(callProcedureEClass, CALL_PROCEDURE__PARAMETERS);
   }
 
   /**
@@ -1042,124 +626,61 @@ public class EDdslPackageImpl extends EPackageImpl implements EDdslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    allEClass.getESuperTypes().add(this.getActionNoReturn());
-    browseEClass.getESuperTypes().add(this.getActionNoReturn());
-    checkEClass.getESuperTypes().add(this.getActionNoReturn());
-    comparisonEClass.getESuperTypes().add(this.getActionBoolReturn());
-    constraintEClass.getESuperTypes().add(this.getActionBoolReturn());
-    countEClass.getESuperTypes().add(this.getActionReturn());
-    clickEClass.getESuperTypes().add(this.getActionNoReturn());
-    readEClass.getESuperTypes().add(this.getActionReturn());
-    typeEClass.getESuperTypes().add(this.getActionNoReturn());
-    variableGetEClass.getESuperTypes().add(this.getVal());
-    variableSetEClass.getESuperTypes().add(this.getActionNoReturn());
+    clickEClass.getESuperTypes().add(this.getInstruction());
+    fillEClass.getESuperTypes().add(this.getInstruction());
+    selectEClass.getESuperTypes().add(this.getInstruction());
+    tickEClass.getESuperTypes().add(this.getInstruction());
+    navigateEClass.getESuperTypes().add(this.getInstruction());
+    readEClass.getESuperTypes().add(this.getInstruction());
+    assertEClass.getESuperTypes().add(this.getInstruction());
+    callProcedureEClass.getESuperTypes().add(this.getInstruction());
 
     // Initialize classes and features; add operations and parameters
     initEClass(testEClass, Test.class, "Test", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTest_Tests(), this.getSeries(), null, "tests", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTest_Procedures(), this.getProcedure(), null, "procedures", null, 0, -1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTest_Main(), this.getMainProcedure(), null, "main", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(actionNoReturnEClass, ActionNoReturn.class, "ActionNoReturn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(procedureEClass, Procedure.class, "Procedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProcedure_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProcedure_Parameters(), ecorePackage.getEString(), "Parameters", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcedure_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(actionReturnEClass, ActionReturn.class, "ActionReturn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(mainProcedureEClass, MainProcedure.class, "MainProcedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMainProcedure_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, MainProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(actionBoolReturnEClass, ActionBoolReturn.class, "ActionBoolReturn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(allEClass, All.class, "All", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAll_Operation(), this.getActionNoReturn(), null, "operation", null, 0, 1, All.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAttribute_AttributeName(), ecorePackage.getEString(), "attributeName", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttribute_AttributeValue(), ecorePackage.getEString(), "attributeValue", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(browseEClass, Browse.class, "Browse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBrowse_Url(), ecorePackage.getEString(), "url", null, 0, 1, Browse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(checkEClass, Check.class, "Check", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCheck_Action(), this.getActionBoolReturn(), null, "action", null, 0, 1, Check.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getComparison_FirstVal(), this.getVal(), null, "firstVal", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComparison_ComparatorOperator(), this.getComparisonOperatorEnum(), "comparatorOperator", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComparison_SecondVal(), this.getVal(), null, "secondVal", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getConstraint_ReadableElement(), this.getReadableEnum(), "readableElement", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConstraint_ConstraintType(), this.getConstraintTypeEnum(), "constraintType", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConstraint_ExpectedVal(), this.getVal(), null, "expectedVal", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConstraint_Parameters(), this.getParameters(), null, "parameters", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(countEClass, Count.class, "Count", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCount_Parameters(), ecorePackage.getEObject(), null, "parameters", null, 0, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(clickEClass, Click.class, "Click", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getClick_ClickableElement(), this.getClickableEnum(), "clickableElement", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClick_Parameters(), this.getParameters(), null, "parameters", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClick_Type(), ecorePackage.getEString(), "Type", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClick_Value(), ecorePackage.getEString(), "Value", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOperation_Action(), this.getActionNoReturn(), null, "action", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(fillEClass, Fill.class, "Fill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFill_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Fill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFill_Value(), ecorePackage.getEString(), "Value", null, 0, 1, Fill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParameter_Parameter(), ecorePackage.getEObject(), null, "parameter", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(selectEClass, Select.class, "Select", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSelect_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Select.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSelect_Value(), ecorePackage.getEString(), "Value", null, 0, 1, Select.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(parametersEClass, Parameters.class, "Parameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParameters_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Parameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(tickEClass, Tick.class, "Tick", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTick_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Tick.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(navigateEClass, Navigate.class, "Navigate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNavigate_Url(), ecorePackage.getEString(), "url", null, 0, 1, Navigate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(readEClass, Read.class, "Read", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRead_ReadableElement(), this.getReadableEnum(), "readableElement", null, 0, 1, Read.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRead_Parameters(), this.getParameters(), null, "parameters", null, 0, 1, Read.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRead_Variable(), ecorePackage.getEString(), "Variable", null, 0, 1, Read.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRead_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Read.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(seriesEClass, Series.class, "Series", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSeries_Browser(), this.getBrowserEnum(), "browser", null, 0, 1, Series.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSeries_ExpectedReturn(), this.getBoolEnum(), "expectedReturn", null, 0, 1, Series.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSeries_Operations(), this.getOperation(), null, "operations", null, 0, -1, Series.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(assertEClass, Assert.class, "Assert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAssert_Type(), ecorePackage.getEString(), "Type", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssert_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssert_Method(), ecorePackage.getEString(), "Method", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssert_Value(), ecorePackage.getEString(), "Value", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getType_TextToType(), this.getVal(), null, "textToType", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getType_Parameters(), this.getParameters(), null, "parameters", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(valEClass, Val.class, "Val", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVal_Bool(), this.getBoolEnum(), "bool", null, 0, 1, Val.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getValue_Value(), this.getVal(), null, "value", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(variableGetEClass, VariableGet.class, "VariableGet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableGet_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, VariableGet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(variableSetEClass, VariableSet.class, "VariableSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableSet_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, VariableSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariableSet_Action(), this.getActionReturn(), null, "action", null, 0, 1, VariableSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    // Initialize enums and add enum literals
-    initEEnum(boolEnumEEnum, BoolEnum.class, "BoolEnum");
-    addEEnumLiteral(boolEnumEEnum, BoolEnum.TRUE);
-    addEEnumLiteral(boolEnumEEnum, BoolEnum.FALSE);
-
-    initEEnum(browserEnumEEnum, BrowserEnum.class, "BrowserEnum");
-    addEEnumLiteral(browserEnumEEnum, BrowserEnum.FIREFOX);
-    addEEnumLiteral(browserEnumEEnum, BrowserEnum.IE);
-
-    initEEnum(clickableEnumEEnum, ClickableEnum.class, "ClickableEnum");
-    addEEnumLiteral(clickableEnumEEnum, ClickableEnum.BUTTON);
-    addEEnumLiteral(clickableEnumEEnum, ClickableEnum.LINK);
-    addEEnumLiteral(clickableEnumEEnum, ClickableEnum.INPUT);
-
-    initEEnum(comparisonOperatorEnumEEnum, ComparisonOperatorEnum.class, "ComparisonOperatorEnum");
-    addEEnumLiteral(comparisonOperatorEnumEEnum, ComparisonOperatorEnum.EQUAL);
-    addEEnumLiteral(comparisonOperatorEnumEEnum, ComparisonOperatorEnum.SUPERIOR);
-    addEEnumLiteral(comparisonOperatorEnumEEnum, ComparisonOperatorEnum.INFERIOR);
-    addEEnumLiteral(comparisonOperatorEnumEEnum, ComparisonOperatorEnum.SUP_EQUAL);
-    addEEnumLiteral(comparisonOperatorEnumEEnum, ComparisonOperatorEnum.INF_EQUAL);
-
-    initEEnum(constraintTypeEnumEEnum, ConstraintTypeEnum.class, "ConstraintTypeEnum");
-    addEEnumLiteral(constraintTypeEnumEEnum, ConstraintTypeEnum.CONTAIN);
-    addEEnumLiteral(constraintTypeEnumEEnum, ConstraintTypeEnum.ENABLED);
-
-    initEEnum(readableEnumEEnum, ReadableEnum.class, "ReadableEnum");
-    addEEnumLiteral(readableEnumEEnum, ReadableEnum.BUTTON);
-    addEEnumLiteral(readableEnumEEnum, ReadableEnum.LINK);
-    addEEnumLiteral(readableEnumEEnum, ReadableEnum.INPUT);
-    addEEnumLiteral(readableEnumEEnum, ReadableEnum.H1);
+    initEClass(callProcedureEClass, CallProcedure.class, "CallProcedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCallProcedure_ProcedureName(), ecorePackage.getEString(), "ProcedureName", null, 0, 1, CallProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCallProcedure_Parameters(), ecorePackage.getEString(), "Parameters", null, 0, -1, CallProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

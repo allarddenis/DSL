@@ -3,31 +3,32 @@
  */
 package org.xtext.selenium.eliedenis.generator;
 
-import com.google.common.base.Objects;
-import com.google.inject.Inject;
+import com.google.common.collect.Iterables;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
+import java.util.HashMap;
+import java.util.List;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn;
-import org.xtext.selenium.eliedenis.eDdsl.All;
-import org.xtext.selenium.eliedenis.eDdsl.Browse;
-import org.xtext.selenium.eliedenis.eDdsl.BrowserEnum;
-import org.xtext.selenium.eliedenis.eDdsl.Check;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.xtext.selenium.eliedenis.eDdsl.Assert;
+import org.xtext.selenium.eliedenis.eDdsl.CallProcedure;
 import org.xtext.selenium.eliedenis.eDdsl.Click;
-import org.xtext.selenium.eliedenis.eDdsl.Operation;
-import org.xtext.selenium.eliedenis.eDdsl.Series;
+import org.xtext.selenium.eliedenis.eDdsl.Fill;
+import org.xtext.selenium.eliedenis.eDdsl.Instruction;
+import org.xtext.selenium.eliedenis.eDdsl.Navigate;
+import org.xtext.selenium.eliedenis.eDdsl.Procedure;
+import org.xtext.selenium.eliedenis.eDdsl.Read;
+import org.xtext.selenium.eliedenis.eDdsl.Select;
 import org.xtext.selenium.eliedenis.eDdsl.Test;
-import org.xtext.selenium.eliedenis.eDdsl.Type;
-import org.xtext.selenium.eliedenis.eDdsl.VariableSet;
+import org.xtext.selenium.eliedenis.eDdsl.Tick;
+import org.xtext.selenium.eliedenis.generator.Counter;
 
 /**
  * Generates code from your model files on save.
@@ -36,158 +37,567 @@ import org.xtext.selenium.eliedenis.eDdsl.VariableSet;
  */
 @SuppressWarnings("all")
 public class EDdslGenerator extends AbstractGenerator {
-  @Inject
-  @Extension
-  private IQualifiedNameProvider _iQualifiedNameProvider;
+  private HashMap<String, List<String>> proceduresContext;
+  
+  private Counter elementCounter;
+  
+  public HashMap<String, List<String>> initializeContext() {
+    HashMap<String, List<String>> _xblockexpression = null;
+    {
+      Counter _counter = new Counter();
+      this.elementCounter = _counter;
+      HashMap<String, List<String>> _hashMap = new HashMap<String, List<String>>();
+      _xblockexpression = this.proceduresContext = _hashMap;
+    }
+    return _xblockexpression;
+  }
+  
+  public HashMap<String, List<String>> destroyContext() {
+    HashMap<String, List<String>> _xblockexpression = null;
+    {
+      this.elementCounter = null;
+      _xblockexpression = this.proceduresContext = null;
+    }
+    return _xblockexpression;
+  }
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
-    Test test = ((Test) _head);
-    String sep = File.separator;
-    String filePath = (("denis" + sep) + "TestLauncher.java");
-    fsa.generateFile(filePath, this.compileHeader(test));
+    this.initializeContext();
+    fsa.generateFile(
+      (("browserautomation" + File.separator) + "test.java"), 
+      this.generateTest(IterableExtensions.<Test>head(Iterables.<Test>filter(resource.getContents(), Test.class))));
+    this.destroyContext();
   }
   
-  public CharSequence compileHeader(final Test test) {
+  public CharSequence generateTest(final Test st) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("    ");
+    _builder.append("package browserautomation;");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("import org.openqa.selenium.By;");
     _builder.newLine();
-    _builder.append("    ");
     _builder.append("import org.openqa.selenium.WebDriver;");
     _builder.newLine();
-    _builder.append("    ");
     _builder.append("import org.openqa.selenium.WebElement;");
     _builder.newLine();
-    _builder.append("    ");
-    _builder.append("import org.openqa.selenium.firefox.FirefoxDriver;");
+    _builder.append("import org.openqa.selenium.chrome.ChromeDriver;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.support.ui.Select;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class SeleniumTest {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("import org.openqa.selenium.support.ui.ExpectedCondition;");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("import org.openqa.selenium.support.ui.WebDriverWait;");
+    _builder.append("private static WebDriver webDriver;");
     _builder.newLine();
     _builder.append("    ");
     _builder.newLine();
-    _builder.append("public class TestApp {");
+    _builder.append("    ");
+    final Function1<Procedure, String> _function = (Procedure p) -> {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      final Function1<String, String> _function_1 = (String par) -> {
+        StringConcatenation _builder_2 = new StringConcatenation();
+        _builder_2.append("String ");
+        _builder_2.append(par);
+        return _builder_2.toString();
+      };
+      final String params = IterableExtensions.join(ListExtensions.<String, String>map(p.getParameters(), _function_1), ", ");
+      _builder_1.newLineIfNotEmpty();
+      _builder_1.append("private static void ");
+      String _name = p.getName();
+      _builder_1.append(_name);
+      _builder_1.append(" (");
+      _builder_1.append(params);
+      _builder_1.append(") {");
+      _builder_1.newLineIfNotEmpty();
+      _builder_1.append("    ");
+      List<String> _put = this.proceduresContext.put(p.getName(), p.getParameters());
+      _builder_1.append(_put, "    ");
+      _builder_1.newLineIfNotEmpty();
+      _builder_1.append("    ");
+      final Function1<Instruction, CharSequence> _function_2 = (Instruction i) -> {
+        return this.generateInstruction(i, p.getName());
+      };
+      String _join = IterableExtensions.join(ListExtensions.<Instruction, CharSequence>map(p.getInstructions(), _function_2));
+      _builder_1.append(_join, "    ");
+      _builder_1.newLineIfNotEmpty();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      return _builder_1.toString();
+    };
+    String _join = IterableExtensions.join(ListExtensions.<Procedure, String>map(st.getProcedures(), _function));
+    _builder.append(_join, "    ");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
     _builder.newLine();
-    _builder.append("\t");
+    _builder.append("    ");
     _builder.append("public static void main(String[] args) {");
     _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("SwingUtilities.invokeLater(new Runnable() { ");
+    _builder.append("        ");
+    _builder.append("// Initialize Selenium web driver for Google Chrome");
     _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("public void run() {");
+    _builder.append("        ");
+    _builder.append("System.setProperty(\"webdriver.chrome.driver\", \"lib/chromedriver\");");
     _builder.newLine();
-    _builder.append("\t\t\t\t");
-    CharSequence _initiateDriver = this.initiateDriver(test.getTests());
-    _builder.append(_initiateDriver, "\t\t\t\t");
+    _builder.append("        ");
+    _builder.append("webDriver = new ChromeDriver();");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.newLine();
+    _builder.append("        ");
+    ArrayList<String> _arrayList = new ArrayList<String>();
+    List<String> _put = this.proceduresContext.put("main", _arrayList);
+    _builder.append(_put, "        ");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t\t");
+    _builder.append("        ");
+    final Function1<Instruction, CharSequence> _function_1 = (Instruction i) -> {
+      return this.generateInstruction(i, "main");
+    };
+    String _join_1 = IterableExtensions.join(ListExtensions.<Instruction, CharSequence>map(st.getMain().getInstructions(), _function_1));
+    _builder.append(_join_1, "        ");
+    _builder.newLineIfNotEmpty();
+    _builder.append("        ");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("// Close the browser");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("webDriver.quit();");
+    _builder.newLine();
+    _builder.append("    ");
     _builder.append("}");
     _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("});");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("}");
-    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
   }
   
-  public CharSequence initiateDriver(final Series series) {
+  protected CharSequence _generateInstruction(final Navigate n, final String methodName) {
     StringConcatenation _builder = new StringConcatenation();
-    {
-      BrowserEnum _browser = series.getBrowser();
-      boolean _equals = Objects.equal(_browser, BrowserEnum.FIREFOX);
-      if (_equals) {
-        _builder.append("WebDriver driver = new FireFoxDriver();");
-        _builder.newLine();
-        _builder.newLine();
-        CharSequence _core = this.core(series);
-        _builder.append(_core);
-        _builder.newLineIfNotEmpty();
-        _builder.newLine();
-        _builder.append("driver.quit();");
-        _builder.newLine();
-      }
-    }
-    return _builder;
-  }
-  
-  public CharSequence core(final Series series) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<Operation> _operations = series.getOperations();
-      for(final Operation op : _operations) {
-        CharSequence _writeOperation = this.writeOperation(op.getAction());
-        _builder.append(_writeOperation);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  protected CharSequence _writeOperation(final All allAction) {
-    StringConcatenation _builder = new StringConcatenation();
-    return _builder;
-  }
-  
-  protected CharSequence _writeOperation(final Browse browseAction) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("driver.get(\"");
-    String _url = browseAction.getUrl();
+    _builder.append("webDriver.get(\"");
+    String _url = n.getUrl();
     _builder.append(_url);
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  protected CharSequence _writeOperation(final Check checkAction) {
+  protected CharSequence _generateInstruction(final Click c, final String methodName) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("    ");
-    _builder.newLine();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("element");
+    int _nextCount = this.elementCounter.nextCount();
+    _builder_1.append(_nextCount);
+    final String eltName = _builder_1.toString();
+    _builder.newLineIfNotEmpty();
+    final String clickValue = c.getValue();
+    _builder.newLineIfNotEmpty();
+    CharSequence _switchResult = null;
+    String _type = c.getType();
+    if (_type != null) {
+      switch (_type) {
+        case "input":
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("WebElement ");
+          _builder_2.append(eltName);
+          _builder_2.append(" = webDriver.findElement(By.xpath(\"//input[@value=\\\"");
+          _builder_2.append(clickValue);
+          _builder_2.append("\\\"]\"));");
+          _switchResult = _builder_2;
+          break;
+        case "link":
+          StringConcatenation _builder_3 = new StringConcatenation();
+          _builder_3.append("WebElement ");
+          _builder_3.append(eltName);
+          _builder_3.append(" = webDriver.findElement(By.linkText(\"");
+          _builder_3.append(clickValue);
+          _builder_3.append("\"));");
+          _switchResult = _builder_3;
+          break;
+        case "xpath":
+          StringConcatenation _builder_4 = new StringConcatenation();
+          _builder_4.append("WebElement ");
+          _builder_4.append(eltName);
+          _builder_4.append(" = webDriver.findElement(By.xpath(\"");
+          _builder_4.append(clickValue);
+          _builder_4.append("\"));");
+          _switchResult = _builder_4;
+          break;
+        case "name":
+          StringConcatenation _builder_5 = new StringConcatenation();
+          _builder_5.append("WebElement ");
+          _builder_5.append(eltName);
+          _builder_5.append(" = webDriver.findElement(By.name(\"");
+          _builder_5.append(clickValue);
+          _builder_5.append("\"));");
+          _switchResult = _builder_5;
+          break;
+        default:
+          StringConcatenation _builder_6 = new StringConcatenation();
+          _builder_6.append("// FIXME unrecognized click instruction: click ");
+          String _type_1 = c.getType();
+          _builder_6.append(_type_1);
+          _builder_6.append(" ");
+          _builder_6.append(clickValue);
+          _switchResult = _builder_6;
+          break;
+      }
+    } else {
+      StringConcatenation _builder_6 = new StringConcatenation();
+      _builder_6.append("// FIXME unrecognized click instruction: click ");
+      String _type_1 = c.getType();
+      _builder_6.append(_type_1);
+      _builder_6.append(" ");
+      _builder_6.append(clickValue);
+      _switchResult = _builder_6;
+    }
+    _builder.append(_switchResult);
+    _builder.newLineIfNotEmpty();
+    _builder.append(eltName);
+    _builder.append(".click();");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  protected CharSequence _writeOperation(final Click clickAction) {
+  protected CharSequence _generateInstruction(final Fill f, final String methodName) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("    ");
-    _builder.newLine();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("element");
+    int _nextCount = this.elementCounter.nextCount();
+    _builder_1.append(_nextCount);
+    final String eltName = _builder_1.toString();
+    _builder.newLineIfNotEmpty();
+    _builder.append("WebElement ");
+    _builder.append(eltName);
+    _builder.append(" = webDriver.findElement(By.name(\"");
+    String _name = f.getName();
+    _builder.append(_name);
+    _builder.append("\"));");
+    _builder.newLineIfNotEmpty();
+    _builder.append(eltName);
+    _builder.append(".clear();");
+    _builder.newLineIfNotEmpty();
+    _builder.append(eltName);
+    _builder.append(".sendKeys(");
+    {
+      boolean _contains = this.proceduresContext.get(methodName).contains(f.getValue());
+      if (_contains) {
+        String _value = f.getValue();
+        _builder.append(_value);
+      } else {
+        _builder.append("\"");
+        String _value_1 = f.getValue();
+        _builder.append(_value_1);
+        _builder.append("\"");
+      }
+    }
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  protected CharSequence _writeOperation(final Type typeAction) {
+  protected CharSequence _generateInstruction(final Tick t, final String methodName) {
     StringConcatenation _builder = new StringConcatenation();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("element");
+    int _nextCount = this.elementCounter.nextCount();
+    _builder_1.append(_nextCount);
+    final String eltName = _builder_1.toString();
+    _builder.newLineIfNotEmpty();
+    _builder.append("WebElement ");
+    _builder.append(eltName);
+    _builder.append(" = webDriver.findElement(By.name(\"");
+    String _name = t.getName();
+    _builder.append(_name);
+    _builder.append("\"));");
+    _builder.newLineIfNotEmpty();
+    _builder.append(eltName);
+    _builder.append(".click();");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  protected CharSequence _writeOperation(final VariableSet variableSetAction) {
+  protected CharSequence _generateInstruction(final Select s, final String methodName) {
     StringConcatenation _builder = new StringConcatenation();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("element");
+    int _nextCount = this.elementCounter.nextCount();
+    _builder_1.append(_nextCount);
+    final String eltName = _builder_1.toString();
+    _builder.newLineIfNotEmpty();
+    _builder.append("Select ");
+    _builder.append(eltName);
+    _builder.append(" = new Select(webDriver.findElement(By.name(\"");
+    String _name = s.getName();
+    _builder.append(_name);
+    _builder.append("\")));");
+    _builder.newLineIfNotEmpty();
+    _builder.append(eltName);
+    _builder.append(".selectByVisibleText(\"");
+    String _value = s.getValue();
+    _builder.append(_value);
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  public CharSequence writeOperation(final ActionNoReturn allAction) {
-    if (allAction instanceof All) {
-      return _writeOperation((All)allAction);
-    } else if (allAction instanceof Browse) {
-      return _writeOperation((Browse)allAction);
-    } else if (allAction instanceof Check) {
-      return _writeOperation((Check)allAction);
-    } else if (allAction instanceof Click) {
-      return _writeOperation((Click)allAction);
-    } else if (allAction instanceof Type) {
-      return _writeOperation((Type)allAction);
-    } else if (allAction instanceof VariableSet) {
-      return _writeOperation((VariableSet)allAction);
+  protected CharSequence _generateInstruction(final Read r, final String methodName) {
+    CharSequence _xblockexpression = null;
+    {
+      this.proceduresContext.get(methodName).add(r.getVariable());
+      StringConcatenation _builder = new StringConcatenation();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("element");
+      int _nextCount = this.elementCounter.nextCount();
+      _builder_1.append(_nextCount);
+      final String eltName = _builder_1.toString();
+      _builder.newLineIfNotEmpty();
+      _builder.append("WebElement ");
+      _builder.append(eltName);
+      _builder.append(" = webDriver.findElement(By.name(\"");
+      String _name = r.getName();
+      _builder.append(_name);
+      _builder.append("\"));");
+      _builder.newLineIfNotEmpty();
+      _builder.append("String ");
+      String _variable = r.getVariable();
+      _builder.append(_variable);
+      _builder.append(" = ");
+      _builder.append(eltName);
+      _builder.append(".getAttribute(\"value\");");
+      _builder.newLineIfNotEmpty();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  protected CharSequence _generateInstruction(final Assert a, final String methodName) {
+    StringConcatenation _builder = new StringConcatenation();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("element");
+    int _nextCount = this.elementCounter.nextCount();
+    _builder_1.append(_nextCount);
+    final String eltName = _builder_1.toString();
+    _builder.newLineIfNotEmpty();
+    final String assertName = a.getName();
+    _builder.newLineIfNotEmpty();
+    final String assertValue = a.getValue();
+    _builder.newLineIfNotEmpty();
+    CharSequence _switchResult = null;
+    String _type = a.getType();
+    if (_type != null) {
+      switch (_type) {
+        case "input":
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("WebElement ");
+          _builder_2.append(eltName);
+          _builder_2.append(" = webDriver.findElement(By.xpath(\"//input[@value=\\\"");
+          _builder_2.append(assertName);
+          _builder_2.append("\\\"]\"));");
+          _switchResult = _builder_2;
+          break;
+        case "link":
+          StringConcatenation _builder_3 = new StringConcatenation();
+          _builder_3.append("WebElement ");
+          _builder_3.append(eltName);
+          _builder_3.append(" = webDriver.findElement(By.linkText(\"");
+          _builder_3.append(assertName);
+          _builder_3.append("\"));");
+          _switchResult = _builder_3;
+          break;
+        case "xpath":
+          StringConcatenation _builder_4 = new StringConcatenation();
+          _builder_4.append("WebElement ");
+          _builder_4.append(eltName);
+          _builder_4.append(" = webDriver.findElement(By.xpath(\"");
+          _builder_4.append(assertName);
+          _builder_4.append("\"));");
+          _switchResult = _builder_4;
+          break;
+        case "name":
+          StringConcatenation _builder_5 = new StringConcatenation();
+          _builder_5.append("WebElement ");
+          _builder_5.append(eltName);
+          _builder_5.append(" = webDriver.findElement(By.name(\"");
+          _builder_5.append(assertName);
+          _builder_5.append("\"));");
+          _switchResult = _builder_5;
+          break;
+        default:
+          StringConcatenation _builder_6 = new StringConcatenation();
+          _builder_6.append("// FIXME unrecognized assert instruction: assert ");
+          String _type_1 = a.getType();
+          _builder_6.append(_type_1);
+          _builder_6.append(" ");
+          _builder_6.append(assertName);
+          _switchResult = _builder_6;
+          break;
+      }
+    } else {
+      StringConcatenation _builder_6 = new StringConcatenation();
+      _builder_6.append("// FIXME unrecognized assert instruction: assert ");
+      String _type_1 = a.getType();
+      _builder_6.append(_type_1);
+      _builder_6.append(" ");
+      _builder_6.append(assertName);
+      _switchResult = _builder_6;
+    }
+    _builder.append(_switchResult);
+    _builder.newLineIfNotEmpty();
+    CharSequence _switchResult_1 = null;
+    String _method = a.getMethod();
+    if (_method != null) {
+      switch (_method) {
+        case "contains":
+          StringConcatenation _builder_7 = new StringConcatenation();
+          _builder_7.append("if(!");
+          _builder_7.append(eltName);
+          _builder_7.append(".getText().contains(");
+          {
+            boolean _contains = this.proceduresContext.get(methodName).contains(assertValue);
+            if (_contains) {
+              _builder_7.append(assertValue);
+            } else {
+              _builder_7.append("\"");
+              _builder_7.append(assertValue);
+              _builder_7.append("\"");
+            }
+          }
+          _builder_7.append(")");
+          _builder_7.newLineIfNotEmpty();
+          _builder_7.append(" ");
+          _builder_7.append("&& !(");
+          _builder_7.append(eltName, " ");
+          _builder_7.append(".getAttribute(\"value\").contains(");
+          {
+            boolean _contains_1 = this.proceduresContext.get(methodName).contains(assertValue);
+            if (_contains_1) {
+              _builder_7.append(assertValue, " ");
+            } else {
+              _builder_7.append("\"");
+              _builder_7.append(assertValue, " ");
+              _builder_7.append("\"");
+            }
+          }
+          _builder_7.append("))) {");
+          _builder_7.newLineIfNotEmpty();
+          _builder_7.append("    ");
+          _builder_7.append("throw new AssertionError(");
+          _builder_7.append(eltName, "    ");
+          _builder_7.append(".getAttribute(\"value\") + \" does not contain ");
+          _builder_7.append(assertValue, "    ");
+          _builder_7.append("\");");
+          _builder_7.newLineIfNotEmpty();
+          _builder_7.append("};");
+          _switchResult_1 = _builder_7;
+          break;
+        case "equals":
+          StringConcatenation _builder_8 = new StringConcatenation();
+          _builder_8.append("if(!");
+          _builder_8.append(eltName);
+          _builder_8.append(".getAttribute(\"value\").equals(");
+          {
+            boolean _contains_2 = this.proceduresContext.get(methodName).contains(assertValue);
+            if (_contains_2) {
+              _builder_8.append(assertValue);
+            } else {
+              _builder_8.append("\"");
+              _builder_8.append(assertValue);
+              _builder_8.append("\"");
+            }
+          }
+          _builder_8.append(")) {");
+          _builder_8.newLineIfNotEmpty();
+          _builder_8.append("    ");
+          _builder_8.append("throw new AssertionError(");
+          _builder_8.append(eltName, "    ");
+          _builder_8.append(".getAttribute(\"value\") + \" is not equal to ");
+          _builder_8.append(assertValue, "    ");
+          _builder_8.append("\");");
+          _builder_8.newLineIfNotEmpty();
+          _builder_8.append("};");
+          _switchResult_1 = _builder_8;
+          break;
+        case "exists":
+          StringConcatenation _builder_9 = new StringConcatenation();
+          _builder_9.append("if(!");
+          _builder_9.append(eltName);
+          _builder_9.append(".isDisplayed()) {");
+          _builder_9.newLineIfNotEmpty();
+          _builder_9.append("    ");
+          _builder_9.append("throw new AssertionError(");
+          _builder_9.append(eltName, "    ");
+          _builder_9.append(".getAttribute(\"value\") + \" does not exist\");");
+          _builder_9.newLineIfNotEmpty();
+          _builder_9.append("};");
+          _switchResult_1 = _builder_9;
+          break;
+        default:
+          StringConcatenation _builder_10 = new StringConcatenation();
+          _builder_10.append("// FIXME unrecognized assert instruction: assert ");
+          String _type_2 = a.getType();
+          _builder_10.append(_type_2);
+          _builder_10.append(" ");
+          _builder_10.append(assertValue);
+          _switchResult_1 = _builder_10;
+          break;
+      }
+    } else {
+      StringConcatenation _builder_10 = new StringConcatenation();
+      _builder_10.append("// FIXME unrecognized assert instruction: assert ");
+      String _type_2 = a.getType();
+      _builder_10.append(_type_2);
+      _builder_10.append(" ");
+      _builder_10.append(assertValue);
+      _switchResult_1 = _builder_10;
+    }
+    _builder.append(_switchResult_1);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _generateInstruction(final CallProcedure cp, final String method) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _procedureName = cp.getProcedureName();
+    _builder.append(_procedureName);
+    _builder.append("(");
+    final Function1<String, String> _function = (String param) -> {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("\"");
+      _builder_1.append(param);
+      _builder_1.append("\"");
+      return _builder_1.toString();
+    };
+    String _join = IterableExtensions.join(ListExtensions.<String, String>map(cp.getParameters(), _function), ", ");
+    _builder.append(_join);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateInstruction(final Instruction a, final String methodName) {
+    if (a instanceof Assert) {
+      return _generateInstruction((Assert)a, methodName);
+    } else if (a instanceof CallProcedure) {
+      return _generateInstruction((CallProcedure)a, methodName);
+    } else if (a instanceof Click) {
+      return _generateInstruction((Click)a, methodName);
+    } else if (a instanceof Fill) {
+      return _generateInstruction((Fill)a, methodName);
+    } else if (a instanceof Navigate) {
+      return _generateInstruction((Navigate)a, methodName);
+    } else if (a instanceof Read) {
+      return _generateInstruction((Read)a, methodName);
+    } else if (a instanceof Select) {
+      return _generateInstruction((Select)a, methodName);
+    } else if (a instanceof Tick) {
+      return _generateInstruction((Tick)a, methodName);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(allAction).toString());
+        Arrays.<Object>asList(a, methodName).toString());
     }
   }
 }

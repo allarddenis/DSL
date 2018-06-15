@@ -7,26 +7,23 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.eclipse.xtext.naming.IQualifiedNameProvider
- 
-import com.google.inject.Inject
-import org.eclipse.xtext.generator.AbstractGenerator
-import org.eclipse.xtext.generator.IFileSystemAccess2
-import org.eclipse.xtext.generator.IGeneratorContext
 
 // Models
 import org.xtext.selenium.eliedenis.eDdsl.Test
-import java.io.File
-import org.xtext.selenium.eliedenis.eDdsl.Series
-import org.xtext.selenium.eliedenis.eDdsl.BrowserEnum
-import org.xtext.selenium.eliedenis.eDdsl.Operation
-import org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn
-import org.xtext.selenium.eliedenis.eDdsl.Browse
-import org.xtext.selenium.eliedenis.eDdsl.All
-import org.xtext.selenium.eliedenis.eDdsl.Check
 import org.xtext.selenium.eliedenis.eDdsl.Click
-import org.xtext.selenium.eliedenis.eDdsl.Type
-import org.xtext.selenium.eliedenis.eDdsl.VariableSet
+import org.xtext.selenium.eliedenis.eDdsl.Fill
+import org.xtext.selenium.eliedenis.eDdsl.Select
+import org.xtext.selenium.eliedenis.eDdsl.Tick
+import org.xtext.selenium.eliedenis.eDdsl.Navigate
+import org.xtext.selenium.eliedenis.eDdsl.Read
+import org.xtext.selenium.eliedenis.eDdsl.Assert
+import org.xtext.selenium.eliedenis.eDdsl.CallProcedure
+
+// Other
+import java.io.File
+import java.util.List
+import java.util.HashMap
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -35,70 +32,154 @@ import org.xtext.selenium.eliedenis.eDdsl.VariableSet
  */
 class EDdslGenerator extends AbstractGenerator {
 
-	@Inject extension IQualifiedNameProvider
- 
-    override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-        var test = resource.contents.head as Test
-		var sep = File.separator
-		
-		var filePath = 'denis' + sep + 'TestLauncher.java';
-		fsa.generateFile(filePath, test.compileHeader);
+    private HashMap<String, List<String>> proceduresContext;
+    
+    private Counter elementCounter;
+    
+    def initializeContext() {
+        this.elementCounter = new Counter();
+        this.proceduresContext = new HashMap<String, List<String>>();
     }
     
+    def destroyContext() {
+        this.elementCounter = null;
+        this.proceduresContext = null;
+    }
 
-    def compileHeader(Test test)'''
-    import org.openqa.selenium.By;
-    import org.openqa.selenium.WebDriver;
-    import org.openqa.selenium.WebElement;
-    import org.openqa.selenium.firefox.FirefoxDriver;
-    import org.openqa.selenium.support.ui.ExpectedCondition;
-    import org.openqa.selenium.support.ui.WebDriverWait;
-    
-	public class TestApp {
-		public static void main(String[] args) {
-			SwingUtilities.invokeLater(new Runnable() { 
-				public void run() {
-					«test.tests.initiateDriver»
-				}
-			});
-		}
-	}
+    override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+        initializeContext
+        
+        fsa.generateFile(
+            'browserautomation' + File.separator + 'test.java',
+            resource.contents.filter(Test).head.generateTest
+        )
+        
+        destroyContext
+    }
+
+    def generateTest(Test st) '''
+        package browserautomation;
+        
+        import org.openqa.selenium.By;
+        import org.openqa.selenium.WebDriver;
+        import org.openqa.selenium.WebElement;
+        import org.openqa.selenium.chrome.ChromeDriver;
+        import org.openqa.selenium.support.ui.Select;
+        
+        public class SeleniumTest {
+            
+            private static WebDriver webDriver;
+            
+            «st.procedures.map[p | '''
+               «val params = p.parameters.map([par | '''String «par»''']).join(", ")»
+               private static void «p.name» («params») {
+                   «this.proceduresContext.put(p.name, p.parameters)»
+                   «p.instructions.map[i | generateInstruction(i, p.name)].join»
+               }
+            '''].join»
+            
+            public static void main(String[] args) {
+                // Initialize Selenium web driver for Google Chrome
+                System.setProperty("webdriver.chrome.driver", "lib/chromedriver");
+                webDriver = new ChromeDriver();
+                
+                «this.proceduresContext.put("main", new ArrayList<String>())»
+                «st.main.instructions.map[i | generateInstruction(i, "main")].join»
+                
+                // Close the browser
+                webDriver.quit();
+            }
+        }
     '''
     
-    def initiateDriver(Series series)'''
-	«IF series.browser == BrowserEnum.FIREFOX»
-		WebDriver driver = new FireFoxDriver();
-		
-		«series.core»
-		
-		driver.quit();
-	«ENDIF»
+    // Dispatch methods to handle defined instructions    
+    def dispatch generateInstruction(Navigate n, String methodName) '''
+        webDriver.get("«n.url»");
     '''
     
-    def core(Series series)'''
-    «FOR Operation op : series.operations»
-    		«op.action.writeOperation»
-    «ENDFOR»
+    def dispatch generateInstruction(Click c, String methodName) '''
+        «val eltName = '''element«elementCounter.nextCount»'''»
+        «val clickValue = c.value»
+        «switch c.type {
+            case 'input': '''WebElement «eltName» = webDriver.findElement(By.xpath("//input[@value=\"«clickValue»\"]"));'''
+            case 'link': '''WebElement «eltName» = webDriver.findElement(By.linkText("«clickValue»"));'''
+            case 'xpath': '''WebElement «eltName» = webDriver.findElement(By.xpath("«clickValue»"));'''
+            case 'name' : '''WebElement «eltName» = webDriver.findElement(By.name("«clickValue»"));'''
+            default: '''// FIXME unrecognized click instruction: click «c.type» «clickValue»''' 
+        }»
+        «eltName».click();
     '''
     
-    def dispatch writeOperation(All allAction)'''
+    def dispatch generateInstruction(Fill f, String methodName) '''
+        «val eltName = '''element«elementCounter.nextCount»'''»
+        WebElement «eltName» = webDriver.findElement(By.name("«f.name»"));
+        «eltName».clear();
+        «eltName».sendKeys(«IF this.proceduresContext.get(methodName).contains(f.value)»«f.value»«ELSE»"«f.value»"«ENDIF»);
     '''
     
-    def dispatch writeOperation(Browse browseAction)'''
-    driver.get("«browseAction.url»");
+    def dispatch generateInstruction(Tick t, String methodName) '''
+        «val eltName = '''element«elementCounter.nextCount»'''»
+        WebElement «eltName» = webDriver.findElement(By.name("«t.name»"));
+        «eltName».click();
     '''
     
-    def dispatch writeOperation(Check checkAction)'''
-    
+    def dispatch generateInstruction(Select s, String methodName) '''
+        «val eltName = '''element«elementCounter.nextCount»'''»
+        Select «eltName» = new Select(webDriver.findElement(By.name("«s.name»")));
+        «eltName».selectByVisibleText("«s.value»");
     '''
     
-    def dispatch writeOperation(Click clickAction)'''
+    def dispatch generateInstruction(Read r, String methodName) {
+        this.proceduresContext.get(methodName).add(r.variable)
+        '''
+            «val eltName = '''element«elementCounter.nextCount»'''»
+            WebElement «eltName» = webDriver.findElement(By.name("«r.name»"));
+            String «r.variable» = «eltName».getAttribute("value");
+        '''
+    }
     
+    def dispatch generateInstruction(Assert a, String methodName) '''
+        «val eltName = '''element«elementCounter.nextCount»'''»
+        «val assertName = a.name»
+        «val assertValue = a.value»
+        «switch a.type {
+            case 'input': '''WebElement «eltName» = webDriver.findElement(By.xpath("//input[@value=\"«assertName»\"]"));'''
+            case 'link': '''WebElement «eltName» = webDriver.findElement(By.linkText("«assertName»"));'''
+            case 'xpath': '''WebElement «eltName» = webDriver.findElement(By.xpath("«assertName»"));'''
+            case 'name' : '''WebElement «eltName» = webDriver.findElement(By.name("«assertName»"));'''
+            default: '''// FIXME unrecognized assert instruction: assert «a.type» «assertName»''' 
+        }»
+        «switch a.method {
+                case 'contains': '''
+                if(!«eltName».getText().contains(«IF this.proceduresContext.get(methodName).contains(assertValue)»«assertValue»«ELSE»"«assertValue»"«ENDIF»)
+                 && !(«eltName».getAttribute("value").contains(«IF this.proceduresContext.get(methodName).contains(assertValue)»«assertValue»«ELSE»"«assertValue»"«ENDIF»))) {
+                    throw new AssertionError(«eltName».getAttribute("value") + " does not contain «assertValue»");
+                };'''
+                case 'equals': '''
+                if(!«eltName».getAttribute("value").equals(«IF this.proceduresContext.get(methodName).contains(assertValue)»«assertValue»«ELSE»"«assertValue»"«ENDIF»)) {
+                    throw new AssertionError(«eltName».getAttribute("value") + " is not equal to «assertValue»");
+                };'''
+                case 'exists': '''
+                if(!«eltName».isDisplayed()) {
+                    throw new AssertionError(«eltName».getAttribute("value") + " does not exist");
+                };'''
+                default: '''// FIXME unrecognized assert instruction: assert «a.type» «assertValue»''' 
+            }»
     '''
     
-    def dispatch writeOperation(Type typeAction)'''
-    '''
-    
-    def dispatch writeOperation(VariableSet variableSetAction)'''
-    '''
+    def dispatch generateInstruction(CallProcedure cp, String method) '''
+        «cp.procedureName»(«cp.parameters.map([param | '''"«param»"''']).join(", ")»);
+    ''' 
+}
+
+class Counter {
+    private int count;
+
+    def Counter() {
+        count = 0;
+    }
+
+    def int nextCount() {
+        return count++;
+    }
 }

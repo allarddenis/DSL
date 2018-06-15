@@ -13,69 +13,66 @@ package org.xtext.selenium.eliedenis.eDdsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.Read#getReadableElement <em>Readable Element</em>}</li>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.Read#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.Read#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.Read#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getRead()
  * @model
  * @generated
  */
-public interface Read extends ActionReturn
+public interface Read extends Instruction
 {
   /**
-   * Returns the value of the '<em><b>Readable Element</b></em>' attribute.
-   * The literals are from the enumeration {@link org.xtext.selenium.eliedenis.eDdsl.ReadableEnum}.
+   * Returns the value of the '<em><b>Variable</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Readable Element</em>' attribute isn't clear,
+   * If the meaning of the '<em>Variable</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Readable Element</em>' attribute.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ReadableEnum
-   * @see #setReadableElement(ReadableEnum)
-   * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getRead_ReadableElement()
+   * @return the value of the '<em>Variable</em>' attribute.
+   * @see #setVariable(String)
+   * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getRead_Variable()
    * @model
    * @generated
    */
-  ReadableEnum getReadableElement();
+  String getVariable();
 
   /**
-   * Sets the value of the '{@link org.xtext.selenium.eliedenis.eDdsl.Read#getReadableElement <em>Readable Element</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.selenium.eliedenis.eDdsl.Read#getVariable <em>Variable</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Readable Element</em>' attribute.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ReadableEnum
-   * @see #getReadableElement()
+   * @param value the new value of the '<em>Variable</em>' attribute.
+   * @see #getVariable()
    * @generated
    */
-  void setReadableElement(ReadableEnum value);
+  void setVariable(String value);
 
   /**
-   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameters</em>' containment reference.
-   * @see #setParameters(Parameters)
-   * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getRead_Parameters()
-   * @model containment="true"
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getRead_Name()
+   * @model
    * @generated
    */
-  Parameters getParameters();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.selenium.eliedenis.eDdsl.Read#getParameters <em>Parameters</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.selenium.eliedenis.eDdsl.Read#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parameters</em>' containment reference.
-   * @see #getParameters()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setParameters(Parameters value);
+  void setName(String value);
 
 } // Read

@@ -33,94 +33,31 @@ public interface EDdslFactory extends EFactory
   Test createTest();
 
   /**
-   * Returns a new object of class '<em>Action No Return</em>'.
+   * Returns a new object of class '<em>Procedure</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action No Return</em>'.
+   * @return a new object of class '<em>Procedure</em>'.
    * @generated
    */
-  ActionNoReturn createActionNoReturn();
+  Procedure createProcedure();
 
   /**
-   * Returns a new object of class '<em>Action Return</em>'.
+   * Returns a new object of class '<em>Main Procedure</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action Return</em>'.
+   * @return a new object of class '<em>Main Procedure</em>'.
    * @generated
    */
-  ActionReturn createActionReturn();
+  MainProcedure createMainProcedure();
 
   /**
-   * Returns a new object of class '<em>Action Bool Return</em>'.
+   * Returns a new object of class '<em>Instruction</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action Bool Return</em>'.
+   * @return a new object of class '<em>Instruction</em>'.
    * @generated
    */
-  ActionBoolReturn createActionBoolReturn();
-
-  /**
-   * Returns a new object of class '<em>All</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>All</em>'.
-   * @generated
-   */
-  All createAll();
-
-  /**
-   * Returns a new object of class '<em>Attribute</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attribute</em>'.
-   * @generated
-   */
-  Attribute createAttribute();
-
-  /**
-   * Returns a new object of class '<em>Browse</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Browse</em>'.
-   * @generated
-   */
-  Browse createBrowse();
-
-  /**
-   * Returns a new object of class '<em>Check</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Check</em>'.
-   * @generated
-   */
-  Check createCheck();
-
-  /**
-   * Returns a new object of class '<em>Comparison</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Comparison</em>'.
-   * @generated
-   */
-  Comparison createComparison();
-
-  /**
-   * Returns a new object of class '<em>Constraint</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constraint</em>'.
-   * @generated
-   */
-  Constraint createConstraint();
-
-  /**
-   * Returns a new object of class '<em>Count</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Count</em>'.
-   * @generated
-   */
-  Count createCount();
+  Instruction createInstruction();
 
   /**
    * Returns a new object of class '<em>Click</em>'.
@@ -132,31 +69,40 @@ public interface EDdslFactory extends EFactory
   Click createClick();
 
   /**
-   * Returns a new object of class '<em>Operation</em>'.
+   * Returns a new object of class '<em>Fill</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Operation</em>'.
+   * @return a new object of class '<em>Fill</em>'.
    * @generated
    */
-  Operation createOperation();
+  Fill createFill();
 
   /**
-   * Returns a new object of class '<em>Parameter</em>'.
+   * Returns a new object of class '<em>Select</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter</em>'.
+   * @return a new object of class '<em>Select</em>'.
    * @generated
    */
-  Parameter createParameter();
+  Select createSelect();
 
   /**
-   * Returns a new object of class '<em>Parameters</em>'.
+   * Returns a new object of class '<em>Tick</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameters</em>'.
+   * @return a new object of class '<em>Tick</em>'.
    * @generated
    */
-  Parameters createParameters();
+  Tick createTick();
+
+  /**
+   * Returns a new object of class '<em>Navigate</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Navigate</em>'.
+   * @generated
+   */
+  Navigate createNavigate();
 
   /**
    * Returns a new object of class '<em>Read</em>'.
@@ -168,58 +114,22 @@ public interface EDdslFactory extends EFactory
   Read createRead();
 
   /**
-   * Returns a new object of class '<em>Series</em>'.
+   * Returns a new object of class '<em>Assert</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Series</em>'.
+   * @return a new object of class '<em>Assert</em>'.
    * @generated
    */
-  Series createSeries();
+  Assert createAssert();
 
   /**
-   * Returns a new object of class '<em>Type</em>'.
+   * Returns a new object of class '<em>Call Procedure</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
+   * @return a new object of class '<em>Call Procedure</em>'.
    * @generated
    */
-  Type createType();
-
-  /**
-   * Returns a new object of class '<em>Val</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Val</em>'.
-   * @generated
-   */
-  Val createVal();
-
-  /**
-   * Returns a new object of class '<em>Value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Value</em>'.
-   * @generated
-   */
-  Value createValue();
-
-  /**
-   * Returns a new object of class '<em>Variable Get</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Get</em>'.
-   * @generated
-   */
-  VariableGet createVariableGet();
-
-  /**
-   * Returns a new object of class '<em>Variable Set</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Set</em>'.
-   * @generated
-   */
-  VariableSet createVariableSet();
+  CallProcedure createCallProcedure();
 
   /**
    * Returns the package supported by this factory.

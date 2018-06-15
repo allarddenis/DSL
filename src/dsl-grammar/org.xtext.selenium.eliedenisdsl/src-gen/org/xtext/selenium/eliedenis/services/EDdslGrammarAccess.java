@@ -6,10 +6,9 @@ package org.xtext.selenium.eliedenis.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.EnumLiteralDeclaration;
-import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -18,7 +17,6 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -27,851 +25,643 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class TestElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Test");
-		private final Assignment cTestsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cTestsSeriesParserRuleCall_0 = (RuleCall)cTestsAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cProceduresAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cProceduresProcedureParserRuleCall_0_0 = (RuleCall)cProceduresAssignment_0.eContents().get(0);
+		private final Assignment cMainAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMainMainProcedureParserRuleCall_1_0 = (RuleCall)cMainAssignment_1.eContents().get(0);
 		
+		//// Program
 		//Test:
-		//	tests=Series;
+		//	procedures+=Procedure*
+		//	main=MainProcedure;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//tests=Series
-		public Assignment getTestsAssignment() { return cTestsAssignment; }
+		//procedures+=Procedure* main=MainProcedure
+		public Group getGroup() { return cGroup; }
 		
-		//Series
-		public RuleCall getTestsSeriesParserRuleCall_0() { return cTestsSeriesParserRuleCall_0; }
+		//procedures+=Procedure*
+		public Assignment getProceduresAssignment_0() { return cProceduresAssignment_0; }
+		
+		//Procedure
+		public RuleCall getProceduresProcedureParserRuleCall_0_0() { return cProceduresProcedureParserRuleCall_0_0; }
+		
+		//main=MainProcedure
+		public Assignment getMainAssignment_1() { return cMainAssignment_1; }
+		
+		//MainProcedure
+		public RuleCall getMainMainProcedureParserRuleCall_1_0() { return cMainMainProcedureParserRuleCall_1_0; }
 	}
-	public class ActionNoReturnElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ActionNoReturn");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cAllParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cBrowseParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCheckParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cClickParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cVariableSetParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+	public class ProcedureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Procedure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDefKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDENTIFIERTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Assignment cParametersAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
+		private final RuleCall cParametersIDENTIFIERTerminalRuleCall_2_1_0_0 = (RuleCall)cParametersAssignment_2_1_0.eContents().get(0);
+		private final Group cGroup_2_1_1 = (Group)cGroup_2_1.eContents().get(1);
+		private final RuleCall cCOMMATerminalRuleCall_2_1_1_0 = (RuleCall)cGroup_2_1_1.eContents().get(0);
+		private final Assignment cParametersAssignment_2_1_1_1 = (Assignment)cGroup_2_1_1.eContents().get(1);
+		private final RuleCall cParametersIDENTIFIERTerminalRuleCall_2_1_1_1_0 = (RuleCall)cParametersAssignment_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cInstructionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cInstructionsInstructionParserRuleCall_4_0 = (RuleCall)cInstructionsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//// ----- MODELS (ALPHABETICAL ORDER) -----
-		//ActionNoReturn:
-		//	All | Browse | Check | Click | Type | VariableSet;
+		//Procedure:
+		//	'def' Name=IDENTIFIER ('(' (Parameters+=IDENTIFIER (COMMA Parameters+=IDENTIFIER)*) ')')? '{'
+		//	instructions+=Instruction*
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//All | Browse | Check | Click | Type | VariableSet
+		//'def' Name=IDENTIFIER ('(' (Parameters+=IDENTIFIER (COMMA Parameters+=IDENTIFIER)*) ')')? '{' instructions+=Instruction*
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'def'
+		public Keyword getDefKeyword_0() { return cDefKeyword_0; }
+		
+		//Name=IDENTIFIER
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//IDENTIFIER
+		public RuleCall getNameIDENTIFIERTerminalRuleCall_1_0() { return cNameIDENTIFIERTerminalRuleCall_1_0; }
+		
+		//('(' (Parameters+=IDENTIFIER (COMMA Parameters+=IDENTIFIER)*) ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//Parameters+=IDENTIFIER (COMMA Parameters+=IDENTIFIER)*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//Parameters+=IDENTIFIER
+		public Assignment getParametersAssignment_2_1_0() { return cParametersAssignment_2_1_0; }
+		
+		//IDENTIFIER
+		public RuleCall getParametersIDENTIFIERTerminalRuleCall_2_1_0_0() { return cParametersIDENTIFIERTerminalRuleCall_2_1_0_0; }
+		
+		//(COMMA Parameters+=IDENTIFIER)*
+		public Group getGroup_2_1_1() { return cGroup_2_1_1; }
+		
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_2_1_1_0() { return cCOMMATerminalRuleCall_2_1_1_0; }
+		
+		//Parameters+=IDENTIFIER
+		public Assignment getParametersAssignment_2_1_1_1() { return cParametersAssignment_2_1_1_1; }
+		
+		//IDENTIFIER
+		public RuleCall getParametersIDENTIFIERTerminalRuleCall_2_1_1_1_0() { return cParametersIDENTIFIERTerminalRuleCall_2_1_1_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//instructions+=Instruction*
+		public Assignment getInstructionsAssignment_4() { return cInstructionsAssignment_4; }
+		
+		//Instruction
+		public RuleCall getInstructionsInstructionParserRuleCall_4_0() { return cInstructionsInstructionParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class MainProcedureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.MainProcedure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMainProcedureAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cDefKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cMainKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cInstructionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cInstructionsInstructionParserRuleCall_4_0 = (RuleCall)cInstructionsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//MainProcedure:
+		//	{MainProcedure} 'def'+ 'main'+ '{'
+		//	instructions+=Instruction*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{MainProcedure} 'def'+ 'main'+ '{' instructions+=Instruction* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{MainProcedure}
+		public Action getMainProcedureAction_0() { return cMainProcedureAction_0; }
+		
+		//'def'+
+		public Keyword getDefKeyword_1() { return cDefKeyword_1; }
+		
+		//'main'+
+		public Keyword getMainKeyword_2() { return cMainKeyword_2; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//instructions+=Instruction*
+		public Assignment getInstructionsAssignment_4() { return cInstructionsAssignment_4; }
+		
+		//Instruction
+		public RuleCall getInstructionsInstructionParserRuleCall_4_0() { return cInstructionsInstructionParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class InstructionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Instruction");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cClickParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cFillParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSelectParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cTickParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cNavigateParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cAssertParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cReadParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cCallProcedureParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		
+		////Instruction is abstract
+		//Instruction:
+		//	Click | Fill | Select | Tick | Navigate | Assert | Read | CallProcedure;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Click | Fill | Select | Tick | Navigate | Assert | Read | CallProcedure
 		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//All
-		public RuleCall getAllParserRuleCall_0() { return cAllParserRuleCall_0; }
-		
-		//Browse
-		public RuleCall getBrowseParserRuleCall_1() { return cBrowseParserRuleCall_1; }
-		
-		//Check
-		public RuleCall getCheckParserRuleCall_2() { return cCheckParserRuleCall_2; }
 		
 		//Click
-		public RuleCall getClickParserRuleCall_3() { return cClickParserRuleCall_3; }
+		public RuleCall getClickParserRuleCall_0() { return cClickParserRuleCall_0; }
 		
-		//Type
-		public RuleCall getTypeParserRuleCall_4() { return cTypeParserRuleCall_4; }
+		//Fill
+		public RuleCall getFillParserRuleCall_1() { return cFillParserRuleCall_1; }
 		
-		//VariableSet
-		public RuleCall getVariableSetParserRuleCall_5() { return cVariableSetParserRuleCall_5; }
-	}
-	public class ActionReturnElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ActionReturn");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cCountParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cReadParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		//Select
+		public RuleCall getSelectParserRuleCall_2() { return cSelectParserRuleCall_2; }
 		
-		//ActionReturn:
-		//	Count | Read;
-		@Override public ParserRule getRule() { return rule; }
+		//Tick
+		public RuleCall getTickParserRuleCall_3() { return cTickParserRuleCall_3; }
 		
-		//Count | Read
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//Navigate
+		public RuleCall getNavigateParserRuleCall_4() { return cNavigateParserRuleCall_4; }
 		
-		//Count
-		public RuleCall getCountParserRuleCall_0() { return cCountParserRuleCall_0; }
+		//Assert
+		public RuleCall getAssertParserRuleCall_5() { return cAssertParserRuleCall_5; }
 		
 		//Read
-		public RuleCall getReadParserRuleCall_1() { return cReadParserRuleCall_1; }
-	}
-	public class ActionBoolReturnElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ActionBoolReturn");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cComparisonParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cConstraintParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		public RuleCall getReadParserRuleCall_6() { return cReadParserRuleCall_6; }
 		
-		//ActionBoolReturn:
-		//	Comparison | Constraint;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Comparison | Constraint
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Comparison
-		public RuleCall getComparisonParserRuleCall_0() { return cComparisonParserRuleCall_0; }
-		
-		//Constraint
-		public RuleCall getConstraintParserRuleCall_1() { return cConstraintParserRuleCall_1; }
-	}
-	public class AllElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.All");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAllKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cOperationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cOperationActionNoReturnParserRuleCall_1_0 = (RuleCall)cOperationAssignment_1.eContents().get(0);
-		
-		//All:
-		//	'all' operation=ActionNoReturn;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'all' operation=ActionNoReturn
-		public Group getGroup() { return cGroup; }
-		
-		//'all'
-		public Keyword getAllKeyword_0() { return cAllKeyword_0; }
-		
-		//operation=ActionNoReturn
-		public Assignment getOperationAssignment_1() { return cOperationAssignment_1; }
-		
-		//ActionNoReturn
-		public RuleCall getOperationActionNoReturnParserRuleCall_1_0() { return cOperationActionNoReturnParserRuleCall_1_0; }
-	}
-	public class AttributeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Attribute");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAttributeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cAttributeNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cAttributeNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cAttributeNameAssignment_1.eContents().get(0);
-		private final Assignment cAttributeValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cAttributeValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cAttributeValueAssignment_2.eContents().get(0);
-		
-		//Attribute:
-		//	'attribute' attributeName=STRING attributeValue=STRING;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'attribute' attributeName=STRING attributeValue=STRING
-		public Group getGroup() { return cGroup; }
-		
-		//'attribute'
-		public Keyword getAttributeKeyword_0() { return cAttributeKeyword_0; }
-		
-		//attributeName=STRING
-		public Assignment getAttributeNameAssignment_1() { return cAttributeNameAssignment_1; }
-		
-		//STRING
-		public RuleCall getAttributeNameSTRINGTerminalRuleCall_1_0() { return cAttributeNameSTRINGTerminalRuleCall_1_0; }
-		
-		//attributeValue=STRING
-		public Assignment getAttributeValueAssignment_2() { return cAttributeValueAssignment_2; }
-		
-		//STRING
-		public RuleCall getAttributeValueSTRINGTerminalRuleCall_2_0() { return cAttributeValueSTRINGTerminalRuleCall_2_0; }
-	}
-	public class BrowseElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Browse");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBrowseKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cUrlAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUrlSTRINGTerminalRuleCall_1_0 = (RuleCall)cUrlAssignment_1.eContents().get(0);
-		
-		//Browse:
-		//	'browse' url=STRING;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'browse' url=STRING
-		public Group getGroup() { return cGroup; }
-		
-		//'browse'
-		public Keyword getBrowseKeyword_0() { return cBrowseKeyword_0; }
-		
-		//url=STRING
-		public Assignment getUrlAssignment_1() { return cUrlAssignment_1; }
-		
-		//STRING
-		public RuleCall getUrlSTRINGTerminalRuleCall_1_0() { return cUrlSTRINGTerminalRuleCall_1_0; }
-	}
-	public class CheckElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Check");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCheckKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cActionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cActionActionBoolReturnParserRuleCall_1_0 = (RuleCall)cActionAssignment_1.eContents().get(0);
-		
-		//Check:
-		//	'check' action=ActionBoolReturn;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'check' action=ActionBoolReturn
-		public Group getGroup() { return cGroup; }
-		
-		//'check'
-		public Keyword getCheckKeyword_0() { return cCheckKeyword_0; }
-		
-		//action=ActionBoolReturn
-		public Assignment getActionAssignment_1() { return cActionAssignment_1; }
-		
-		//ActionBoolReturn
-		public RuleCall getActionActionBoolReturnParserRuleCall_1_0() { return cActionActionBoolReturnParserRuleCall_1_0; }
-	}
-	public class ComparisonElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Comparison");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cComparisonKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cFirstValAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFirstValValParserRuleCall_1_0 = (RuleCall)cFirstValAssignment_1.eContents().get(0);
-		private final Assignment cComparatorOperatorAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cComparatorOperatorComparisonOperatorEnumEnumRuleCall_2_0 = (RuleCall)cComparatorOperatorAssignment_2.eContents().get(0);
-		private final Assignment cSecondValAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSecondValValParserRuleCall_3_0 = (RuleCall)cSecondValAssignment_3.eContents().get(0);
-		
-		//Comparison:
-		//	'comparison' firstVal=Val comparatorOperator=ComparisonOperatorEnum secondVal=Val;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'comparison' firstVal=Val comparatorOperator=ComparisonOperatorEnum secondVal=Val
-		public Group getGroup() { return cGroup; }
-		
-		//'comparison'
-		public Keyword getComparisonKeyword_0() { return cComparisonKeyword_0; }
-		
-		//firstVal=Val
-		public Assignment getFirstValAssignment_1() { return cFirstValAssignment_1; }
-		
-		//Val
-		public RuleCall getFirstValValParserRuleCall_1_0() { return cFirstValValParserRuleCall_1_0; }
-		
-		//comparatorOperator=ComparisonOperatorEnum
-		public Assignment getComparatorOperatorAssignment_2() { return cComparatorOperatorAssignment_2; }
-		
-		//ComparisonOperatorEnum
-		public RuleCall getComparatorOperatorComparisonOperatorEnumEnumRuleCall_2_0() { return cComparatorOperatorComparisonOperatorEnumEnumRuleCall_2_0; }
-		
-		//secondVal=Val
-		public Assignment getSecondValAssignment_3() { return cSecondValAssignment_3; }
-		
-		//Val
-		public RuleCall getSecondValValParserRuleCall_3_0() { return cSecondValValParserRuleCall_3_0; }
-	}
-	public class ConstraintElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Constraint");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cReadableElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cReadableElementReadableEnumEnumRuleCall_0_0 = (RuleCall)cReadableElementAssignment_0.eContents().get(0);
-		private final Assignment cConstraintTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cConstraintTypeConstraintTypeEnumEnumRuleCall_1_0 = (RuleCall)cConstraintTypeAssignment_1.eContents().get(0);
-		private final Assignment cExpectedValAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExpectedValValParserRuleCall_2_0 = (RuleCall)cExpectedValAssignment_2.eContents().get(0);
-		private final Assignment cParametersAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cParametersParametersParserRuleCall_3_0 = (RuleCall)cParametersAssignment_3.eContents().get(0);
-		
-		//Constraint:
-		//	readableElement=ReadableEnum constraintType=ConstraintTypeEnum expectedVal=Val parameters=Parameters;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//readableElement=ReadableEnum constraintType=ConstraintTypeEnum expectedVal=Val parameters=Parameters
-		public Group getGroup() { return cGroup; }
-		
-		//readableElement=ReadableEnum
-		public Assignment getReadableElementAssignment_0() { return cReadableElementAssignment_0; }
-		
-		//ReadableEnum
-		public RuleCall getReadableElementReadableEnumEnumRuleCall_0_0() { return cReadableElementReadableEnumEnumRuleCall_0_0; }
-		
-		//constraintType=ConstraintTypeEnum
-		public Assignment getConstraintTypeAssignment_1() { return cConstraintTypeAssignment_1; }
-		
-		//ConstraintTypeEnum
-		public RuleCall getConstraintTypeConstraintTypeEnumEnumRuleCall_1_0() { return cConstraintTypeConstraintTypeEnumEnumRuleCall_1_0; }
-		
-		//expectedVal=Val
-		public Assignment getExpectedValAssignment_2() { return cExpectedValAssignment_2; }
-		
-		//Val
-		public RuleCall getExpectedValValParserRuleCall_2_0() { return cExpectedValValParserRuleCall_2_0; }
-		
-		//parameters=Parameters
-		public Assignment getParametersAssignment_3() { return cParametersAssignment_3; }
-		
-		//Parameters
-		public RuleCall getParametersParametersParserRuleCall_3_0() { return cParametersParametersParserRuleCall_3_0; }
-	}
-	public class CountElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Count");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCountKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cParametersAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cParametersAlternatives_1_0 = (Alternatives)cParametersAssignment_1.eContents().get(0);
-		private final RuleCall cParametersParametersParserRuleCall_1_0_0 = (RuleCall)cParametersAlternatives_1_0.eContents().get(0);
-		private final RuleCall cParametersActionReturnParserRuleCall_1_0_1 = (RuleCall)cParametersAlternatives_1_0.eContents().get(1);
-		
-		//Count:
-		//	'count' parameters=(Parameters | ActionReturn);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'count' parameters=(Parameters | ActionReturn)
-		public Group getGroup() { return cGroup; }
-		
-		//'count'
-		public Keyword getCountKeyword_0() { return cCountKeyword_0; }
-		
-		//parameters=(Parameters | ActionReturn)
-		public Assignment getParametersAssignment_1() { return cParametersAssignment_1; }
-		
-		//(Parameters | ActionReturn)
-		public Alternatives getParametersAlternatives_1_0() { return cParametersAlternatives_1_0; }
-		
-		//Parameters
-		public RuleCall getParametersParametersParserRuleCall_1_0_0() { return cParametersParametersParserRuleCall_1_0_0; }
-		
-		//ActionReturn
-		public RuleCall getParametersActionReturnParserRuleCall_1_0_1() { return cParametersActionReturnParserRuleCall_1_0_1; }
+		//CallProcedure
+		public RuleCall getCallProcedureParserRuleCall_7() { return cCallProcedureParserRuleCall_7; }
 	}
 	public class ClickElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Click");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cClickKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cClickableElementAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cClickableElementClickableEnumEnumRuleCall_1_0 = (RuleCall)cClickableElementAssignment_1.eContents().get(0);
-		private final Assignment cParametersAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParametersParametersParserRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cTypeAlternatives_1_0 = (Alternatives)cTypeAssignment_1.eContents().get(0);
+		private final Keyword cTypeInputKeyword_1_0_0 = (Keyword)cTypeAlternatives_1_0.eContents().get(0);
+		private final Keyword cTypeLinkKeyword_1_0_1 = (Keyword)cTypeAlternatives_1_0.eContents().get(1);
+		private final Keyword cTypeNameKeyword_1_0_2 = (Keyword)cTypeAlternatives_1_0.eContents().get(2);
+		private final Keyword cTypeXpathKeyword_1_0_3 = (Keyword)cTypeAlternatives_1_0.eContents().get(3);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Click:
-		//	'click' clickableElement=ClickableEnum parameters=Parameters;
+		//	'click' Type=('input' | 'link' | 'name' | 'xpath') Value=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'click' clickableElement=ClickableEnum parameters=Parameters
+		//'click' Type=('input' | 'link' | 'name' | 'xpath') Value=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'click'
 		public Keyword getClickKeyword_0() { return cClickKeyword_0; }
 		
-		//clickableElement=ClickableEnum
-		public Assignment getClickableElementAssignment_1() { return cClickableElementAssignment_1; }
+		//Type=('input' | 'link' | 'name' | 'xpath')
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
 		
-		//ClickableEnum
-		public RuleCall getClickableElementClickableEnumEnumRuleCall_1_0() { return cClickableElementClickableEnumEnumRuleCall_1_0; }
+		//('input' | 'link' | 'name' | 'xpath')
+		public Alternatives getTypeAlternatives_1_0() { return cTypeAlternatives_1_0; }
 		
-		//parameters=Parameters
-		public Assignment getParametersAssignment_2() { return cParametersAssignment_2; }
+		//'input'
+		public Keyword getTypeInputKeyword_1_0_0() { return cTypeInputKeyword_1_0_0; }
 		
-		//Parameters
-		public RuleCall getParametersParametersParserRuleCall_2_0() { return cParametersParametersParserRuleCall_2_0; }
+		//'link'
+		public Keyword getTypeLinkKeyword_1_0_1() { return cTypeLinkKeyword_1_0_1; }
+		
+		//'name'
+		public Keyword getTypeNameKeyword_1_0_2() { return cTypeNameKeyword_1_0_2; }
+		
+		//'xpath'
+		public Keyword getTypeXpathKeyword_1_0_3() { return cTypeXpathKeyword_1_0_3; }
+		
+		//Value=STRING
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_2_0() { return cValueSTRINGTerminalRuleCall_2_0; }
 	}
-	public class OperationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Operation");
+	public class FillElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Fill");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cActionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cActionActionNoReturnParserRuleCall_0_0 = (RuleCall)cActionAssignment_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cFillKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cValueAlternatives_2_0 = (Alternatives)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_2_0_0 = (RuleCall)cValueAlternatives_2_0.eContents().get(0);
+		private final RuleCall cValueIDENTIFIERTerminalRuleCall_2_0_1 = (RuleCall)cValueAlternatives_2_0.eContents().get(1);
 		
-		//Operation:
-		//	action=ActionNoReturn ';';
+		//Fill:
+		//	'fill' Name=STRING Value=(STRING | IDENTIFIER);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//action=ActionNoReturn ';'
+		//'fill' Name=STRING Value=(STRING | IDENTIFIER)
 		public Group getGroup() { return cGroup; }
 		
-		//action=ActionNoReturn
-		public Assignment getActionAssignment_0() { return cActionAssignment_0; }
+		//'fill'
+		public Keyword getFillKeyword_0() { return cFillKeyword_0; }
 		
-		//ActionNoReturn
-		public RuleCall getActionActionNoReturnParserRuleCall_0_0() { return cActionActionNoReturnParserRuleCall_0_0; }
+		//Name=STRING
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_1() { return cSemicolonKeyword_1; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		
+		//Value=(STRING | IDENTIFIER)
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//(STRING | IDENTIFIER)
+		public Alternatives getValueAlternatives_2_0() { return cValueAlternatives_2_0; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_2_0_0() { return cValueSTRINGTerminalRuleCall_2_0_0; }
+		
+		//IDENTIFIER
+		public RuleCall getValueIDENTIFIERTerminalRuleCall_2_0_1() { return cValueIDENTIFIERTerminalRuleCall_2_0_1; }
 	}
-	public class ParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Parameter");
+	public class SelectElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Select");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cParameterAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cParameterAlternatives_1_0 = (Alternatives)cParameterAssignment_1.eContents().get(0);
-		private final RuleCall cParameterAttributeParserRuleCall_1_0_0 = (RuleCall)cParameterAlternatives_1_0.eContents().get(0);
-		private final RuleCall cParameterValueParserRuleCall_1_0_1 = (RuleCall)cParameterAlternatives_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cSelectKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cValueAlternatives_2_0 = (Alternatives)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_2_0_0 = (RuleCall)cValueAlternatives_2_0.eContents().get(0);
+		private final RuleCall cValueIDENTIFIERTerminalRuleCall_2_0_1 = (RuleCall)cValueAlternatives_2_0.eContents().get(1);
 		
-		//Parameter:
-		//	'(' parameter=(Attribute | Value) ')';
+		//Select:
+		//	'select' Name=STRING Value=(STRING | IDENTIFIER);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' parameter=(Attribute | Value) ')'
+		//'select' Name=STRING Value=(STRING | IDENTIFIER)
 		public Group getGroup() { return cGroup; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		//'select'
+		public Keyword getSelectKeyword_0() { return cSelectKeyword_0; }
 		
-		//parameter=(Attribute | Value)
-		public Assignment getParameterAssignment_1() { return cParameterAssignment_1; }
+		//Name=STRING
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//(Attribute | Value)
-		public Alternatives getParameterAlternatives_1_0() { return cParameterAlternatives_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 		
-		//Attribute
-		public RuleCall getParameterAttributeParserRuleCall_1_0_0() { return cParameterAttributeParserRuleCall_1_0_0; }
+		//Value=(STRING | IDENTIFIER)
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//Value
-		public RuleCall getParameterValueParserRuleCall_1_0_1() { return cParameterValueParserRuleCall_1_0_1; }
+		//(STRING | IDENTIFIER)
+		public Alternatives getValueAlternatives_2_0() { return cValueAlternatives_2_0; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_2_0_0() { return cValueSTRINGTerminalRuleCall_2_0_0; }
+		
+		//IDENTIFIER
+		public RuleCall getValueIDENTIFIERTerminalRuleCall_2_0_1() { return cValueIDENTIFIERTerminalRuleCall_2_0_1; }
 	}
-	public class ParametersElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Parameters");
-		private final Assignment cParametersAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cParametersParameterParserRuleCall_0 = (RuleCall)cParametersAssignment.eContents().get(0);
+	public class TickElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Tick");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTickKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		//Parameters:
-		//	parameters+=Parameter*;
+		//Tick:
+		//	'tick' Name=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//parameters+=Parameter*
-		public Assignment getParametersAssignment() { return cParametersAssignment; }
+		//'tick' Name=STRING
+		public Group getGroup() { return cGroup; }
 		
-		//Parameter
-		public RuleCall getParametersParameterParserRuleCall_0() { return cParametersParameterParserRuleCall_0; }
+		//'tick'
+		public Keyword getTickKeyword_0() { return cTickKeyword_0; }
+		
+		//Name=STRING
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+	}
+	public class NavigateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Navigate");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNavigateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cUrlAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cUrlAlternatives_1_0 = (Alternatives)cUrlAssignment_1.eContents().get(0);
+		private final RuleCall cUrlSTRINGTerminalRuleCall_1_0_0 = (RuleCall)cUrlAlternatives_1_0.eContents().get(0);
+		private final RuleCall cUrlIDENTIFIERTerminalRuleCall_1_0_1 = (RuleCall)cUrlAlternatives_1_0.eContents().get(1);
+		
+		//Navigate:
+		//	'navigate' url=(STRING | IDENTIFIER);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'navigate' url=(STRING | IDENTIFIER)
+		public Group getGroup() { return cGroup; }
+		
+		//'navigate'
+		public Keyword getNavigateKeyword_0() { return cNavigateKeyword_0; }
+		
+		//url=(STRING | IDENTIFIER)
+		public Assignment getUrlAssignment_1() { return cUrlAssignment_1; }
+		
+		//(STRING | IDENTIFIER)
+		public Alternatives getUrlAlternatives_1_0() { return cUrlAlternatives_1_0; }
+		
+		//STRING
+		public RuleCall getUrlSTRINGTerminalRuleCall_1_0_0() { return cUrlSTRINGTerminalRuleCall_1_0_0; }
+		
+		//IDENTIFIER
+		public RuleCall getUrlIDENTIFIERTerminalRuleCall_1_0_1() { return cUrlIDENTIFIERTerminalRuleCall_1_0_1; }
 	}
 	public class ReadElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Read");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cReadKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cReadableElementAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cReadableElementReadableEnumEnumRuleCall_1_0 = (RuleCall)cReadableElementAssignment_1.eContents().get(0);
-		private final Assignment cParametersAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParametersParametersParserRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
+		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVariableIDENTIFIERTerminalRuleCall_0_0 = (RuleCall)cVariableAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cReadKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameSTRINGTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		
 		//Read:
-		//	'read' readableElement=ReadableEnum parameters=Parameters;
+		//	Variable=IDENTIFIER '=' 'read' Name=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'read' readableElement=ReadableEnum parameters=Parameters
+		//Variable=IDENTIFIER '=' 'read' Name=STRING
 		public Group getGroup() { return cGroup; }
 		
-		//'read'
-		public Keyword getReadKeyword_0() { return cReadKeyword_0; }
+		//Variable=IDENTIFIER
+		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
 		
-		//readableElement=ReadableEnum
-		public Assignment getReadableElementAssignment_1() { return cReadableElementAssignment_1; }
-		
-		//ReadableEnum
-		public RuleCall getReadableElementReadableEnumEnumRuleCall_1_0() { return cReadableElementReadableEnumEnumRuleCall_1_0; }
-		
-		//parameters=Parameters
-		public Assignment getParametersAssignment_2() { return cParametersAssignment_2; }
-		
-		//Parameters
-		public RuleCall getParametersParametersParserRuleCall_2_0() { return cParametersParametersParserRuleCall_2_0; }
-	}
-	public class SeriesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Series");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cOpenKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cBrowserAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cBrowserBrowserEnumEnumRuleCall_1_0 = (RuleCall)cBrowserAssignment_1.eContents().get(0);
-		private final Assignment cExpectedReturnAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExpectedReturnBoolEnumEnumRuleCall_2_0 = (RuleCall)cExpectedReturnAssignment_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cOperationsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cOperationsOperationParserRuleCall_4_0 = (RuleCall)cOperationsAssignment_4.eContents().get(0);
-		
-		//Series:
-		//	'open' browser=BrowserEnum expectedReturn=BoolEnum ';' operations+=Operation*;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'open' browser=BrowserEnum expectedReturn=BoolEnum ';' operations+=Operation*
-		public Group getGroup() { return cGroup; }
-		
-		//'open'
-		public Keyword getOpenKeyword_0() { return cOpenKeyword_0; }
-		
-		//browser=BrowserEnum
-		public Assignment getBrowserAssignment_1() { return cBrowserAssignment_1; }
-		
-		//BrowserEnum
-		public RuleCall getBrowserBrowserEnumEnumRuleCall_1_0() { return cBrowserBrowserEnumEnumRuleCall_1_0; }
-		
-		//expectedReturn=BoolEnum
-		public Assignment getExpectedReturnAssignment_2() { return cExpectedReturnAssignment_2; }
-		
-		//BoolEnum
-		public RuleCall getExpectedReturnBoolEnumEnumRuleCall_2_0() { return cExpectedReturnBoolEnumEnumRuleCall_2_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
-		
-		//operations+=Operation*
-		public Assignment getOperationsAssignment_4() { return cOperationsAssignment_4; }
-		
-		//Operation
-		public RuleCall getOperationsOperationParserRuleCall_4_0() { return cOperationsOperationParserRuleCall_4_0; }
-	}
-	public class TypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Type");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTextToTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTextToTypeValParserRuleCall_1_0 = (RuleCall)cTextToTypeAssignment_1.eContents().get(0);
-		private final Assignment cParametersAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParametersParametersParserRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
-		
-		//Type:
-		//	'type' textToType=Val parameters=Parameters;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'type' textToType=Val parameters=Parameters
-		public Group getGroup() { return cGroup; }
-		
-		//'type'
-		public Keyword getTypeKeyword_0() { return cTypeKeyword_0; }
-		
-		//textToType=Val
-		public Assignment getTextToTypeAssignment_1() { return cTextToTypeAssignment_1; }
-		
-		//Val
-		public RuleCall getTextToTypeValParserRuleCall_1_0() { return cTextToTypeValParserRuleCall_1_0; }
-		
-		//parameters=Parameters
-		public Assignment getParametersAssignment_2() { return cParametersAssignment_2; }
-		
-		//Parameters
-		public RuleCall getParametersParametersParserRuleCall_2_0() { return cParametersParametersParserRuleCall_2_0; }
-	}
-	public class ValElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Val");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cVariableGetParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final Assignment cBoolAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final RuleCall cBoolBoolEnumEnumRuleCall_2_0 = (RuleCall)cBoolAssignment_2.eContents().get(0);
-		
-		//Val:
-		//	VariableGet | STRING | bool=BoolEnum;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//VariableGet | STRING | bool=BoolEnum
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//VariableGet
-		public RuleCall getVariableGetParserRuleCall_0() { return cVariableGetParserRuleCall_0; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
-		
-		//bool=BoolEnum
-		public Assignment getBoolAssignment_2() { return cBoolAssignment_2; }
-		
-		//BoolEnum
-		public RuleCall getBoolBoolEnumEnumRuleCall_2_0() { return cBoolBoolEnumEnumRuleCall_2_0; }
-	}
-	public class ValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Value");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cValueKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueValParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
-		
-		//Value:
-		//	'value' value=Val;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'value' value=Val
-		public Group getGroup() { return cGroup; }
-		
-		//'value'
-		public Keyword getValueKeyword_0() { return cValueKeyword_0; }
-		
-		//value=Val
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
-		
-		//Val
-		public RuleCall getValueValParserRuleCall_1_0() { return cValueValParserRuleCall_1_0; }
-	}
-	public class VariableGetElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.VariableGet");
-		private final Assignment cVarNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cVarNameIDTerminalRuleCall_0 = (RuleCall)cVarNameAssignment.eContents().get(0);
-		
-		//VariableGet:
-		//	varName=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//varName=ID
-		public Assignment getVarNameAssignment() { return cVarNameAssignment; }
-		
-		//ID
-		public RuleCall getVarNameIDTerminalRuleCall_0() { return cVarNameIDTerminalRuleCall_0; }
-	}
-	public class VariableSetElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.VariableSet");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cVarNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cVarNameIDTerminalRuleCall_0_0 = (RuleCall)cVarNameAssignment_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cActionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cActionActionReturnParserRuleCall_2_0 = (RuleCall)cActionAssignment_2.eContents().get(0);
-		
-		//VariableSet:
-		//	varName=ID '=' action=ActionReturn;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//varName=ID '=' action=ActionReturn
-		public Group getGroup() { return cGroup; }
-		
-		//varName=ID
-		public Assignment getVarNameAssignment_0() { return cVarNameAssignment_0; }
-		
-		//ID
-		public RuleCall getVarNameIDTerminalRuleCall_0_0() { return cVarNameIDTerminalRuleCall_0_0; }
+		//IDENTIFIER
+		public RuleCall getVariableIDENTIFIERTerminalRuleCall_0_0() { return cVariableIDENTIFIERTerminalRuleCall_0_0; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
-		//action=ActionReturn
-		public Assignment getActionAssignment_2() { return cActionAssignment_2; }
+		//'read'
+		public Keyword getReadKeyword_2() { return cReadKeyword_2; }
 		
-		//ActionReturn
-		public RuleCall getActionActionReturnParserRuleCall_2_0() { return cActionActionReturnParserRuleCall_2_0; }
+		//Name=STRING
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_3_0() { return cNameSTRINGTerminalRuleCall_3_0; }
+	}
+	public class AssertElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.Assert");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAssertKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cTypeAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final Alternatives cTypeAlternatives_1_0_0_0 = (Alternatives)cTypeAssignment_1_0_0.eContents().get(0);
+		private final Keyword cTypeInputKeyword_1_0_0_0_0 = (Keyword)cTypeAlternatives_1_0_0_0.eContents().get(0);
+		private final Keyword cTypeLinkKeyword_1_0_0_0_1 = (Keyword)cTypeAlternatives_1_0_0_0.eContents().get(1);
+		private final Keyword cTypeNameKeyword_1_0_0_0_2 = (Keyword)cTypeAlternatives_1_0_0_0.eContents().get(2);
+		private final Keyword cTypeXpathKeyword_1_0_0_0_3 = (Keyword)cTypeAlternatives_1_0_0_0.eContents().get(3);
+		private final Group cGroup_1_0_1 = (Group)cGroup_1_0.eContents().get(1);
+		private final Assignment cNameAssignment_1_0_1_0 = (Assignment)cGroup_1_0_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0_1_0_0 = (RuleCall)cNameAssignment_1_0_1_0.eContents().get(0);
+		private final Assignment cMethodAssignment_1_0_1_1 = (Assignment)cGroup_1_0_1.eContents().get(1);
+		private final Alternatives cMethodAlternatives_1_0_1_1_0 = (Alternatives)cMethodAssignment_1_0_1_1.eContents().get(0);
+		private final Keyword cMethodContainsKeyword_1_0_1_1_0_0 = (Keyword)cMethodAlternatives_1_0_1_1_0.eContents().get(0);
+		private final Keyword cMethodEqualsKeyword_1_0_1_1_0_1 = (Keyword)cMethodAlternatives_1_0_1_1_0.eContents().get(1);
+		private final Assignment cValueAssignment_1_0_1_2 = (Assignment)cGroup_1_0_1.eContents().get(2);
+		private final Alternatives cValueAlternatives_1_0_1_2_0 = (Alternatives)cValueAssignment_1_0_1_2.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0_1_2_0_0 = (RuleCall)cValueAlternatives_1_0_1_2_0.eContents().get(0);
+		private final RuleCall cValueIDENTIFIERTerminalRuleCall_1_0_1_2_0_1 = (RuleCall)cValueAlternatives_1_0_1_2_0.eContents().get(1);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Assignment cTypeAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final Alternatives cTypeAlternatives_1_1_0_0 = (Alternatives)cTypeAssignment_1_1_0.eContents().get(0);
+		private final Keyword cTypeInputKeyword_1_1_0_0_0 = (Keyword)cTypeAlternatives_1_1_0_0.eContents().get(0);
+		private final Keyword cTypeLinkKeyword_1_1_0_0_1 = (Keyword)cTypeAlternatives_1_1_0_0.eContents().get(1);
+		private final Keyword cTypeNameKeyword_1_1_0_0_2 = (Keyword)cTypeAlternatives_1_1_0_0.eContents().get(2);
+		private final Keyword cTypeXpathKeyword_1_1_0_0_3 = (Keyword)cTypeAlternatives_1_1_0_0.eContents().get(3);
+		private final Assignment cNameAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_1_1_0 = (RuleCall)cNameAssignment_1_1_1.eContents().get(0);
+		private final Assignment cMethodAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final Keyword cMethodExistsKeyword_1_1_2_0 = (Keyword)cMethodAssignment_1_1_2.eContents().get(0);
+		
+		//Assert:
+		//	'assert' (Type=('input' | 'link' | 'name' | 'xpath') (Name=STRING Method=('contains' | 'equals') Value=(STRING |
+		//	IDENTIFIER)) | Type=('input' | 'link' | 'name' | 'xpath') Name=STRING Method='exists');
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'assert' (Type=('input' | 'link' | 'name' | 'xpath') (Name=STRING Method=('contains' | 'equals') Value=(STRING |
+		//IDENTIFIER)) | Type=('input' | 'link' | 'name' | 'xpath') Name=STRING Method='exists')
+		public Group getGroup() { return cGroup; }
+		
+		//'assert'
+		public Keyword getAssertKeyword_0() { return cAssertKeyword_0; }
+		
+		//Type=('input' | 'link' | 'name' | 'xpath') (Name=STRING Method=('contains' | 'equals') Value=(STRING | IDENTIFIER)) |
+		//Type=('input' | 'link' | 'name' | 'xpath') Name=STRING Method='exists'
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//Type=('input' | 'link' | 'name' | 'xpath') (Name=STRING Method=('contains' | 'equals') Value=(STRING | IDENTIFIER))
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//Type=('input' | 'link' | 'name' | 'xpath')
+		public Assignment getTypeAssignment_1_0_0() { return cTypeAssignment_1_0_0; }
+		
+		//('input' | 'link' | 'name' | 'xpath')
+		public Alternatives getTypeAlternatives_1_0_0_0() { return cTypeAlternatives_1_0_0_0; }
+		
+		//'input'
+		public Keyword getTypeInputKeyword_1_0_0_0_0() { return cTypeInputKeyword_1_0_0_0_0; }
+		
+		//'link'
+		public Keyword getTypeLinkKeyword_1_0_0_0_1() { return cTypeLinkKeyword_1_0_0_0_1; }
+		
+		//'name'
+		public Keyword getTypeNameKeyword_1_0_0_0_2() { return cTypeNameKeyword_1_0_0_0_2; }
+		
+		//'xpath'
+		public Keyword getTypeXpathKeyword_1_0_0_0_3() { return cTypeXpathKeyword_1_0_0_0_3; }
+		
+		//Name=STRING Method=('contains' | 'equals') Value=(STRING | IDENTIFIER)
+		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
+		
+		//Name=STRING
+		public Assignment getNameAssignment_1_0_1_0() { return cNameAssignment_1_0_1_0; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0_1_0_0() { return cNameSTRINGTerminalRuleCall_1_0_1_0_0; }
+		
+		//Method=('contains' | 'equals')
+		public Assignment getMethodAssignment_1_0_1_1() { return cMethodAssignment_1_0_1_1; }
+		
+		//('contains' | 'equals')
+		public Alternatives getMethodAlternatives_1_0_1_1_0() { return cMethodAlternatives_1_0_1_1_0; }
+		
+		//'contains'
+		public Keyword getMethodContainsKeyword_1_0_1_1_0_0() { return cMethodContainsKeyword_1_0_1_1_0_0; }
+		
+		//'equals'
+		public Keyword getMethodEqualsKeyword_1_0_1_1_0_1() { return cMethodEqualsKeyword_1_0_1_1_0_1; }
+		
+		//Value=(STRING | IDENTIFIER)
+		public Assignment getValueAssignment_1_0_1_2() { return cValueAssignment_1_0_1_2; }
+		
+		//(STRING | IDENTIFIER)
+		public Alternatives getValueAlternatives_1_0_1_2_0() { return cValueAlternatives_1_0_1_2_0; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0_1_2_0_0() { return cValueSTRINGTerminalRuleCall_1_0_1_2_0_0; }
+		
+		//IDENTIFIER
+		public RuleCall getValueIDENTIFIERTerminalRuleCall_1_0_1_2_0_1() { return cValueIDENTIFIERTerminalRuleCall_1_0_1_2_0_1; }
+		
+		//Type=('input' | 'link' | 'name' | 'xpath') Name=STRING Method='exists'
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//Type=('input' | 'link' | 'name' | 'xpath')
+		public Assignment getTypeAssignment_1_1_0() { return cTypeAssignment_1_1_0; }
+		
+		//('input' | 'link' | 'name' | 'xpath')
+		public Alternatives getTypeAlternatives_1_1_0_0() { return cTypeAlternatives_1_1_0_0; }
+		
+		//'input'
+		public Keyword getTypeInputKeyword_1_1_0_0_0() { return cTypeInputKeyword_1_1_0_0_0; }
+		
+		//'link'
+		public Keyword getTypeLinkKeyword_1_1_0_0_1() { return cTypeLinkKeyword_1_1_0_0_1; }
+		
+		//'name'
+		public Keyword getTypeNameKeyword_1_1_0_0_2() { return cTypeNameKeyword_1_1_0_0_2; }
+		
+		//'xpath'
+		public Keyword getTypeXpathKeyword_1_1_0_0_3() { return cTypeXpathKeyword_1_1_0_0_3; }
+		
+		//Name=STRING
+		public Assignment getNameAssignment_1_1_1() { return cNameAssignment_1_1_1; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_1_1_0() { return cNameSTRINGTerminalRuleCall_1_1_1_0; }
+		
+		//Method='exists'
+		public Assignment getMethodAssignment_1_1_2() { return cMethodAssignment_1_1_2; }
+		
+		//'exists'
+		public Keyword getMethodExistsKeyword_1_1_2_0() { return cMethodExistsKeyword_1_1_2_0; }
+	}
+	public class CallProcedureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.CallProcedure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cProcedureNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cProcedureNameIDENTIFIERTerminalRuleCall_0_0 = (RuleCall)cProcedureNameAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Assignment cParametersAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final Alternatives cParametersAlternatives_1_1_0_0 = (Alternatives)cParametersAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cParametersIDENTIFIERTerminalRuleCall_1_1_0_0_0 = (RuleCall)cParametersAlternatives_1_1_0_0.eContents().get(0);
+		private final RuleCall cParametersSTRINGTerminalRuleCall_1_1_0_0_1 = (RuleCall)cParametersAlternatives_1_1_0_0.eContents().get(1);
+		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
+		private final RuleCall cCOMMATerminalRuleCall_1_1_1_0 = (RuleCall)cGroup_1_1_1.eContents().get(0);
+		private final Assignment cParametersAssignment_1_1_1_1 = (Assignment)cGroup_1_1_1.eContents().get(1);
+		private final Alternatives cParametersAlternatives_1_1_1_1_0 = (Alternatives)cParametersAssignment_1_1_1_1.eContents().get(0);
+		private final RuleCall cParametersIDENTIFIERTerminalRuleCall_1_1_1_1_0_0 = (RuleCall)cParametersAlternatives_1_1_1_1_0.eContents().get(0);
+		private final RuleCall cParametersSTRINGTerminalRuleCall_1_1_1_1_0_1 = (RuleCall)cParametersAlternatives_1_1_1_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		
+		//CallProcedure:
+		//	ProcedureName=IDENTIFIER ('(' (Parameters+=(IDENTIFIER | STRING) (COMMA Parameters+=(IDENTIFIER | STRING))*) ')')?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ProcedureName=IDENTIFIER ('(' (Parameters+=(IDENTIFIER | STRING) (COMMA Parameters+=(IDENTIFIER | STRING))*) ')')?
+		public Group getGroup() { return cGroup; }
+		
+		//ProcedureName=IDENTIFIER
+		public Assignment getProcedureNameAssignment_0() { return cProcedureNameAssignment_0; }
+		
+		//IDENTIFIER
+		public RuleCall getProcedureNameIDENTIFIERTerminalRuleCall_0_0() { return cProcedureNameIDENTIFIERTerminalRuleCall_0_0; }
+		
+		//('(' (Parameters+=(IDENTIFIER | STRING) (COMMA Parameters+=(IDENTIFIER | STRING))*) ')')?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+		
+		//Parameters+=(IDENTIFIER | STRING) (COMMA Parameters+=(IDENTIFIER | STRING))*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//Parameters+=(IDENTIFIER | STRING)
+		public Assignment getParametersAssignment_1_1_0() { return cParametersAssignment_1_1_0; }
+		
+		//(IDENTIFIER | STRING)
+		public Alternatives getParametersAlternatives_1_1_0_0() { return cParametersAlternatives_1_1_0_0; }
+		
+		//IDENTIFIER
+		public RuleCall getParametersIDENTIFIERTerminalRuleCall_1_1_0_0_0() { return cParametersIDENTIFIERTerminalRuleCall_1_1_0_0_0; }
+		
+		//STRING
+		public RuleCall getParametersSTRINGTerminalRuleCall_1_1_0_0_1() { return cParametersSTRINGTerminalRuleCall_1_1_0_0_1; }
+		
+		//(COMMA Parameters+=(IDENTIFIER | STRING))*
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+		
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_1_1_1_0() { return cCOMMATerminalRuleCall_1_1_1_0; }
+		
+		//Parameters+=(IDENTIFIER | STRING)
+		public Assignment getParametersAssignment_1_1_1_1() { return cParametersAssignment_1_1_1_1; }
+		
+		//(IDENTIFIER | STRING)
+		public Alternatives getParametersAlternatives_1_1_1_1_0() { return cParametersAlternatives_1_1_1_1_0; }
+		
+		//IDENTIFIER
+		public RuleCall getParametersIDENTIFIERTerminalRuleCall_1_1_1_1_0_0() { return cParametersIDENTIFIERTerminalRuleCall_1_1_1_1_0_0; }
+		
+		//STRING
+		public RuleCall getParametersSTRINGTerminalRuleCall_1_1_1_1_0_1() { return cParametersSTRINGTerminalRuleCall_1_1_1_1_0_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
 	}
 	
-	public class BoolEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.BoolEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cTrueEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cTrueTrueKeyword_0_0 = (Keyword)cTrueEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cFalseEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cFalseFalseKeyword_1_0 = (Keyword)cFalseEnumLiteralDeclaration_1.eContents().get(0);
-		
-		//enum BoolEnum:
-		//	True='true' | False='false';
-		public EnumRule getRule() { return rule; }
-		
-		//True='true' | False='false'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//True='true'
-		public EnumLiteralDeclaration getTrueEnumLiteralDeclaration_0() { return cTrueEnumLiteralDeclaration_0; }
-		
-		//'true'
-		public Keyword getTrueTrueKeyword_0_0() { return cTrueTrueKeyword_0_0; }
-		
-		//False='false'
-		public EnumLiteralDeclaration getFalseEnumLiteralDeclaration_1() { return cFalseEnumLiteralDeclaration_1; }
-		
-		//'false'
-		public Keyword getFalseFalseKeyword_1_0() { return cFalseFalseKeyword_1_0; }
-	}
-	public class BrowserEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.BrowserEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cFirefoxEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cFirefoxFirefoxKeyword_0_0 = (Keyword)cFirefoxEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cIEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cIEIeKeyword_1_0 = (Keyword)cIEEnumLiteralDeclaration_1.eContents().get(0);
-		
-		//enum BrowserEnum:
-		//	Firefox='firefox' | IE='ie';
-		public EnumRule getRule() { return rule; }
-		
-		//Firefox='firefox' | IE='ie'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Firefox='firefox'
-		public EnumLiteralDeclaration getFirefoxEnumLiteralDeclaration_0() { return cFirefoxEnumLiteralDeclaration_0; }
-		
-		//'firefox'
-		public Keyword getFirefoxFirefoxKeyword_0_0() { return cFirefoxFirefoxKeyword_0_0; }
-		
-		//IE='ie'
-		public EnumLiteralDeclaration getIEEnumLiteralDeclaration_1() { return cIEEnumLiteralDeclaration_1; }
-		
-		//'ie'
-		public Keyword getIEIeKeyword_1_0() { return cIEIeKeyword_1_0; }
-	}
-	public class ClickableEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ClickableEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cButtonEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cButtonButtonKeyword_0_0 = (Keyword)cButtonEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cLinkEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cLinkLinkKeyword_1_0 = (Keyword)cLinkEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cInputEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cInputInputKeyword_2_0 = (Keyword)cInputEnumLiteralDeclaration_2.eContents().get(0);
-		
-		//enum ClickableEnum:
-		//	Button='button' | Link='link' | Input='input';
-		public EnumRule getRule() { return rule; }
-		
-		//Button='button' | Link='link' | Input='input'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Button='button'
-		public EnumLiteralDeclaration getButtonEnumLiteralDeclaration_0() { return cButtonEnumLiteralDeclaration_0; }
-		
-		//'button'
-		public Keyword getButtonButtonKeyword_0_0() { return cButtonButtonKeyword_0_0; }
-		
-		//Link='link'
-		public EnumLiteralDeclaration getLinkEnumLiteralDeclaration_1() { return cLinkEnumLiteralDeclaration_1; }
-		
-		//'link'
-		public Keyword getLinkLinkKeyword_1_0() { return cLinkLinkKeyword_1_0; }
-		
-		//Input='input'
-		public EnumLiteralDeclaration getInputEnumLiteralDeclaration_2() { return cInputEnumLiteralDeclaration_2; }
-		
-		//'input'
-		public Keyword getInputInputKeyword_2_0() { return cInputInputKeyword_2_0; }
-	}
-	public class ComparisonOperatorEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ComparisonOperatorEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cEqualEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cEqualEqualsSignEqualsSignKeyword_0_0 = (Keyword)cEqualEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cSuperiorEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cSuperiorGreaterThanSignKeyword_1_0 = (Keyword)cSuperiorEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cInferiorEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cInferiorLessThanSignKeyword_2_0 = (Keyword)cInferiorEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cSupEqualEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cSupEqualGreaterThanSignEqualsSignKeyword_3_0 = (Keyword)cSupEqualEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cInfEqualEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cInfEqualLessThanSignEqualsSignKeyword_4_0 = (Keyword)cInfEqualEnumLiteralDeclaration_4.eContents().get(0);
-		
-		//enum ComparisonOperatorEnum:
-		//	Equal='==' | Superior='>' | Inferior='<' | SupEqual='>=' | InfEqual='<=';
-		public EnumRule getRule() { return rule; }
-		
-		//Equal='==' | Superior='>' | Inferior='<' | SupEqual='>=' | InfEqual='<='
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Equal='=='
-		public EnumLiteralDeclaration getEqualEnumLiteralDeclaration_0() { return cEqualEnumLiteralDeclaration_0; }
-		
-		//'=='
-		public Keyword getEqualEqualsSignEqualsSignKeyword_0_0() { return cEqualEqualsSignEqualsSignKeyword_0_0; }
-		
-		//Superior='>'
-		public EnumLiteralDeclaration getSuperiorEnumLiteralDeclaration_1() { return cSuperiorEnumLiteralDeclaration_1; }
-		
-		//'>'
-		public Keyword getSuperiorGreaterThanSignKeyword_1_0() { return cSuperiorGreaterThanSignKeyword_1_0; }
-		
-		//Inferior='<'
-		public EnumLiteralDeclaration getInferiorEnumLiteralDeclaration_2() { return cInferiorEnumLiteralDeclaration_2; }
-		
-		//'<'
-		public Keyword getInferiorLessThanSignKeyword_2_0() { return cInferiorLessThanSignKeyword_2_0; }
-		
-		//SupEqual='>='
-		public EnumLiteralDeclaration getSupEqualEnumLiteralDeclaration_3() { return cSupEqualEnumLiteralDeclaration_3; }
-		
-		//'>='
-		public Keyword getSupEqualGreaterThanSignEqualsSignKeyword_3_0() { return cSupEqualGreaterThanSignEqualsSignKeyword_3_0; }
-		
-		//InfEqual='<='
-		public EnumLiteralDeclaration getInfEqualEnumLiteralDeclaration_4() { return cInfEqualEnumLiteralDeclaration_4; }
-		
-		//'<='
-		public Keyword getInfEqualLessThanSignEqualsSignKeyword_4_0() { return cInfEqualLessThanSignEqualsSignKeyword_4_0; }
-	}
-	public class ConstraintTypeEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ConstraintTypeEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cContainEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cContainContainKeyword_0_0 = (Keyword)cContainEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cEnabledEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cEnabledEnabledKeyword_1_0 = (Keyword)cEnabledEnumLiteralDeclaration_1.eContents().get(0);
-		
-		//enum ConstraintTypeEnum:
-		//	Contain='contain' | Enabled='enabled';
-		public EnumRule getRule() { return rule; }
-		
-		//Contain='contain' | Enabled='enabled'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Contain='contain'
-		public EnumLiteralDeclaration getContainEnumLiteralDeclaration_0() { return cContainEnumLiteralDeclaration_0; }
-		
-		//'contain'
-		public Keyword getContainContainKeyword_0_0() { return cContainContainKeyword_0_0; }
-		
-		//Enabled='enabled'
-		public EnumLiteralDeclaration getEnabledEnumLiteralDeclaration_1() { return cEnabledEnumLiteralDeclaration_1; }
-		
-		//'enabled'
-		public Keyword getEnabledEnabledKeyword_1_0() { return cEnabledEnabledKeyword_1_0; }
-	}
-	public class ReadableEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.ReadableEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cButtonEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cButtonButtonKeyword_0_0 = (Keyword)cButtonEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cLinkEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cLinkLinkKeyword_1_0 = (Keyword)cLinkEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cInputEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cInputInputKeyword_2_0 = (Keyword)cInputEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cH1EnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cH1H1Keyword_3_0 = (Keyword)cH1EnumLiteralDeclaration_3.eContents().get(0);
-		
-		//enum ReadableEnum:
-		//	Button='button' | Link='link' | Input='input' | H1='h1';
-		public EnumRule getRule() { return rule; }
-		
-		//Button='button' | Link='link' | Input='input' | H1='h1'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Button='button'
-		public EnumLiteralDeclaration getButtonEnumLiteralDeclaration_0() { return cButtonEnumLiteralDeclaration_0; }
-		
-		//'button'
-		public Keyword getButtonButtonKeyword_0_0() { return cButtonButtonKeyword_0_0; }
-		
-		//Link='link'
-		public EnumLiteralDeclaration getLinkEnumLiteralDeclaration_1() { return cLinkEnumLiteralDeclaration_1; }
-		
-		//'link'
-		public Keyword getLinkLinkKeyword_1_0() { return cLinkLinkKeyword_1_0; }
-		
-		//Input='input'
-		public EnumLiteralDeclaration getInputEnumLiteralDeclaration_2() { return cInputEnumLiteralDeclaration_2; }
-		
-		//'input'
-		public Keyword getInputInputKeyword_2_0() { return cInputInputKeyword_2_0; }
-		
-		//H1='h1'
-		public EnumLiteralDeclaration getH1EnumLiteralDeclaration_3() { return cH1EnumLiteralDeclaration_3; }
-		
-		//'h1'
-		public Keyword getH1H1Keyword_3_0() { return cH1H1Keyword_3_0; }
-	}
 	
 	private final TestElements pTest;
-	private final ActionNoReturnElements pActionNoReturn;
-	private final ActionReturnElements pActionReturn;
-	private final ActionBoolReturnElements pActionBoolReturn;
-	private final AllElements pAll;
-	private final AttributeElements pAttribute;
-	private final BrowseElements pBrowse;
-	private final CheckElements pCheck;
-	private final ComparisonElements pComparison;
-	private final ConstraintElements pConstraint;
-	private final CountElements pCount;
+	private final ProcedureElements pProcedure;
+	private final MainProcedureElements pMainProcedure;
+	private final InstructionElements pInstruction;
 	private final ClickElements pClick;
-	private final OperationElements pOperation;
-	private final ParameterElements pParameter;
-	private final ParametersElements pParameters;
+	private final FillElements pFill;
+	private final SelectElements pSelect;
+	private final TickElements pTick;
+	private final NavigateElements pNavigate;
 	private final ReadElements pRead;
-	private final SeriesElements pSeries;
-	private final TypeElements pType;
-	private final ValElements pVal;
-	private final ValueElements pValue;
-	private final VariableGetElements pVariableGet;
-	private final VariableSetElements pVariableSet;
-	private final BoolEnumElements eBoolEnum;
-	private final BrowserEnumElements eBrowserEnum;
-	private final ClickableEnumElements eClickableEnum;
-	private final ComparisonOperatorEnumElements eComparisonOperatorEnum;
-	private final ConstraintTypeEnumElements eConstraintTypeEnum;
-	private final ReadableEnumElements eReadableEnum;
+	private final AssertElements pAssert;
+	private final CallProcedureElements pCallProcedure;
+	private final TerminalRule tIDENTIFIER;
+	private final TerminalRule tCOMMA;
 	
 	private final Grammar grammar;
 	
@@ -883,33 +673,19 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pTest = new TestElements();
-		this.pActionNoReturn = new ActionNoReturnElements();
-		this.pActionReturn = new ActionReturnElements();
-		this.pActionBoolReturn = new ActionBoolReturnElements();
-		this.pAll = new AllElements();
-		this.pAttribute = new AttributeElements();
-		this.pBrowse = new BrowseElements();
-		this.pCheck = new CheckElements();
-		this.pComparison = new ComparisonElements();
-		this.pConstraint = new ConstraintElements();
-		this.pCount = new CountElements();
+		this.pProcedure = new ProcedureElements();
+		this.pMainProcedure = new MainProcedureElements();
+		this.pInstruction = new InstructionElements();
 		this.pClick = new ClickElements();
-		this.pOperation = new OperationElements();
-		this.pParameter = new ParameterElements();
-		this.pParameters = new ParametersElements();
+		this.pFill = new FillElements();
+		this.pSelect = new SelectElements();
+		this.pTick = new TickElements();
+		this.pNavigate = new NavigateElements();
 		this.pRead = new ReadElements();
-		this.pSeries = new SeriesElements();
-		this.pType = new TypeElements();
-		this.pVal = new ValElements();
-		this.pValue = new ValueElements();
-		this.pVariableGet = new VariableGetElements();
-		this.pVariableSet = new VariableSetElements();
-		this.eBoolEnum = new BoolEnumElements();
-		this.eBrowserEnum = new BrowserEnumElements();
-		this.eClickableEnum = new ClickableEnumElements();
-		this.eComparisonOperatorEnum = new ComparisonOperatorEnumElements();
-		this.eConstraintTypeEnum = new ConstraintTypeEnumElements();
-		this.eReadableEnum = new ReadableEnumElements();
+		this.pAssert = new AssertElements();
+		this.pCallProcedure = new CallProcedureElements();
+		this.tIDENTIFIER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.IDENTIFIER");
+		this.tCOMMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.selenium.eliedenis.EDdsl.COMMA");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -939,8 +715,10 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
+	//// Program
 	//Test:
-	//	tests=Series;
+	//	procedures+=Procedure*
+	//	main=MainProcedure;
 	public TestElements getTestAccess() {
 		return pTest;
 	}
@@ -949,109 +727,43 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 		return getTestAccess().getRule();
 	}
 	
-	//// ----- MODELS (ALPHABETICAL ORDER) -----
-	//ActionNoReturn:
-	//	All | Browse | Check | Click | Type | VariableSet;
-	public ActionNoReturnElements getActionNoReturnAccess() {
-		return pActionNoReturn;
+	//Procedure:
+	//	'def' Name=IDENTIFIER ('(' (Parameters+=IDENTIFIER (COMMA Parameters+=IDENTIFIER)*) ')')? '{'
+	//	instructions+=Instruction*
+	//	'}';
+	public ProcedureElements getProcedureAccess() {
+		return pProcedure;
 	}
 	
-	public ParserRule getActionNoReturnRule() {
-		return getActionNoReturnAccess().getRule();
+	public ParserRule getProcedureRule() {
+		return getProcedureAccess().getRule();
 	}
 	
-	//ActionReturn:
-	//	Count | Read;
-	public ActionReturnElements getActionReturnAccess() {
-		return pActionReturn;
+	//MainProcedure:
+	//	{MainProcedure} 'def'+ 'main'+ '{'
+	//	instructions+=Instruction*
+	//	'}';
+	public MainProcedureElements getMainProcedureAccess() {
+		return pMainProcedure;
 	}
 	
-	public ParserRule getActionReturnRule() {
-		return getActionReturnAccess().getRule();
+	public ParserRule getMainProcedureRule() {
+		return getMainProcedureAccess().getRule();
 	}
 	
-	//ActionBoolReturn:
-	//	Comparison | Constraint;
-	public ActionBoolReturnElements getActionBoolReturnAccess() {
-		return pActionBoolReturn;
+	////Instruction is abstract
+	//Instruction:
+	//	Click | Fill | Select | Tick | Navigate | Assert | Read | CallProcedure;
+	public InstructionElements getInstructionAccess() {
+		return pInstruction;
 	}
 	
-	public ParserRule getActionBoolReturnRule() {
-		return getActionBoolReturnAccess().getRule();
-	}
-	
-	//All:
-	//	'all' operation=ActionNoReturn;
-	public AllElements getAllAccess() {
-		return pAll;
-	}
-	
-	public ParserRule getAllRule() {
-		return getAllAccess().getRule();
-	}
-	
-	//Attribute:
-	//	'attribute' attributeName=STRING attributeValue=STRING;
-	public AttributeElements getAttributeAccess() {
-		return pAttribute;
-	}
-	
-	public ParserRule getAttributeRule() {
-		return getAttributeAccess().getRule();
-	}
-	
-	//Browse:
-	//	'browse' url=STRING;
-	public BrowseElements getBrowseAccess() {
-		return pBrowse;
-	}
-	
-	public ParserRule getBrowseRule() {
-		return getBrowseAccess().getRule();
-	}
-	
-	//Check:
-	//	'check' action=ActionBoolReturn;
-	public CheckElements getCheckAccess() {
-		return pCheck;
-	}
-	
-	public ParserRule getCheckRule() {
-		return getCheckAccess().getRule();
-	}
-	
-	//Comparison:
-	//	'comparison' firstVal=Val comparatorOperator=ComparisonOperatorEnum secondVal=Val;
-	public ComparisonElements getComparisonAccess() {
-		return pComparison;
-	}
-	
-	public ParserRule getComparisonRule() {
-		return getComparisonAccess().getRule();
-	}
-	
-	//Constraint:
-	//	readableElement=ReadableEnum constraintType=ConstraintTypeEnum expectedVal=Val parameters=Parameters;
-	public ConstraintElements getConstraintAccess() {
-		return pConstraint;
-	}
-	
-	public ParserRule getConstraintRule() {
-		return getConstraintAccess().getRule();
-	}
-	
-	//Count:
-	//	'count' parameters=(Parameters | ActionReturn);
-	public CountElements getCountAccess() {
-		return pCount;
-	}
-	
-	public ParserRule getCountRule() {
-		return getCountAccess().getRule();
+	public ParserRule getInstructionRule() {
+		return getInstructionAccess().getRule();
 	}
 	
 	//Click:
-	//	'click' clickableElement=ClickableEnum parameters=Parameters;
+	//	'click' Type=('input' | 'link' | 'name' | 'xpath') Value=STRING;
 	public ClickElements getClickAccess() {
 		return pClick;
 	}
@@ -1060,38 +772,48 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 		return getClickAccess().getRule();
 	}
 	
-	//Operation:
-	//	action=ActionNoReturn ';';
-	public OperationElements getOperationAccess() {
-		return pOperation;
+	//Fill:
+	//	'fill' Name=STRING Value=(STRING | IDENTIFIER);
+	public FillElements getFillAccess() {
+		return pFill;
 	}
 	
-	public ParserRule getOperationRule() {
-		return getOperationAccess().getRule();
+	public ParserRule getFillRule() {
+		return getFillAccess().getRule();
 	}
 	
-	//Parameter:
-	//	'(' parameter=(Attribute | Value) ')';
-	public ParameterElements getParameterAccess() {
-		return pParameter;
+	//Select:
+	//	'select' Name=STRING Value=(STRING | IDENTIFIER);
+	public SelectElements getSelectAccess() {
+		return pSelect;
 	}
 	
-	public ParserRule getParameterRule() {
-		return getParameterAccess().getRule();
+	public ParserRule getSelectRule() {
+		return getSelectAccess().getRule();
 	}
 	
-	//Parameters:
-	//	parameters+=Parameter*;
-	public ParametersElements getParametersAccess() {
-		return pParameters;
+	//Tick:
+	//	'tick' Name=STRING;
+	public TickElements getTickAccess() {
+		return pTick;
 	}
 	
-	public ParserRule getParametersRule() {
-		return getParametersAccess().getRule();
+	public ParserRule getTickRule() {
+		return getTickAccess().getRule();
+	}
+	
+	//Navigate:
+	//	'navigate' url=(STRING | IDENTIFIER);
+	public NavigateElements getNavigateAccess() {
+		return pNavigate;
+	}
+	
+	public ParserRule getNavigateRule() {
+		return getNavigateAccess().getRule();
 	}
 	
 	//Read:
-	//	'read' readableElement=ReadableEnum parameters=Parameters;
+	//	Variable=IDENTIFIER '=' 'read' Name=STRING;
 	public ReadElements getReadAccess() {
 		return pRead;
 	}
@@ -1100,124 +822,37 @@ public class EDdslGrammarAccess extends AbstractGrammarElementFinder {
 		return getReadAccess().getRule();
 	}
 	
-	//Series:
-	//	'open' browser=BrowserEnum expectedReturn=BoolEnum ';' operations+=Operation*;
-	public SeriesElements getSeriesAccess() {
-		return pSeries;
+	//Assert:
+	//	'assert' (Type=('input' | 'link' | 'name' | 'xpath') (Name=STRING Method=('contains' | 'equals') Value=(STRING |
+	//	IDENTIFIER)) | Type=('input' | 'link' | 'name' | 'xpath') Name=STRING Method='exists');
+	public AssertElements getAssertAccess() {
+		return pAssert;
 	}
 	
-	public ParserRule getSeriesRule() {
-		return getSeriesAccess().getRule();
+	public ParserRule getAssertRule() {
+		return getAssertAccess().getRule();
 	}
 	
-	//Type:
-	//	'type' textToType=Val parameters=Parameters;
-	public TypeElements getTypeAccess() {
-		return pType;
+	//CallProcedure:
+	//	ProcedureName=IDENTIFIER ('(' (Parameters+=(IDENTIFIER | STRING) (COMMA Parameters+=(IDENTIFIER | STRING))*) ')')?;
+	public CallProcedureElements getCallProcedureAccess() {
+		return pCallProcedure;
 	}
 	
-	public ParserRule getTypeRule() {
-		return getTypeAccess().getRule();
+	public ParserRule getCallProcedureRule() {
+		return getCallProcedureAccess().getRule();
 	}
 	
-	//Val:
-	//	VariableGet | STRING | bool=BoolEnum;
-	public ValElements getValAccess() {
-		return pVal;
+	//terminal IDENTIFIER:
+	//	'^'? ('a'..'z' | 'A'..'Z') ('a'..'z' | 'A'..'Z' | '0'..'9')*;
+	public TerminalRule getIDENTIFIERRule() {
+		return tIDENTIFIER;
 	}
 	
-	public ParserRule getValRule() {
-		return getValAccess().getRule();
-	}
-	
-	//Value:
-	//	'value' value=Val;
-	public ValueElements getValueAccess() {
-		return pValue;
-	}
-	
-	public ParserRule getValueRule() {
-		return getValueAccess().getRule();
-	}
-	
-	//VariableGet:
-	//	varName=ID;
-	public VariableGetElements getVariableGetAccess() {
-		return pVariableGet;
-	}
-	
-	public ParserRule getVariableGetRule() {
-		return getVariableGetAccess().getRule();
-	}
-	
-	//VariableSet:
-	//	varName=ID '=' action=ActionReturn;
-	public VariableSetElements getVariableSetAccess() {
-		return pVariableSet;
-	}
-	
-	public ParserRule getVariableSetRule() {
-		return getVariableSetAccess().getRule();
-	}
-	
-	//enum BoolEnum:
-	//	True='true' | False='false';
-	public BoolEnumElements getBoolEnumAccess() {
-		return eBoolEnum;
-	}
-	
-	public EnumRule getBoolEnumRule() {
-		return getBoolEnumAccess().getRule();
-	}
-	
-	//enum BrowserEnum:
-	//	Firefox='firefox' | IE='ie';
-	public BrowserEnumElements getBrowserEnumAccess() {
-		return eBrowserEnum;
-	}
-	
-	public EnumRule getBrowserEnumRule() {
-		return getBrowserEnumAccess().getRule();
-	}
-	
-	//enum ClickableEnum:
-	//	Button='button' | Link='link' | Input='input';
-	public ClickableEnumElements getClickableEnumAccess() {
-		return eClickableEnum;
-	}
-	
-	public EnumRule getClickableEnumRule() {
-		return getClickableEnumAccess().getRule();
-	}
-	
-	//enum ComparisonOperatorEnum:
-	//	Equal='==' | Superior='>' | Inferior='<' | SupEqual='>=' | InfEqual='<=';
-	public ComparisonOperatorEnumElements getComparisonOperatorEnumAccess() {
-		return eComparisonOperatorEnum;
-	}
-	
-	public EnumRule getComparisonOperatorEnumRule() {
-		return getComparisonOperatorEnumAccess().getRule();
-	}
-	
-	//enum ConstraintTypeEnum:
-	//	Contain='contain' | Enabled='enabled';
-	public ConstraintTypeEnumElements getConstraintTypeEnumAccess() {
-		return eConstraintTypeEnum;
-	}
-	
-	public EnumRule getConstraintTypeEnumRule() {
-		return getConstraintTypeEnumAccess().getRule();
-	}
-	
-	//enum ReadableEnum:
-	//	Button='button' | Link='link' | Input='input' | H1='h1';
-	public ReadableEnumElements getReadableEnumAccess() {
-		return eReadableEnum;
-	}
-	
-	public EnumRule getReadableEnumRule() {
-		return getReadableEnumAccess().getRule();
+	//terminal COMMA:
+	//	',';
+	public TerminalRule getCOMMARule() {
+		return tCOMMA;
 	}
 	
 	//terminal ID:

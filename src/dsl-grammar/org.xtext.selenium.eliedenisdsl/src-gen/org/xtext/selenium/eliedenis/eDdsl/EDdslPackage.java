@@ -5,7 +5,6 @@ package org.xtext.selenium.eliedenis.eDdsl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -69,13 +68,22 @@ public interface EDdslPackage extends EPackage
   int TEST = 0;
 
   /**
-   * The feature id for the '<em><b>Tests</b></em>' containment reference.
+   * The feature id for the '<em><b>Procedures</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEST__TESTS = 0;
+  int TEST__PROCEDURES = 0;
+
+  /**
+   * The feature id for the '<em><b>Main</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEST__MAIN = 1;
 
   /**
    * The number of structural features of the '<em>Test</em>' class.
@@ -84,314 +92,100 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEST_FEATURE_COUNT = 1;
+  int TEST_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionNoReturnImpl <em>Action No Return</em>}' class.
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ProcedureImpl <em>Procedure</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ActionNoReturnImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getActionNoReturn()
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ProcedureImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getProcedure()
    * @generated
    */
-  int ACTION_NO_RETURN = 1;
+  int PROCEDURE = 1;
 
   /**
-   * The number of structural features of the '<em>Action No Return</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_NO_RETURN_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionReturnImpl <em>Action Return</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ActionReturnImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getActionReturn()
-   * @generated
-   */
-  int ACTION_RETURN = 2;
-
-  /**
-   * The number of structural features of the '<em>Action Return</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_RETURN_FEATURE_COUNT = 0;
+  int PROCEDURE__NAME = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionBoolReturnImpl <em>Action Bool Return</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ActionBoolReturnImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getActionBoolReturn()
-   * @generated
-   */
-  int ACTION_BOOL_RETURN = 3;
-
-  /**
-   * The number of structural features of the '<em>Action Bool Return</em>' class.
+   * The feature id for the '<em><b>Parameters</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_BOOL_RETURN_FEATURE_COUNT = 0;
+  int PROCEDURE__PARAMETERS = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.AllImpl <em>All</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.AllImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getAll()
-   * @generated
-   */
-  int ALL = 4;
-
-  /**
-   * The feature id for the '<em><b>Operation</b></em>' containment reference.
+   * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ALL__OPERATION = ACTION_NO_RETURN_FEATURE_COUNT + 0;
+  int PROCEDURE__INSTRUCTIONS = 2;
 
   /**
-   * The number of structural features of the '<em>All</em>' class.
+   * The number of structural features of the '<em>Procedure</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ALL_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 1;
+  int PROCEDURE_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.AttributeImpl <em>Attribute</em>}' class.
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.MainProcedureImpl <em>Main Procedure</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.AttributeImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getAttribute()
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.MainProcedureImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getMainProcedure()
    * @generated
    */
-  int ATTRIBUTE = 5;
+  int MAIN_PROCEDURE = 2;
 
   /**
-   * The feature id for the '<em><b>Attribute Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATTRIBUTE__ATTRIBUTE_NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Attribute Value</b></em>' attribute.
+   * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__ATTRIBUTE_VALUE = 1;
+  int MAIN_PROCEDURE__INSTRUCTIONS = 0;
 
   /**
-   * The number of structural features of the '<em>Attribute</em>' class.
+   * The number of structural features of the '<em>Main Procedure</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = 2;
+  int MAIN_PROCEDURE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.BrowseImpl <em>Browse</em>}' class.
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.InstructionImpl <em>Instruction</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.BrowseImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getBrowse()
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.InstructionImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getInstruction()
    * @generated
    */
-  int BROWSE = 6;
+  int INSTRUCTION = 3;
 
   /**
-   * The feature id for the '<em><b>Url</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BROWSE__URL = ACTION_NO_RETURN_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Browse</em>' class.
+   * The number of structural features of the '<em>Instruction</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BROWSE_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.CheckImpl <em>Check</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.CheckImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getCheck()
-   * @generated
-   */
-  int CHECK = 7;
-
-  /**
-   * The feature id for the '<em><b>Action</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHECK__ACTION = ACTION_NO_RETURN_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Check</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHECK_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ComparisonImpl <em>Comparison</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ComparisonImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getComparison()
-   * @generated
-   */
-  int COMPARISON = 8;
-
-  /**
-   * The feature id for the '<em><b>First Val</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__FIRST_VAL = ACTION_BOOL_RETURN_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Comparator Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__COMPARATOR_OPERATOR = ACTION_BOOL_RETURN_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Second Val</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON__SECOND_VAL = ACTION_BOOL_RETURN_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Comparison</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPARISON_FEATURE_COUNT = ACTION_BOOL_RETURN_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ConstraintImpl <em>Constraint</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ConstraintImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getConstraint()
-   * @generated
-   */
-  int CONSTRAINT = 9;
-
-  /**
-   * The feature id for the '<em><b>Readable Element</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRAINT__READABLE_ELEMENT = ACTION_BOOL_RETURN_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Constraint Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRAINT__CONSTRAINT_TYPE = ACTION_BOOL_RETURN_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Expected Val</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRAINT__EXPECTED_VAL = ACTION_BOOL_RETURN_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRAINT__PARAMETERS = ACTION_BOOL_RETURN_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>Constraint</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRAINT_FEATURE_COUNT = ACTION_BOOL_RETURN_FEATURE_COUNT + 4;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.CountImpl <em>Count</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.CountImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getCount()
-   * @generated
-   */
-  int COUNT = 10;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COUNT__PARAMETERS = ACTION_RETURN_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Count</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COUNT_FEATURE_COUNT = ACTION_RETURN_FEATURE_COUNT + 1;
+  int INSTRUCTION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ClickImpl <em>Click</em>}' class.
@@ -401,25 +195,25 @@ public interface EDdslPackage extends EPackage
    * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getClick()
    * @generated
    */
-  int CLICK = 11;
+  int CLICK = 4;
 
   /**
-   * The feature id for the '<em><b>Clickable Element</b></em>' attribute.
+   * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLICK__CLICKABLE_ELEMENT = ACTION_NO_RETURN_FEATURE_COUNT + 0;
+  int CLICK__TYPE = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLICK__PARAMETERS = ACTION_NO_RETURN_FEATURE_COUNT + 1;
+  int CLICK__VALUE = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Click</em>' class.
@@ -428,91 +222,137 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLICK_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 2;
+  int CLICK_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.OperationImpl <em>Operation</em>}' class.
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.FillImpl <em>Fill</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.OperationImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getOperation()
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.FillImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getFill()
    * @generated
    */
-  int OPERATION = 12;
+  int FILL = 5;
 
   /**
-   * The feature id for the '<em><b>Action</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION__ACTION = 0;
-
-  /**
-   * The number of structural features of the '<em>Operation</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION_FEATURE_COUNT = 1;
+  int FILL__NAME = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ParameterImpl <em>Parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ParameterImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getParameter()
-   * @generated
-   */
-  int PARAMETER = 13;
-
-  /**
-   * The feature id for the '<em><b>Parameter</b></em>' containment reference.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__PARAMETER = 0;
+  int FILL__VALUE = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Parameter</em>' class.
+   * The number of structural features of the '<em>Fill</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = 1;
+  int FILL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ParametersImpl <em>Parameters</em>}' class.
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.SelectImpl <em>Select</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ParametersImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getParameters()
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.SelectImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getSelect()
    * @generated
    */
-  int PARAMETERS = 14;
+  int SELECT = 6;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETERS__PARAMETERS = 0;
-
-  /**
-   * The number of structural features of the '<em>Parameters</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETERS_FEATURE_COUNT = 1;
+  int SELECT__NAME = INSTRUCTION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT__VALUE = INSTRUCTION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Select</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.TickImpl <em>Tick</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.TickImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getTick()
+   * @generated
+   */
+  int TICK = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TICK__NAME = INSTRUCTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Tick</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TICK_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.NavigateImpl <em>Navigate</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.NavigateImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getNavigate()
+   * @generated
+   */
+  int NAVIGATE = 8;
+
+  /**
+   * The feature id for the '<em><b>Url</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATE__URL = INSTRUCTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Navigate</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ReadImpl <em>Read</em>}' class.
@@ -522,25 +362,25 @@ public interface EDdslPackage extends EPackage
    * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getRead()
    * @generated
    */
-  int READ = 15;
+  int READ = 9;
 
   /**
-   * The feature id for the '<em><b>Readable Element</b></em>' attribute.
+   * The feature id for the '<em><b>Variable</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int READ__READABLE_ELEMENT = ACTION_RETURN_FEATURE_COUNT + 0;
+  int READ__VARIABLE = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int READ__PARAMETERS = ACTION_RETURN_FEATURE_COUNT + 1;
+  int READ__NAME = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Read</em>' class.
@@ -549,280 +389,99 @@ public interface EDdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int READ_FEATURE_COUNT = ACTION_RETURN_FEATURE_COUNT + 2;
+  int READ_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.SeriesImpl <em>Series</em>}' class.
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.AssertImpl <em>Assert</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.SeriesImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getSeries()
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.AssertImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getAssert()
    * @generated
    */
-  int SERIES = 16;
+  int ASSERT = 10;
 
   /**
-   * The feature id for the '<em><b>Browser</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SERIES__BROWSER = 0;
-
-  /**
-   * The feature id for the '<em><b>Expected Return</b></em>' attribute.
+   * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SERIES__EXPECTED_RETURN = 1;
+  int ASSERT__TYPE = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SERIES__OPERATIONS = 2;
+  int ASSERT__NAME = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Series</em>' class.
+   * The feature id for the '<em><b>Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SERIES_FEATURE_COUNT = 3;
+  int ASSERT__METHOD = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.TypeImpl <em>Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.TypeImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getType()
-   * @generated
-   */
-  int TYPE = 17;
-
-  /**
-   * The feature id for the '<em><b>Text To Type</b></em>' containment reference.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__TEXT_TO_TYPE = ACTION_NO_RETURN_FEATURE_COUNT + 0;
+  int ASSERT__VALUE = INSTRUCTION_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+   * The number of structural features of the '<em>Assert</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__PARAMETERS = ACTION_NO_RETURN_FEATURE_COUNT + 1;
+  int ASSERT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 4;
 
   /**
-   * The number of structural features of the '<em>Type</em>' class.
+   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.CallProcedureImpl <em>Call Procedure</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.CallProcedureImpl
+   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getCallProcedure()
+   * @generated
+   */
+  int CALL_PROCEDURE = 11;
+
+  /**
+   * The feature id for the '<em><b>Procedure Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 2;
+  int CALL_PROCEDURE__PROCEDURE_NAME = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ValImpl <em>Val</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ValImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getVal()
-   * @generated
-   */
-  int VAL = 18;
-
-  /**
-   * The feature id for the '<em><b>Bool</b></em>' attribute.
+   * The feature id for the '<em><b>Parameters</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAL__BOOL = 0;
+  int CALL_PROCEDURE__PARAMETERS = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Val</em>' class.
+   * The number of structural features of the '<em>Call Procedure</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAL_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ValueImpl <em>Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.ValueImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getValue()
-   * @generated
-   */
-  int VALUE = 19;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VALUE__VALUE = 0;
-
-  /**
-   * The number of structural features of the '<em>Value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VALUE_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.VariableGetImpl <em>Variable Get</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.VariableGetImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getVariableGet()
-   * @generated
-   */
-  int VARIABLE_GET = 20;
-
-  /**
-   * The feature id for the '<em><b>Bool</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_GET__BOOL = VAL__BOOL;
-
-  /**
-   * The feature id for the '<em><b>Var Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_GET__VAR_NAME = VAL_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Variable Get</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_GET_FEATURE_COUNT = VAL_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.VariableSetImpl <em>Variable Set</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.VariableSetImpl
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getVariableSet()
-   * @generated
-   */
-  int VARIABLE_SET = 21;
-
-  /**
-   * The feature id for the '<em><b>Var Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_SET__VAR_NAME = ACTION_NO_RETURN_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Action</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_SET__ACTION = ACTION_NO_RETURN_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Variable Set</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_SET_FEATURE_COUNT = ACTION_NO_RETURN_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.BoolEnum <em>Bool Enum</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.BoolEnum
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getBoolEnum()
-   * @generated
-   */
-  int BOOL_ENUM = 22;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.BrowserEnum <em>Browser Enum</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.BrowserEnum
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getBrowserEnum()
-   * @generated
-   */
-  int BROWSER_ENUM = 23;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.ClickableEnum <em>Clickable Enum</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.ClickableEnum
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getClickableEnum()
-   * @generated
-   */
-  int CLICKABLE_ENUM = 24;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.ComparisonOperatorEnum <em>Comparison Operator Enum</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.ComparisonOperatorEnum
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getComparisonOperatorEnum()
-   * @generated
-   */
-  int COMPARISON_OPERATOR_ENUM = 25;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.ConstraintTypeEnum <em>Constraint Type Enum</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.ConstraintTypeEnum
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getConstraintTypeEnum()
-   * @generated
-   */
-  int CONSTRAINT_TYPE_ENUM = 26;
-
-  /**
-   * The meta object id for the '{@link org.xtext.selenium.eliedenis.eDdsl.ReadableEnum <em>Readable Enum</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.selenium.eliedenis.eDdsl.ReadableEnum
-   * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getReadableEnum()
-   * @generated
-   */
-  int READABLE_ENUM = 27;
+  int CALL_PROCEDURE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
 
   /**
@@ -836,258 +495,100 @@ public interface EDdslPackage extends EPackage
   EClass getTest();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Test#getTests <em>Tests</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.selenium.eliedenis.eDdsl.Test#getProcedures <em>Procedures</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Tests</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Test#getTests()
+   * @return the meta object for the containment reference list '<em>Procedures</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Test#getProcedures()
    * @see #getTest()
    * @generated
    */
-  EReference getTest_Tests();
+  EReference getTest_Procedures();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn <em>Action No Return</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Test#getMain <em>Main</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Action No Return</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn
+   * @return the meta object for the containment reference '<em>Main</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Test#getMain()
+   * @see #getTest()
    * @generated
    */
-  EClass getActionNoReturn();
+  EReference getTest_Main();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.ActionReturn <em>Action Return</em>}'.
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Procedure <em>Procedure</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Action Return</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ActionReturn
+   * @return the meta object for class '<em>Procedure</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Procedure
    * @generated
    */
-  EClass getActionReturn();
+  EClass getProcedure();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.ActionBoolReturn <em>Action Bool Return</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Procedure#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Action Bool Return</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ActionBoolReturn
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Procedure#getName()
+   * @see #getProcedure()
    * @generated
    */
-  EClass getActionBoolReturn();
+  EAttribute getProcedure_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.All <em>All</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.selenium.eliedenis.eDdsl.Procedure#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>All</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.All
+   * @return the meta object for the attribute list '<em>Parameters</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Procedure#getParameters()
+   * @see #getProcedure()
    * @generated
    */
-  EClass getAll();
+  EAttribute getProcedure_Parameters();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.All#getOperation <em>Operation</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.selenium.eliedenis.eDdsl.Procedure#getInstructions <em>Instructions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Operation</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.All#getOperation()
-   * @see #getAll()
+   * @return the meta object for the containment reference list '<em>Instructions</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Procedure#getInstructions()
+   * @see #getProcedure()
    * @generated
    */
-  EReference getAll_Operation();
+  EReference getProcedure_Instructions();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Attribute <em>Attribute</em>}'.
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.MainProcedure <em>Main Procedure</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Attribute</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Attribute
+   * @return the meta object for class '<em>Main Procedure</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.MainProcedure
    * @generated
    */
-  EClass getAttribute();
+  EClass getMainProcedure();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Attribute#getAttributeName <em>Attribute Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.selenium.eliedenis.eDdsl.MainProcedure#getInstructions <em>Instructions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Attribute Name</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Attribute#getAttributeName()
-   * @see #getAttribute()
+   * @return the meta object for the containment reference list '<em>Instructions</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.MainProcedure#getInstructions()
+   * @see #getMainProcedure()
    * @generated
    */
-  EAttribute getAttribute_AttributeName();
+  EReference getMainProcedure_Instructions();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Attribute#getAttributeValue <em>Attribute Value</em>}'.
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Instruction <em>Instruction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Attribute Value</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Attribute#getAttributeValue()
-   * @see #getAttribute()
+   * @return the meta object for class '<em>Instruction</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Instruction
    * @generated
    */
-  EAttribute getAttribute_AttributeValue();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Browse <em>Browse</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Browse</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Browse
-   * @generated
-   */
-  EClass getBrowse();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Browse#getUrl <em>Url</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Url</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Browse#getUrl()
-   * @see #getBrowse()
-   * @generated
-   */
-  EAttribute getBrowse_Url();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Check <em>Check</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Check</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Check
-   * @generated
-   */
-  EClass getCheck();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Check#getAction <em>Action</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Action</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Check#getAction()
-   * @see #getCheck()
-   * @generated
-   */
-  EReference getCheck_Action();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Comparison <em>Comparison</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Comparison</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Comparison
-   * @generated
-   */
-  EClass getComparison();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Comparison#getFirstVal <em>First Val</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>First Val</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Comparison#getFirstVal()
-   * @see #getComparison()
-   * @generated
-   */
-  EReference getComparison_FirstVal();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Comparison#getComparatorOperator <em>Comparator Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Comparator Operator</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Comparison#getComparatorOperator()
-   * @see #getComparison()
-   * @generated
-   */
-  EAttribute getComparison_ComparatorOperator();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Comparison#getSecondVal <em>Second Val</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Second Val</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Comparison#getSecondVal()
-   * @see #getComparison()
-   * @generated
-   */
-  EReference getComparison_SecondVal();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Constraint <em>Constraint</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Constraint</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Constraint
-   * @generated
-   */
-  EClass getConstraint();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Constraint#getReadableElement <em>Readable Element</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Readable Element</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Constraint#getReadableElement()
-   * @see #getConstraint()
-   * @generated
-   */
-  EAttribute getConstraint_ReadableElement();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Constraint#getConstraintType <em>Constraint Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Constraint Type</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Constraint#getConstraintType()
-   * @see #getConstraint()
-   * @generated
-   */
-  EAttribute getConstraint_ConstraintType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Constraint#getExpectedVal <em>Expected Val</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expected Val</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Constraint#getExpectedVal()
-   * @see #getConstraint()
-   * @generated
-   */
-  EReference getConstraint_ExpectedVal();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Constraint#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Constraint#getParameters()
-   * @see #getConstraint()
-   * @generated
-   */
-  EReference getConstraint_Parameters();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Count <em>Count</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Count</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Count
-   * @generated
-   */
-  EClass getCount();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Count#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Count#getParameters()
-   * @see #getCount()
-   * @generated
-   */
-  EReference getCount_Parameters();
+  EClass getInstruction();
 
   /**
    * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Click <em>Click</em>}'.
@@ -1100,89 +601,132 @@ public interface EDdslPackage extends EPackage
   EClass getClick();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Click#getClickableElement <em>Clickable Element</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Click#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Clickable Element</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Click#getClickableElement()
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Click#getType()
    * @see #getClick()
    * @generated
    */
-  EAttribute getClick_ClickableElement();
+  EAttribute getClick_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Click#getParameters <em>Parameters</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Click#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Click#getParameters()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Click#getValue()
    * @see #getClick()
    * @generated
    */
-  EReference getClick_Parameters();
+  EAttribute getClick_Value();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Operation <em>Operation</em>}'.
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Fill <em>Fill</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Operation</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Operation
+   * @return the meta object for class '<em>Fill</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Fill
    * @generated
    */
-  EClass getOperation();
+  EClass getFill();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Operation#getAction <em>Action</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Fill#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Action</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Operation#getAction()
-   * @see #getOperation()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Fill#getName()
+   * @see #getFill()
    * @generated
    */
-  EReference getOperation_Action();
+  EAttribute getFill_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Parameter <em>Parameter</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Fill#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parameter</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Parameter
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Fill#getValue()
+   * @see #getFill()
    * @generated
    */
-  EClass getParameter();
+  EAttribute getFill_Value();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Parameter#getParameter <em>Parameter</em>}'.
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Select <em>Select</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameter</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Parameter#getParameter()
-   * @see #getParameter()
+   * @return the meta object for class '<em>Select</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Select
    * @generated
    */
-  EReference getParameter_Parameter();
+  EClass getSelect();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Parameters <em>Parameters</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Select#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parameters</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Parameters
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Select#getName()
+   * @see #getSelect()
    * @generated
    */
-  EClass getParameters();
+  EAttribute getSelect_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.selenium.eliedenis.eDdsl.Parameters#getParameters <em>Parameters</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Select#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameters</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Parameters#getParameters()
-   * @see #getParameters()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Select#getValue()
+   * @see #getSelect()
    * @generated
    */
-  EReference getParameters_Parameters();
+  EAttribute getSelect_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Tick <em>Tick</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tick</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Tick
+   * @generated
+   */
+  EClass getTick();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Tick#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Tick#getName()
+   * @see #getTick()
+   * @generated
+   */
+  EAttribute getTick_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Navigate <em>Navigate</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Navigate</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Navigate
+   * @generated
+   */
+  EClass getNavigate();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Navigate#getUrl <em>Url</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Url</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Navigate#getUrl()
+   * @see #getNavigate()
+   * @generated
+   */
+  EAttribute getNavigate_Url();
 
   /**
    * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Read <em>Read</em>}'.
@@ -1195,256 +739,112 @@ public interface EDdslPackage extends EPackage
   EClass getRead();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Read#getReadableElement <em>Readable Element</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Read#getVariable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Readable Element</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Read#getReadableElement()
+   * @return the meta object for the attribute '<em>Variable</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Read#getVariable()
    * @see #getRead()
    * @generated
    */
-  EAttribute getRead_ReadableElement();
+  EAttribute getRead_Variable();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Read#getParameters <em>Parameters</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Read#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Read#getParameters()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Read#getName()
    * @see #getRead()
    * @generated
    */
-  EReference getRead_Parameters();
+  EAttribute getRead_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Series <em>Series</em>}'.
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Assert <em>Assert</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Series</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Series
+   * @return the meta object for class '<em>Assert</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Assert
    * @generated
    */
-  EClass getSeries();
+  EClass getAssert();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Series#getBrowser <em>Browser</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Assert#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Browser</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Series#getBrowser()
-   * @see #getSeries()
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Assert#getType()
+   * @see #getAssert()
    * @generated
    */
-  EAttribute getSeries_Browser();
+  EAttribute getAssert_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Series#getExpectedReturn <em>Expected Return</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Assert#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Expected Return</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Series#getExpectedReturn()
-   * @see #getSeries()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Assert#getName()
+   * @see #getAssert()
    * @generated
    */
-  EAttribute getSeries_ExpectedReturn();
+  EAttribute getAssert_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.selenium.eliedenis.eDdsl.Series#getOperations <em>Operations</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Assert#getMethod <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Operations</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Series#getOperations()
-   * @see #getSeries()
+   * @return the meta object for the attribute '<em>Method</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Assert#getMethod()
+   * @see #getAssert()
    * @generated
    */
-  EReference getSeries_Operations();
+  EAttribute getAssert_Method();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Type <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Assert#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Type</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Type
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Assert#getValue()
+   * @see #getAssert()
    * @generated
    */
-  EClass getType();
+  EAttribute getAssert_Value();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Type#getTextToType <em>Text To Type</em>}'.
+   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.CallProcedure <em>Call Procedure</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Text To Type</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Type#getTextToType()
-   * @see #getType()
+   * @return the meta object for class '<em>Call Procedure</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.CallProcedure
    * @generated
    */
-  EReference getType_TextToType();
+  EClass getCallProcedure();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Type#getParameters <em>Parameters</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.CallProcedure#getProcedureName <em>Procedure Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Type#getParameters()
-   * @see #getType()
+   * @return the meta object for the attribute '<em>Procedure Name</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.CallProcedure#getProcedureName()
+   * @see #getCallProcedure()
    * @generated
    */
-  EReference getType_Parameters();
+  EAttribute getCallProcedure_ProcedureName();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Val <em>Val</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.selenium.eliedenis.eDdsl.CallProcedure#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Val</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Val
+   * @return the meta object for the attribute list '<em>Parameters</em>'.
+   * @see org.xtext.selenium.eliedenis.eDdsl.CallProcedure#getParameters()
+   * @see #getCallProcedure()
    * @generated
    */
-  EClass getVal();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.Val#getBool <em>Bool</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Bool</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Val#getBool()
-   * @see #getVal()
-   * @generated
-   */
-  EAttribute getVal_Bool();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.Value <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Value</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Value
-   * @generated
-   */
-  EClass getValue();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.Value#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Value#getValue()
-   * @see #getValue()
-   * @generated
-   */
-  EReference getValue_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.VariableGet <em>Variable Get</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable Get</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.VariableGet
-   * @generated
-   */
-  EClass getVariableGet();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.VariableGet#getVarName <em>Var Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var Name</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.VariableGet#getVarName()
-   * @see #getVariableGet()
-   * @generated
-   */
-  EAttribute getVariableGet_VarName();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.selenium.eliedenis.eDdsl.VariableSet <em>Variable Set</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable Set</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.VariableSet
-   * @generated
-   */
-  EClass getVariableSet();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.selenium.eliedenis.eDdsl.VariableSet#getVarName <em>Var Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var Name</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.VariableSet#getVarName()
-   * @see #getVariableSet()
-   * @generated
-   */
-  EAttribute getVariableSet_VarName();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.selenium.eliedenis.eDdsl.VariableSet#getAction <em>Action</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Action</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.VariableSet#getAction()
-   * @see #getVariableSet()
-   * @generated
-   */
-  EReference getVariableSet_Action();
-
-  /**
-   * Returns the meta object for enum '{@link org.xtext.selenium.eliedenis.eDdsl.BoolEnum <em>Bool Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Bool Enum</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.BoolEnum
-   * @generated
-   */
-  EEnum getBoolEnum();
-
-  /**
-   * Returns the meta object for enum '{@link org.xtext.selenium.eliedenis.eDdsl.BrowserEnum <em>Browser Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Browser Enum</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.BrowserEnum
-   * @generated
-   */
-  EEnum getBrowserEnum();
-
-  /**
-   * Returns the meta object for enum '{@link org.xtext.selenium.eliedenis.eDdsl.ClickableEnum <em>Clickable Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Clickable Enum</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ClickableEnum
-   * @generated
-   */
-  EEnum getClickableEnum();
-
-  /**
-   * Returns the meta object for enum '{@link org.xtext.selenium.eliedenis.eDdsl.ComparisonOperatorEnum <em>Comparison Operator Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Comparison Operator Enum</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ComparisonOperatorEnum
-   * @generated
-   */
-  EEnum getComparisonOperatorEnum();
-
-  /**
-   * Returns the meta object for enum '{@link org.xtext.selenium.eliedenis.eDdsl.ConstraintTypeEnum <em>Constraint Type Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Constraint Type Enum</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ConstraintTypeEnum
-   * @generated
-   */
-  EEnum getConstraintTypeEnum();
-
-  /**
-   * Returns the meta object for enum '{@link org.xtext.selenium.eliedenis.eDdsl.ReadableEnum <em>Readable Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Readable Enum</em>'.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ReadableEnum
-   * @generated
-   */
-  EEnum getReadableEnum();
+  EAttribute getCallProcedure_Parameters();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1480,216 +880,82 @@ public interface EDdslPackage extends EPackage
     EClass TEST = eINSTANCE.getTest();
 
     /**
-     * The meta object literal for the '<em><b>Tests</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Procedures</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TEST__TESTS = eINSTANCE.getTest_Tests();
+    EReference TEST__PROCEDURES = eINSTANCE.getTest_Procedures();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionNoReturnImpl <em>Action No Return</em>}' class.
+     * The meta object literal for the '<em><b>Main</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ActionNoReturnImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getActionNoReturn()
      * @generated
      */
-    EClass ACTION_NO_RETURN = eINSTANCE.getActionNoReturn();
+    EReference TEST__MAIN = eINSTANCE.getTest_Main();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionReturnImpl <em>Action Return</em>}' class.
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ProcedureImpl <em>Procedure</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ActionReturnImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getActionReturn()
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ProcedureImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getProcedure()
      * @generated
      */
-    EClass ACTION_RETURN = eINSTANCE.getActionReturn();
+    EClass PROCEDURE = eINSTANCE.getProcedure();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ActionBoolReturnImpl <em>Action Bool Return</em>}' class.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ActionBoolReturnImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getActionBoolReturn()
      * @generated
      */
-    EClass ACTION_BOOL_RETURN = eINSTANCE.getActionBoolReturn();
+    EAttribute PROCEDURE__NAME = eINSTANCE.getProcedure_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.AllImpl <em>All</em>}' class.
+     * The meta object literal for the '<em><b>Parameters</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.AllImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getAll()
      * @generated
      */
-    EClass ALL = eINSTANCE.getAll();
+    EAttribute PROCEDURE__PARAMETERS = eINSTANCE.getProcedure_Parameters();
 
     /**
-     * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ALL__OPERATION = eINSTANCE.getAll_Operation();
+    EReference PROCEDURE__INSTRUCTIONS = eINSTANCE.getProcedure_Instructions();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.AttributeImpl <em>Attribute</em>}' class.
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.MainProcedureImpl <em>Main Procedure</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.AttributeImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getAttribute()
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.MainProcedureImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getMainProcedure()
      * @generated
      */
-    EClass ATTRIBUTE = eINSTANCE.getAttribute();
+    EClass MAIN_PROCEDURE = eINSTANCE.getMainProcedure();
 
     /**
-     * The meta object literal for the '<em><b>Attribute Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE__ATTRIBUTE_NAME = eINSTANCE.getAttribute_AttributeName();
+    EReference MAIN_PROCEDURE__INSTRUCTIONS = eINSTANCE.getMainProcedure_Instructions();
 
     /**
-     * The meta object literal for the '<em><b>Attribute Value</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.InstructionImpl <em>Instruction</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.InstructionImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getInstruction()
      * @generated
      */
-    EAttribute ATTRIBUTE__ATTRIBUTE_VALUE = eINSTANCE.getAttribute_AttributeValue();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.BrowseImpl <em>Browse</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.BrowseImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getBrowse()
-     * @generated
-     */
-    EClass BROWSE = eINSTANCE.getBrowse();
-
-    /**
-     * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BROWSE__URL = eINSTANCE.getBrowse_Url();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.CheckImpl <em>Check</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.CheckImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getCheck()
-     * @generated
-     */
-    EClass CHECK = eINSTANCE.getCheck();
-
-    /**
-     * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CHECK__ACTION = eINSTANCE.getCheck_Action();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ComparisonImpl <em>Comparison</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ComparisonImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getComparison()
-     * @generated
-     */
-    EClass COMPARISON = eINSTANCE.getComparison();
-
-    /**
-     * The meta object literal for the '<em><b>First Val</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPARISON__FIRST_VAL = eINSTANCE.getComparison_FirstVal();
-
-    /**
-     * The meta object literal for the '<em><b>Comparator Operator</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPARISON__COMPARATOR_OPERATOR = eINSTANCE.getComparison_ComparatorOperator();
-
-    /**
-     * The meta object literal for the '<em><b>Second Val</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPARISON__SECOND_VAL = eINSTANCE.getComparison_SecondVal();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ConstraintImpl <em>Constraint</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ConstraintImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getConstraint()
-     * @generated
-     */
-    EClass CONSTRAINT = eINSTANCE.getConstraint();
-
-    /**
-     * The meta object literal for the '<em><b>Readable Element</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTRAINT__READABLE_ELEMENT = eINSTANCE.getConstraint_ReadableElement();
-
-    /**
-     * The meta object literal for the '<em><b>Constraint Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTRAINT__CONSTRAINT_TYPE = eINSTANCE.getConstraint_ConstraintType();
-
-    /**
-     * The meta object literal for the '<em><b>Expected Val</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONSTRAINT__EXPECTED_VAL = eINSTANCE.getConstraint_ExpectedVal();
-
-    /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONSTRAINT__PARAMETERS = eINSTANCE.getConstraint_Parameters();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.CountImpl <em>Count</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.CountImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getCount()
-     * @generated
-     */
-    EClass COUNT = eINSTANCE.getCount();
-
-    /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COUNT__PARAMETERS = eINSTANCE.getCount_Parameters();
+    EClass INSTRUCTION = eINSTANCE.getInstruction();
 
     /**
      * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ClickImpl <em>Click</em>}' class.
@@ -1702,74 +968,108 @@ public interface EDdslPackage extends EPackage
     EClass CLICK = eINSTANCE.getClick();
 
     /**
-     * The meta object literal for the '<em><b>Clickable Element</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLICK__CLICKABLE_ELEMENT = eINSTANCE.getClick_ClickableElement();
+    EAttribute CLICK__TYPE = eINSTANCE.getClick_Type();
 
     /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLICK__PARAMETERS = eINSTANCE.getClick_Parameters();
+    EAttribute CLICK__VALUE = eINSTANCE.getClick_Value();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.OperationImpl <em>Operation</em>}' class.
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.FillImpl <em>Fill</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.OperationImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getOperation()
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.FillImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getFill()
      * @generated
      */
-    EClass OPERATION = eINSTANCE.getOperation();
+    EClass FILL = eINSTANCE.getFill();
 
     /**
-     * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OPERATION__ACTION = eINSTANCE.getOperation_Action();
+    EAttribute FILL__NAME = eINSTANCE.getFill_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ParameterImpl <em>Parameter</em>}' class.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ParameterImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getParameter()
      * @generated
      */
-    EClass PARAMETER = eINSTANCE.getParameter();
+    EAttribute FILL__VALUE = eINSTANCE.getFill_Value();
 
     /**
-     * The meta object literal for the '<em><b>Parameter</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.SelectImpl <em>Select</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.SelectImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getSelect()
      * @generated
      */
-    EReference PARAMETER__PARAMETER = eINSTANCE.getParameter_Parameter();
+    EClass SELECT = eINSTANCE.getSelect();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ParametersImpl <em>Parameters</em>}' class.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ParametersImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getParameters()
      * @generated
      */
-    EClass PARAMETERS = eINSTANCE.getParameters();
+    EAttribute SELECT__NAME = eINSTANCE.getSelect_Name();
 
     /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PARAMETERS__PARAMETERS = eINSTANCE.getParameters_Parameters();
+    EAttribute SELECT__VALUE = eINSTANCE.getSelect_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.TickImpl <em>Tick</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.TickImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getTick()
+     * @generated
+     */
+    EClass TICK = eINSTANCE.getTick();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TICK__NAME = eINSTANCE.getTick_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.NavigateImpl <em>Navigate</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.NavigateImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getNavigate()
+     * @generated
+     */
+    EClass NAVIGATE = eINSTANCE.getNavigate();
+
+    /**
+     * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAVIGATE__URL = eINSTANCE.getNavigate_Url();
 
     /**
      * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ReadImpl <em>Read</em>}' class.
@@ -1782,220 +1082,88 @@ public interface EDdslPackage extends EPackage
     EClass READ = eINSTANCE.getRead();
 
     /**
-     * The meta object literal for the '<em><b>Readable Element</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute READ__READABLE_ELEMENT = eINSTANCE.getRead_ReadableElement();
+    EAttribute READ__VARIABLE = eINSTANCE.getRead_Variable();
 
     /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference READ__PARAMETERS = eINSTANCE.getRead_Parameters();
+    EAttribute READ__NAME = eINSTANCE.getRead_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.SeriesImpl <em>Series</em>}' class.
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.AssertImpl <em>Assert</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.SeriesImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getSeries()
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.AssertImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getAssert()
      * @generated
      */
-    EClass SERIES = eINSTANCE.getSeries();
+    EClass ASSERT = eINSTANCE.getAssert();
 
     /**
-     * The meta object literal for the '<em><b>Browser</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SERIES__BROWSER = eINSTANCE.getSeries_Browser();
+    EAttribute ASSERT__TYPE = eINSTANCE.getAssert_Type();
 
     /**
-     * The meta object literal for the '<em><b>Expected Return</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SERIES__EXPECTED_RETURN = eINSTANCE.getSeries_ExpectedReturn();
+    EAttribute ASSERT__NAME = eINSTANCE.getAssert_Name();
 
     /**
-     * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SERIES__OPERATIONS = eINSTANCE.getSeries_Operations();
+    EAttribute ASSERT__METHOD = eINSTANCE.getAssert_Method();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.TypeImpl <em>Type</em>}' class.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.TypeImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getType()
      * @generated
      */
-    EClass TYPE = eINSTANCE.getType();
+    EAttribute ASSERT__VALUE = eINSTANCE.getAssert_Value();
 
     /**
-     * The meta object literal for the '<em><b>Text To Type</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.CallProcedureImpl <em>Call Procedure</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.CallProcedureImpl
+     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getCallProcedure()
      * @generated
      */
-    EReference TYPE__TEXT_TO_TYPE = eINSTANCE.getType_TextToType();
+    EClass CALL_PROCEDURE = eINSTANCE.getCallProcedure();
 
     /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Procedure Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPE__PARAMETERS = eINSTANCE.getType_Parameters();
+    EAttribute CALL_PROCEDURE__PROCEDURE_NAME = eINSTANCE.getCallProcedure_ProcedureName();
 
     /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ValImpl <em>Val</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ValImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getVal()
-     * @generated
-     */
-    EClass VAL = eINSTANCE.getVal();
-
-    /**
-     * The meta object literal for the '<em><b>Bool</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Parameters</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VAL__BOOL = eINSTANCE.getVal_Bool();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.ValueImpl <em>Value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.ValueImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getValue()
-     * @generated
-     */
-    EClass VALUE = eINSTANCE.getValue();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VALUE__VALUE = eINSTANCE.getValue_Value();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.VariableGetImpl <em>Variable Get</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.VariableGetImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getVariableGet()
-     * @generated
-     */
-    EClass VARIABLE_GET = eINSTANCE.getVariableGet();
-
-    /**
-     * The meta object literal for the '<em><b>Var Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE_GET__VAR_NAME = eINSTANCE.getVariableGet_VarName();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.impl.VariableSetImpl <em>Variable Set</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.VariableSetImpl
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getVariableSet()
-     * @generated
-     */
-    EClass VARIABLE_SET = eINSTANCE.getVariableSet();
-
-    /**
-     * The meta object literal for the '<em><b>Var Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE_SET__VAR_NAME = eINSTANCE.getVariableSet_VarName();
-
-    /**
-     * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VARIABLE_SET__ACTION = eINSTANCE.getVariableSet_Action();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.BoolEnum <em>Bool Enum</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.BoolEnum
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getBoolEnum()
-     * @generated
-     */
-    EEnum BOOL_ENUM = eINSTANCE.getBoolEnum();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.BrowserEnum <em>Browser Enum</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.BrowserEnum
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getBrowserEnum()
-     * @generated
-     */
-    EEnum BROWSER_ENUM = eINSTANCE.getBrowserEnum();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.ClickableEnum <em>Clickable Enum</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.ClickableEnum
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getClickableEnum()
-     * @generated
-     */
-    EEnum CLICKABLE_ENUM = eINSTANCE.getClickableEnum();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.ComparisonOperatorEnum <em>Comparison Operator Enum</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.ComparisonOperatorEnum
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getComparisonOperatorEnum()
-     * @generated
-     */
-    EEnum COMPARISON_OPERATOR_ENUM = eINSTANCE.getComparisonOperatorEnum();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.ConstraintTypeEnum <em>Constraint Type Enum</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.ConstraintTypeEnum
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getConstraintTypeEnum()
-     * @generated
-     */
-    EEnum CONSTRAINT_TYPE_ENUM = eINSTANCE.getConstraintTypeEnum();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.selenium.eliedenis.eDdsl.ReadableEnum <em>Readable Enum</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.selenium.eliedenis.eDdsl.ReadableEnum
-     * @see org.xtext.selenium.eliedenis.eDdsl.impl.EDdslPackageImpl#getReadableEnum()
-     * @generated
-     */
-    EEnum READABLE_ENUM = eINSTANCE.getReadableEnum();
+    EAttribute CALL_PROCEDURE__PARAMETERS = eINSTANCE.getCallProcedure_Parameters();
 
   }
 

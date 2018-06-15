@@ -14,25 +14,18 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xtext.selenium.eliedenis.eDdsl.All;
-import org.xtext.selenium.eliedenis.eDdsl.Attribute;
-import org.xtext.selenium.eliedenis.eDdsl.Browse;
-import org.xtext.selenium.eliedenis.eDdsl.Check;
+import org.xtext.selenium.eliedenis.eDdsl.Assert;
+import org.xtext.selenium.eliedenis.eDdsl.CallProcedure;
 import org.xtext.selenium.eliedenis.eDdsl.Click;
-import org.xtext.selenium.eliedenis.eDdsl.Comparison;
-import org.xtext.selenium.eliedenis.eDdsl.Constraint;
-import org.xtext.selenium.eliedenis.eDdsl.Count;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
-import org.xtext.selenium.eliedenis.eDdsl.Operation;
-import org.xtext.selenium.eliedenis.eDdsl.Parameters;
+import org.xtext.selenium.eliedenis.eDdsl.Fill;
+import org.xtext.selenium.eliedenis.eDdsl.MainProcedure;
+import org.xtext.selenium.eliedenis.eDdsl.Navigate;
+import org.xtext.selenium.eliedenis.eDdsl.Procedure;
 import org.xtext.selenium.eliedenis.eDdsl.Read;
-import org.xtext.selenium.eliedenis.eDdsl.Series;
+import org.xtext.selenium.eliedenis.eDdsl.Select;
 import org.xtext.selenium.eliedenis.eDdsl.Test;
-import org.xtext.selenium.eliedenis.eDdsl.Type;
-import org.xtext.selenium.eliedenis.eDdsl.Val;
-import org.xtext.selenium.eliedenis.eDdsl.Value;
-import org.xtext.selenium.eliedenis.eDdsl.VariableGet;
-import org.xtext.selenium.eliedenis.eDdsl.VariableSet;
+import org.xtext.selenium.eliedenis.eDdsl.Tick;
 import org.xtext.selenium.eliedenis.services.EDdslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -49,62 +42,38 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == EDdslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case EDdslPackage.ALL:
-				sequence_All(context, (All) semanticObject); 
+			case EDdslPackage.ASSERT:
+				sequence_Assert(context, (Assert) semanticObject); 
 				return; 
-			case EDdslPackage.ATTRIBUTE:
-				sequence_Attribute(context, (Attribute) semanticObject); 
-				return; 
-			case EDdslPackage.BROWSE:
-				sequence_Browse(context, (Browse) semanticObject); 
-				return; 
-			case EDdslPackage.CHECK:
-				sequence_Check(context, (Check) semanticObject); 
+			case EDdslPackage.CALL_PROCEDURE:
+				sequence_CallProcedure(context, (CallProcedure) semanticObject); 
 				return; 
 			case EDdslPackage.CLICK:
 				sequence_Click(context, (Click) semanticObject); 
 				return; 
-			case EDdslPackage.COMPARISON:
-				sequence_Comparison(context, (Comparison) semanticObject); 
+			case EDdslPackage.FILL:
+				sequence_Fill(context, (Fill) semanticObject); 
 				return; 
-			case EDdslPackage.CONSTRAINT:
-				sequence_Constraint(context, (Constraint) semanticObject); 
+			case EDdslPackage.MAIN_PROCEDURE:
+				sequence_MainProcedure(context, (MainProcedure) semanticObject); 
 				return; 
-			case EDdslPackage.COUNT:
-				sequence_Count(context, (Count) semanticObject); 
+			case EDdslPackage.NAVIGATE:
+				sequence_Navigate(context, (Navigate) semanticObject); 
 				return; 
-			case EDdslPackage.OPERATION:
-				sequence_Operation(context, (Operation) semanticObject); 
-				return; 
-			case EDdslPackage.PARAMETER:
-				sequence_Parameter(context, (org.xtext.selenium.eliedenis.eDdsl.Parameter) semanticObject); 
-				return; 
-			case EDdslPackage.PARAMETERS:
-				sequence_Parameters(context, (Parameters) semanticObject); 
+			case EDdslPackage.PROCEDURE:
+				sequence_Procedure(context, (Procedure) semanticObject); 
 				return; 
 			case EDdslPackage.READ:
 				sequence_Read(context, (Read) semanticObject); 
 				return; 
-			case EDdslPackage.SERIES:
-				sequence_Series(context, (Series) semanticObject); 
+			case EDdslPackage.SELECT:
+				sequence_Select(context, (Select) semanticObject); 
 				return; 
 			case EDdslPackage.TEST:
 				sequence_Test(context, (Test) semanticObject); 
 				return; 
-			case EDdslPackage.TYPE:
-				sequence_Type(context, (Type) semanticObject); 
-				return; 
-			case EDdslPackage.VAL:
-				sequence_Val(context, (Val) semanticObject); 
-				return; 
-			case EDdslPackage.VALUE:
-				sequence_Value(context, (Value) semanticObject); 
-				return; 
-			case EDdslPackage.VARIABLE_GET:
-				sequence_VariableGet(context, (VariableGet) semanticObject); 
-				return; 
-			case EDdslPackage.VARIABLE_SET:
-				sequence_VariableSet(context, (VariableSet) semanticObject); 
+			case EDdslPackage.TICK:
+				sequence_Tick(context, (Tick) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -113,242 +82,130 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     ActionNoReturn returns All
-	 *     All returns All
+	 *     Instruction returns Assert
+	 *     Assert returns Assert
 	 *
 	 * Constraint:
-	 *     operation=ActionNoReturn
+	 *     (
+	 *         ((Type='input' | Type='link' | Type='name' | Type='xpath') Name=STRING (Method='contains' | Method='equals') (Value=STRING | Value=IDENTIFIER)) | 
+	 *         ((Type='input' | Type='link' | Type='name' | Type='xpath') Name=STRING Method='exists')
+	 *     )
 	 */
-	protected void sequence_All(ISerializationContext context, All semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.ALL__OPERATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.ALL__OPERATION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAllAccess().getOperationActionNoReturnParserRuleCall_1_0(), semanticObject.getOperation());
-		feeder.finish();
+	protected void sequence_Assert(ISerializationContext context, Assert semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Attribute returns Attribute
+	 *     Instruction returns CallProcedure
+	 *     CallProcedure returns CallProcedure
 	 *
 	 * Constraint:
-	 *     (attributeName=STRING attributeValue=STRING)
+	 *     (
+	 *         ProcedureName=IDENTIFIER 
+	 *         ((Parameters+=IDENTIFIER | Parameters+=STRING) Parameters+=IDENTIFIER? (Parameters+=STRING? Parameters+=IDENTIFIER?)*)?
+	 *     )
 	 */
-	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.ATTRIBUTE__ATTRIBUTE_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.ATTRIBUTE__ATTRIBUTE_NAME));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.ATTRIBUTE__ATTRIBUTE_VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.ATTRIBUTE__ATTRIBUTE_VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeAccess().getAttributeNameSTRINGTerminalRuleCall_1_0(), semanticObject.getAttributeName());
-		feeder.accept(grammarAccess.getAttributeAccess().getAttributeValueSTRINGTerminalRuleCall_2_0(), semanticObject.getAttributeValue());
-		feeder.finish();
+	protected void sequence_CallProcedure(ISerializationContext context, CallProcedure semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ActionNoReturn returns Browse
-	 *     Browse returns Browse
-	 *
-	 * Constraint:
-	 *     url=STRING
-	 */
-	protected void sequence_Browse(ISerializationContext context, Browse semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.BROWSE__URL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.BROWSE__URL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBrowseAccess().getUrlSTRINGTerminalRuleCall_1_0(), semanticObject.getUrl());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ActionNoReturn returns Check
-	 *     Check returns Check
-	 *
-	 * Constraint:
-	 *     action=ActionBoolReturn
-	 */
-	protected void sequence_Check(ISerializationContext context, Check semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.CHECK__ACTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.CHECK__ACTION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCheckAccess().getActionActionBoolReturnParserRuleCall_1_0(), semanticObject.getAction());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ActionNoReturn returns Click
+	 *     Instruction returns Click
 	 *     Click returns Click
 	 *
 	 * Constraint:
-	 *     (clickableElement=ClickableEnum parameters=Parameters)
+	 *     ((Type='input' | Type='link' | Type='name' | Type='xpath') Value=STRING)
 	 */
 	protected void sequence_Click(ISerializationContext context, Click semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.CLICK__CLICKABLE_ELEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.CLICK__CLICKABLE_ELEMENT));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.CLICK__PARAMETERS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.CLICK__PARAMETERS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getClickAccess().getClickableElementClickableEnumEnumRuleCall_1_0(), semanticObject.getClickableElement());
-		feeder.accept(grammarAccess.getClickAccess().getParametersParametersParserRuleCall_2_0(), semanticObject.getParameters());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ActionBoolReturn returns Comparison
-	 *     Comparison returns Comparison
-	 *
-	 * Constraint:
-	 *     (firstVal=Val comparatorOperator=ComparisonOperatorEnum secondVal=Val)
-	 */
-	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.COMPARISON__FIRST_VAL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.COMPARISON__FIRST_VAL));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.COMPARISON__COMPARATOR_OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.COMPARISON__COMPARATOR_OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.COMPARISON__SECOND_VAL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.COMPARISON__SECOND_VAL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComparisonAccess().getFirstValValParserRuleCall_1_0(), semanticObject.getFirstVal());
-		feeder.accept(grammarAccess.getComparisonAccess().getComparatorOperatorComparisonOperatorEnumEnumRuleCall_2_0(), semanticObject.getComparatorOperator());
-		feeder.accept(grammarAccess.getComparisonAccess().getSecondValValParserRuleCall_3_0(), semanticObject.getSecondVal());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ActionBoolReturn returns Constraint
-	 *     Constraint returns Constraint
-	 *
-	 * Constraint:
-	 *     (readableElement=ReadableEnum constraintType=ConstraintTypeEnum expectedVal=Val parameters=Parameters)
-	 */
-	protected void sequence_Constraint(ISerializationContext context, Constraint semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.CONSTRAINT__READABLE_ELEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.CONSTRAINT__READABLE_ELEMENT));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.CONSTRAINT__CONSTRAINT_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.CONSTRAINT__CONSTRAINT_TYPE));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.CONSTRAINT__EXPECTED_VAL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.CONSTRAINT__EXPECTED_VAL));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.CONSTRAINT__PARAMETERS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.CONSTRAINT__PARAMETERS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConstraintAccess().getReadableElementReadableEnumEnumRuleCall_0_0(), semanticObject.getReadableElement());
-		feeder.accept(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeEnumEnumRuleCall_1_0(), semanticObject.getConstraintType());
-		feeder.accept(grammarAccess.getConstraintAccess().getExpectedValValParserRuleCall_2_0(), semanticObject.getExpectedVal());
-		feeder.accept(grammarAccess.getConstraintAccess().getParametersParametersParserRuleCall_3_0(), semanticObject.getParameters());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ActionReturn returns Count
-	 *     Count returns Count
-	 *
-	 * Constraint:
-	 *     (parameters=Parameters | parameters=ActionReturn)
-	 */
-	protected void sequence_Count(ISerializationContext context, Count semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Operation returns Operation
+	 *     Instruction returns Fill
+	 *     Fill returns Fill
 	 *
 	 * Constraint:
-	 *     action=ActionNoReturn
+	 *     (Name=STRING (Value=STRING | Value=IDENTIFIER))
 	 */
-	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.OPERATION__ACTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.OPERATION__ACTION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOperationAccess().getActionActionNoReturnParserRuleCall_0_0(), semanticObject.getAction());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Parameter returns Parameter
-	 *
-	 * Constraint:
-	 *     (parameter=Attribute | parameter=Value)
-	 */
-	protected void sequence_Parameter(ISerializationContext context, org.xtext.selenium.eliedenis.eDdsl.Parameter semanticObject) {
+	protected void sequence_Fill(ISerializationContext context, Fill semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Parameters returns Parameters
+	 *     MainProcedure returns MainProcedure
 	 *
 	 * Constraint:
-	 *     parameters+=Parameter+
+	 *     instructions+=Instruction*
 	 */
-	protected void sequence_Parameters(ISerializationContext context, Parameters semanticObject) {
+	protected void sequence_MainProcedure(ISerializationContext context, MainProcedure semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ActionReturn returns Read
+	 *     Instruction returns Navigate
+	 *     Navigate returns Navigate
+	 *
+	 * Constraint:
+	 *     (url=STRING | url=IDENTIFIER)
+	 */
+	protected void sequence_Navigate(ISerializationContext context, Navigate semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Procedure returns Procedure
+	 *
+	 * Constraint:
+	 *     (Name=IDENTIFIER (Parameters+=IDENTIFIER Parameters+=IDENTIFIER*)? instructions+=Instruction*)
+	 */
+	protected void sequence_Procedure(ISerializationContext context, Procedure semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Read
 	 *     Read returns Read
 	 *
 	 * Constraint:
-	 *     (readableElement=ReadableEnum parameters=Parameters)
+	 *     (Variable=IDENTIFIER Name=STRING)
 	 */
 	protected void sequence_Read(ISerializationContext context, Read semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.READ__READABLE_ELEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.READ__READABLE_ELEMENT));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.READ__PARAMETERS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.READ__PARAMETERS));
+			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.READ__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.READ__VARIABLE));
+			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.READ__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.READ__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReadAccess().getReadableElementReadableEnumEnumRuleCall_1_0(), semanticObject.getReadableElement());
-		feeder.accept(grammarAccess.getReadAccess().getParametersParametersParserRuleCall_2_0(), semanticObject.getParameters());
+		feeder.accept(grammarAccess.getReadAccess().getVariableIDENTIFIERTerminalRuleCall_0_0(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getReadAccess().getNameSTRINGTerminalRuleCall_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Series returns Series
+	 *     Instruction returns Select
+	 *     Select returns Select
 	 *
 	 * Constraint:
-	 *     (browser=BrowserEnum expectedReturn=BoolEnum operations+=Operation*)
+	 *     (Name=STRING (Value=STRING | Value=IDENTIFIER))
 	 */
-	protected void sequence_Series(ISerializationContext context, Series semanticObject) {
+	protected void sequence_Select(ISerializationContext context, Select semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -358,114 +215,28 @@ public class EDdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Test returns Test
 	 *
 	 * Constraint:
-	 *     tests=Series
+	 *     (procedures+=Procedure* main=MainProcedure)
 	 */
 	protected void sequence_Test(ISerializationContext context, Test semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.TEST__TESTS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.TEST__TESTS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTestAccess().getTestsSeriesParserRuleCall_0(), semanticObject.getTests());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ActionNoReturn returns Type
-	 *     Type returns Type
+	 *     Instruction returns Tick
+	 *     Tick returns Tick
 	 *
 	 * Constraint:
-	 *     (textToType=Val parameters=Parameters)
+	 *     Name=STRING
 	 */
-	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
+	protected void sequence_Tick(ISerializationContext context, Tick semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.TYPE__TEXT_TO_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.TYPE__TEXT_TO_TYPE));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.TYPE__PARAMETERS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.TYPE__PARAMETERS));
+			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.TICK__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.TICK__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeAccess().getTextToTypeValParserRuleCall_1_0(), semanticObject.getTextToType());
-		feeder.accept(grammarAccess.getTypeAccess().getParametersParametersParserRuleCall_2_0(), semanticObject.getParameters());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Val returns Val
-	 *
-	 * Constraint:
-	 *     bool=BoolEnum
-	 */
-	protected void sequence_Val(ISerializationContext context, Val semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.VAL__BOOL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.VAL__BOOL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getValAccess().getBoolBoolEnumEnumRuleCall_2_0(), semanticObject.getBool());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Value returns Value
-	 *
-	 * Constraint:
-	 *     value=Val
-	 */
-	protected void sequence_Value(ISerializationContext context, Value semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.VALUE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.VALUE__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getValueAccess().getValueValParserRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Val returns VariableGet
-	 *     VariableGet returns VariableGet
-	 *
-	 * Constraint:
-	 *     varName=ID
-	 */
-	protected void sequence_VariableGet(ISerializationContext context, VariableGet semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.VARIABLE_GET__VAR_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.VARIABLE_GET__VAR_NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariableGetAccess().getVarNameIDTerminalRuleCall_0(), semanticObject.getVarName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ActionNoReturn returns VariableSet
-	 *     VariableSet returns VariableSet
-	 *
-	 * Constraint:
-	 *     (varName=ID action=ActionReturn)
-	 */
-	protected void sequence_VariableSet(ISerializationContext context, VariableSet semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.VARIABLE_SET__VAR_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.VARIABLE_SET__VAR_NAME));
-			if (transientValues.isValueTransient(semanticObject, EDdslPackage.Literals.VARIABLE_SET__ACTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EDdslPackage.Literals.VARIABLE_SET__ACTION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariableSetAccess().getVarNameIDTerminalRuleCall_0_0(), semanticObject.getVarName());
-		feeder.accept(grammarAccess.getVariableSetAccess().getActionActionReturnParserRuleCall_2_0(), semanticObject.getAction());
+		feeder.accept(grammarAccess.getTickAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

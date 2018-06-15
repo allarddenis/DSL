@@ -3,8 +3,12 @@
  */
 package org.xtext.selenium.eliedenis.eDdsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -12,8 +16,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
-import org.xtext.selenium.eliedenis.eDdsl.Series;
+import org.xtext.selenium.eliedenis.eDdsl.MainProcedure;
+import org.xtext.selenium.eliedenis.eDdsl.Procedure;
 import org.xtext.selenium.eliedenis.eDdsl.Test;
 
 /**
@@ -24,7 +32,8 @@ import org.xtext.selenium.eliedenis.eDdsl.Test;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.TestImpl#getTests <em>Tests</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.TestImpl#getProcedures <em>Procedures</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.TestImpl#getMain <em>Main</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +41,24 @@ import org.xtext.selenium.eliedenis.eDdsl.Test;
 public class TestImpl extends MinimalEObjectImpl.Container implements Test
 {
   /**
-   * The cached value of the '{@link #getTests() <em>Tests</em>}' containment reference.
+   * The cached value of the '{@link #getProcedures() <em>Procedures</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTests()
+   * @see #getProcedures()
    * @generated
    * @ordered
    */
-  protected Series tests;
+  protected EList<Procedure> procedures;
+
+  /**
+   * The cached value of the '{@link #getMain() <em>Main</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMain()
+   * @generated
+   * @ordered
+   */
+  protected MainProcedure main;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,9 +86,13 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
    * <!-- end-user-doc -->
    * @generated
    */
-  public Series getTests()
+  public EList<Procedure> getProcedures()
   {
-    return tests;
+    if (procedures == null)
+    {
+      procedures = new EObjectContainmentEList<Procedure>(Procedure.class, this, EDdslPackage.TEST__PROCEDURES);
+    }
+    return procedures;
   }
 
   /**
@@ -77,13 +100,23 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTests(Series newTests, NotificationChain msgs)
+  public MainProcedure getMain()
   {
-    Series oldTests = tests;
-    tests = newTests;
+    return main;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMain(MainProcedure newMain, NotificationChain msgs)
+  {
+    MainProcedure oldMain = main;
+    main = newMain;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EDdslPackage.TEST__TESTS, oldTests, newTests);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EDdslPackage.TEST__MAIN, oldMain, newMain);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +127,20 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTests(Series newTests)
+  public void setMain(MainProcedure newMain)
   {
-    if (newTests != tests)
+    if (newMain != main)
     {
       NotificationChain msgs = null;
-      if (tests != null)
-        msgs = ((InternalEObject)tests).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.TEST__TESTS, null, msgs);
-      if (newTests != null)
-        msgs = ((InternalEObject)newTests).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.TEST__TESTS, null, msgs);
-      msgs = basicSetTests(newTests, msgs);
+      if (main != null)
+        msgs = ((InternalEObject)main).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.TEST__MAIN, null, msgs);
+      if (newMain != null)
+        msgs = ((InternalEObject)newMain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.TEST__MAIN, null, msgs);
+      msgs = basicSetMain(newMain, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.TEST__TESTS, newTests, newTests));
+      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.TEST__MAIN, newMain, newMain));
   }
 
   /**
@@ -120,8 +153,10 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
   {
     switch (featureID)
     {
-      case EDdslPackage.TEST__TESTS:
-        return basicSetTests(null, msgs);
+      case EDdslPackage.TEST__PROCEDURES:
+        return ((InternalEList<?>)getProcedures()).basicRemove(otherEnd, msgs);
+      case EDdslPackage.TEST__MAIN:
+        return basicSetMain(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +171,10 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
   {
     switch (featureID)
     {
-      case EDdslPackage.TEST__TESTS:
-        return getTests();
+      case EDdslPackage.TEST__PROCEDURES:
+        return getProcedures();
+      case EDdslPackage.TEST__MAIN:
+        return getMain();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -147,13 +184,18 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case EDdslPackage.TEST__TESTS:
-        setTests((Series)newValue);
+      case EDdslPackage.TEST__PROCEDURES:
+        getProcedures().clear();
+        getProcedures().addAll((Collection<? extends Procedure>)newValue);
+        return;
+      case EDdslPackage.TEST__MAIN:
+        setMain((MainProcedure)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +211,11 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
   {
     switch (featureID)
     {
-      case EDdslPackage.TEST__TESTS:
-        setTests((Series)null);
+      case EDdslPackage.TEST__PROCEDURES:
+        getProcedures().clear();
+        return;
+      case EDdslPackage.TEST__MAIN:
+        setMain((MainProcedure)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,8 +231,10 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
   {
     switch (featureID)
     {
-      case EDdslPackage.TEST__TESTS:
-        return tests != null;
+      case EDdslPackage.TEST__PROCEDURES:
+        return procedures != null && !procedures.isEmpty();
+      case EDdslPackage.TEST__MAIN:
+        return main != null;
     }
     return super.eIsSet(featureID);
   }

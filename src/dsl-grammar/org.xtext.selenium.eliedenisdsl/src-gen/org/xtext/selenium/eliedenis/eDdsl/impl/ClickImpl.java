@@ -4,17 +4,13 @@
 package org.xtext.selenium.eliedenis.eDdsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.Click;
-import org.xtext.selenium.eliedenis.eDdsl.ClickableEnum;
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
-import org.xtext.selenium.eliedenis.eDdsl.Parameters;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,43 +20,53 @@ import org.xtext.selenium.eliedenis.eDdsl.Parameters;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.ClickImpl#getClickableElement <em>Clickable Element</em>}</li>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.ClickImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.ClickImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.ClickImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ClickImpl extends ActionNoReturnImpl implements Click
+public class ClickImpl extends InstructionImpl implements Click
 {
   /**
-   * The default value of the '{@link #getClickableElement() <em>Clickable Element</em>}' attribute.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClickableElement()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final ClickableEnum CLICKABLE_ELEMENT_EDEFAULT = ClickableEnum.BUTTON;
+  protected static final String TYPE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getClickableElement() <em>Clickable Element</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClickableElement()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected ClickableEnum clickableElement = CLICKABLE_ELEMENT_EDEFAULT;
+  protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameters()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected Parameters parameters;
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,9 +94,9 @@ public class ClickImpl extends ActionNoReturnImpl implements Click
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClickableEnum getClickableElement()
+  public String getType()
   {
-    return clickableElement;
+    return type;
   }
 
   /**
@@ -98,12 +104,12 @@ public class ClickImpl extends ActionNoReturnImpl implements Click
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setClickableElement(ClickableEnum newClickableElement)
+  public void setType(String newType)
   {
-    ClickableEnum oldClickableElement = clickableElement;
-    clickableElement = newClickableElement == null ? CLICKABLE_ELEMENT_EDEFAULT : newClickableElement;
+    String oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.CLICK__CLICKABLE_ELEMENT, oldClickableElement, clickableElement));
+      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.CLICK__TYPE, oldType, type));
   }
 
   /**
@@ -111,9 +117,9 @@ public class ClickImpl extends ActionNoReturnImpl implements Click
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameters getParameters()
+  public String getValue()
   {
-    return parameters;
+    return value;
   }
 
   /**
@@ -121,53 +127,12 @@ public class ClickImpl extends ActionNoReturnImpl implements Click
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetParameters(Parameters newParameters, NotificationChain msgs)
+  public void setValue(String newValue)
   {
-    Parameters oldParameters = parameters;
-    parameters = newParameters;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EDdslPackage.CLICK__PARAMETERS, oldParameters, newParameters);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParameters(Parameters newParameters)
-  {
-    if (newParameters != parameters)
-    {
-      NotificationChain msgs = null;
-      if (parameters != null)
-        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.CLICK__PARAMETERS, null, msgs);
-      if (newParameters != null)
-        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.CLICK__PARAMETERS, null, msgs);
-      msgs = basicSetParameters(newParameters, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.CLICK__PARAMETERS, newParameters, newParameters));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case EDdslPackage.CLICK__PARAMETERS:
-        return basicSetParameters(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.CLICK__VALUE, oldValue, value));
   }
 
   /**
@@ -180,10 +145,10 @@ public class ClickImpl extends ActionNoReturnImpl implements Click
   {
     switch (featureID)
     {
-      case EDdslPackage.CLICK__CLICKABLE_ELEMENT:
-        return getClickableElement();
-      case EDdslPackage.CLICK__PARAMETERS:
-        return getParameters();
+      case EDdslPackage.CLICK__TYPE:
+        return getType();
+      case EDdslPackage.CLICK__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -198,11 +163,11 @@ public class ClickImpl extends ActionNoReturnImpl implements Click
   {
     switch (featureID)
     {
-      case EDdslPackage.CLICK__CLICKABLE_ELEMENT:
-        setClickableElement((ClickableEnum)newValue);
+      case EDdslPackage.CLICK__TYPE:
+        setType((String)newValue);
         return;
-      case EDdslPackage.CLICK__PARAMETERS:
-        setParameters((Parameters)newValue);
+      case EDdslPackage.CLICK__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -218,11 +183,11 @@ public class ClickImpl extends ActionNoReturnImpl implements Click
   {
     switch (featureID)
     {
-      case EDdslPackage.CLICK__CLICKABLE_ELEMENT:
-        setClickableElement(CLICKABLE_ELEMENT_EDEFAULT);
+      case EDdslPackage.CLICK__TYPE:
+        setType(TYPE_EDEFAULT);
         return;
-      case EDdslPackage.CLICK__PARAMETERS:
-        setParameters((Parameters)null);
+      case EDdslPackage.CLICK__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -238,10 +203,10 @@ public class ClickImpl extends ActionNoReturnImpl implements Click
   {
     switch (featureID)
     {
-      case EDdslPackage.CLICK__CLICKABLE_ELEMENT:
-        return clickableElement != CLICKABLE_ELEMENT_EDEFAULT;
-      case EDdslPackage.CLICK__PARAMETERS:
-        return parameters != null;
+      case EDdslPackage.CLICK__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case EDdslPackage.CLICK__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -257,8 +222,10 @@ public class ClickImpl extends ActionNoReturnImpl implements Click
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (clickableElement: ");
-    result.append(clickableElement);
+    result.append(" (Type: ");
+    result.append(type);
+    result.append(", Value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

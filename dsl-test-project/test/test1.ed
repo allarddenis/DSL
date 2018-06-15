@@ -1,0 +1,12 @@
+def linkExists {
+  assert 'Toutes les actualités' exists
+}
+
+def navigateToImt {
+    navigate '"http://www.imt-atlantique.fr/fr"'
+}
+
+def main {
+  navigateToCampus
+  linkExists
+}

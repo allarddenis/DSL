@@ -4,17 +4,13 @@
 package org.xtext.selenium.eliedenis.eDdsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.selenium.eliedenis.eDdsl.EDdslPackage;
-import org.xtext.selenium.eliedenis.eDdsl.Parameters;
 import org.xtext.selenium.eliedenis.eDdsl.Read;
-import org.xtext.selenium.eliedenis.eDdsl.ReadableEnum;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,43 +20,53 @@ import org.xtext.selenium.eliedenis.eDdsl.ReadableEnum;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.ReadImpl#getReadableElement <em>Readable Element</em>}</li>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.ReadImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.ReadImpl#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.impl.ReadImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ReadImpl extends ActionReturnImpl implements Read
+public class ReadImpl extends InstructionImpl implements Read
 {
   /**
-   * The default value of the '{@link #getReadableElement() <em>Readable Element</em>}' attribute.
+   * The default value of the '{@link #getVariable() <em>Variable</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReadableElement()
+   * @see #getVariable()
    * @generated
    * @ordered
    */
-  protected static final ReadableEnum READABLE_ELEMENT_EDEFAULT = ReadableEnum.BUTTON;
+  protected static final String VARIABLE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getReadableElement() <em>Readable Element</em>}' attribute.
+   * The cached value of the '{@link #getVariable() <em>Variable</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReadableElement()
+   * @see #getVariable()
    * @generated
    * @ordered
    */
-  protected ReadableEnum readableElement = READABLE_ELEMENT_EDEFAULT;
+  protected String variable = VARIABLE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameters()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected Parameters parameters;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,9 +94,9 @@ public class ReadImpl extends ActionReturnImpl implements Read
    * <!-- end-user-doc -->
    * @generated
    */
-  public ReadableEnum getReadableElement()
+  public String getVariable()
   {
-    return readableElement;
+    return variable;
   }
 
   /**
@@ -98,12 +104,12 @@ public class ReadImpl extends ActionReturnImpl implements Read
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReadableElement(ReadableEnum newReadableElement)
+  public void setVariable(String newVariable)
   {
-    ReadableEnum oldReadableElement = readableElement;
-    readableElement = newReadableElement == null ? READABLE_ELEMENT_EDEFAULT : newReadableElement;
+    String oldVariable = variable;
+    variable = newVariable;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.READ__READABLE_ELEMENT, oldReadableElement, readableElement));
+      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.READ__VARIABLE, oldVariable, variable));
   }
 
   /**
@@ -111,9 +117,9 @@ public class ReadImpl extends ActionReturnImpl implements Read
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameters getParameters()
+  public String getName()
   {
-    return parameters;
+    return name;
   }
 
   /**
@@ -121,53 +127,12 @@ public class ReadImpl extends ActionReturnImpl implements Read
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetParameters(Parameters newParameters, NotificationChain msgs)
+  public void setName(String newName)
   {
-    Parameters oldParameters = parameters;
-    parameters = newParameters;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EDdslPackage.READ__PARAMETERS, oldParameters, newParameters);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParameters(Parameters newParameters)
-  {
-    if (newParameters != parameters)
-    {
-      NotificationChain msgs = null;
-      if (parameters != null)
-        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.READ__PARAMETERS, null, msgs);
-      if (newParameters != null)
-        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EDdslPackage.READ__PARAMETERS, null, msgs);
-      msgs = basicSetParameters(newParameters, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.READ__PARAMETERS, newParameters, newParameters));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case EDdslPackage.READ__PARAMETERS:
-        return basicSetParameters(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, EDdslPackage.READ__NAME, oldName, name));
   }
 
   /**
@@ -180,10 +145,10 @@ public class ReadImpl extends ActionReturnImpl implements Read
   {
     switch (featureID)
     {
-      case EDdslPackage.READ__READABLE_ELEMENT:
-        return getReadableElement();
-      case EDdslPackage.READ__PARAMETERS:
-        return getParameters();
+      case EDdslPackage.READ__VARIABLE:
+        return getVariable();
+      case EDdslPackage.READ__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -198,11 +163,11 @@ public class ReadImpl extends ActionReturnImpl implements Read
   {
     switch (featureID)
     {
-      case EDdslPackage.READ__READABLE_ELEMENT:
-        setReadableElement((ReadableEnum)newValue);
+      case EDdslPackage.READ__VARIABLE:
+        setVariable((String)newValue);
         return;
-      case EDdslPackage.READ__PARAMETERS:
-        setParameters((Parameters)newValue);
+      case EDdslPackage.READ__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -218,11 +183,11 @@ public class ReadImpl extends ActionReturnImpl implements Read
   {
     switch (featureID)
     {
-      case EDdslPackage.READ__READABLE_ELEMENT:
-        setReadableElement(READABLE_ELEMENT_EDEFAULT);
+      case EDdslPackage.READ__VARIABLE:
+        setVariable(VARIABLE_EDEFAULT);
         return;
-      case EDdslPackage.READ__PARAMETERS:
-        setParameters((Parameters)null);
+      case EDdslPackage.READ__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -238,10 +203,10 @@ public class ReadImpl extends ActionReturnImpl implements Read
   {
     switch (featureID)
     {
-      case EDdslPackage.READ__READABLE_ELEMENT:
-        return readableElement != READABLE_ELEMENT_EDEFAULT;
-      case EDdslPackage.READ__PARAMETERS:
-        return parameters != null;
+      case EDdslPackage.READ__VARIABLE:
+        return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
+      case EDdslPackage.READ__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -257,8 +222,10 @@ public class ReadImpl extends ActionReturnImpl implements Read
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (readableElement: ");
-    result.append(readableElement);
+    result.append(" (Variable: ");
+    result.append(variable);
+    result.append(", Name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

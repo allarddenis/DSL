@@ -10,6 +10,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.selenium.eliedenis.services.EDdslGrammarAccess;
@@ -18,29 +20,30 @@ import org.xtext.selenium.eliedenis.services.EDdslGrammarAccess;
 public class EDdslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected EDdslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_MainProcedure_DefKeyword_1_p;
+	protected AbstractElementAlias match_MainProcedure_MainKeyword_2_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (EDdslGrammarAccess) access;
+		match_MainProcedure_DefKeyword_1_p = new TokenAlias(true, false, grammarAccess.getMainProcedureAccess().getDefKeyword_1());
+		match_MainProcedure_MainKeyword_2_p = new TokenAlias(true, false, grammarAccess.getMainProcedureAccess().getMainKeyword_2());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
-			return getSTRINGToken(semanticObject, ruleCall, node);
+		if (ruleCall.getRule() == grammarAccess.getCOMMARule())
+			return getCOMMAToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * terminal STRING	: 
-	 * 			'"' ( '\\' .  | !('\\'|'"') )* '"' |
-	 * 			"'" ( '\\' .  | !('\\'|"'") )* "'"
-	 * 		;
+	 * terminal COMMA: ',';
 	 */
-	protected String getSTRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getCOMMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "\"\"";
+		return ",";
 	}
 	
 	@Override
@@ -49,8 +52,36 @@ public class EDdslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_MainProcedure_DefKeyword_1_p.equals(syntax))
+				emit_MainProcedure_DefKeyword_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_MainProcedure_MainKeyword_2_p.equals(syntax))
+				emit_MainProcedure_MainKeyword_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'def'+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'main'+ '{' '}' (rule start)
+	 *     (rule start) (ambiguity) 'main'+ '{' instructions+=Instruction
+	 */
+	protected void emit_MainProcedure_DefKeyword_1_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'main'+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'def'+ (ambiguity) '{' '}' (rule start)
+	 *     (rule start) 'def'+ (ambiguity) '{' instructions+=Instruction
+	 */
+	protected void emit_MainProcedure_MainKeyword_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

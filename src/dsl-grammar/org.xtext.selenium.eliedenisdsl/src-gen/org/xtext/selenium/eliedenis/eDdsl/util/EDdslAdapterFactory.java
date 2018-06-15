@@ -81,54 +81,19 @@ public class EDdslAdapterFactory extends AdapterFactoryImpl
         return createTestAdapter();
       }
       @Override
-      public Adapter caseActionNoReturn(ActionNoReturn object)
+      public Adapter caseProcedure(Procedure object)
       {
-        return createActionNoReturnAdapter();
+        return createProcedureAdapter();
       }
       @Override
-      public Adapter caseActionReturn(ActionReturn object)
+      public Adapter caseMainProcedure(MainProcedure object)
       {
-        return createActionReturnAdapter();
+        return createMainProcedureAdapter();
       }
       @Override
-      public Adapter caseActionBoolReturn(ActionBoolReturn object)
+      public Adapter caseInstruction(Instruction object)
       {
-        return createActionBoolReturnAdapter();
-      }
-      @Override
-      public Adapter caseAll(All object)
-      {
-        return createAllAdapter();
-      }
-      @Override
-      public Adapter caseAttribute(Attribute object)
-      {
-        return createAttributeAdapter();
-      }
-      @Override
-      public Adapter caseBrowse(Browse object)
-      {
-        return createBrowseAdapter();
-      }
-      @Override
-      public Adapter caseCheck(Check object)
-      {
-        return createCheckAdapter();
-      }
-      @Override
-      public Adapter caseComparison(Comparison object)
-      {
-        return createComparisonAdapter();
-      }
-      @Override
-      public Adapter caseConstraint(Constraint object)
-      {
-        return createConstraintAdapter();
-      }
-      @Override
-      public Adapter caseCount(Count object)
-      {
-        return createCountAdapter();
+        return createInstructionAdapter();
       }
       @Override
       public Adapter caseClick(Click object)
@@ -136,19 +101,24 @@ public class EDdslAdapterFactory extends AdapterFactoryImpl
         return createClickAdapter();
       }
       @Override
-      public Adapter caseOperation(Operation object)
+      public Adapter caseFill(Fill object)
       {
-        return createOperationAdapter();
+        return createFillAdapter();
       }
       @Override
-      public Adapter caseParameter(Parameter object)
+      public Adapter caseSelect(Select object)
       {
-        return createParameterAdapter();
+        return createSelectAdapter();
       }
       @Override
-      public Adapter caseParameters(Parameters object)
+      public Adapter caseTick(Tick object)
       {
-        return createParametersAdapter();
+        return createTickAdapter();
+      }
+      @Override
+      public Adapter caseNavigate(Navigate object)
+      {
+        return createNavigateAdapter();
       }
       @Override
       public Adapter caseRead(Read object)
@@ -156,34 +126,14 @@ public class EDdslAdapterFactory extends AdapterFactoryImpl
         return createReadAdapter();
       }
       @Override
-      public Adapter caseSeries(Series object)
+      public Adapter caseAssert(Assert object)
       {
-        return createSeriesAdapter();
+        return createAssertAdapter();
       }
       @Override
-      public Adapter caseType(Type object)
+      public Adapter caseCallProcedure(CallProcedure object)
       {
-        return createTypeAdapter();
-      }
-      @Override
-      public Adapter caseVal(Val object)
-      {
-        return createValAdapter();
-      }
-      @Override
-      public Adapter caseValue(Value object)
-      {
-        return createValueAdapter();
-      }
-      @Override
-      public Adapter caseVariableGet(VariableGet object)
-      {
-        return createVariableGetAdapter();
-      }
-      @Override
-      public Adapter caseVariableSet(VariableSet object)
-      {
-        return createVariableSetAdapter();
+        return createCallProcedureAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -223,151 +173,46 @@ public class EDdslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn <em>Action No Return</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Procedure <em>Procedure</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ActionNoReturn
+   * @see org.xtext.selenium.eliedenis.eDdsl.Procedure
    * @generated
    */
-  public Adapter createActionNoReturnAdapter()
+  public Adapter createProcedureAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.ActionReturn <em>Action Return</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.MainProcedure <em>Main Procedure</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ActionReturn
+   * @see org.xtext.selenium.eliedenis.eDdsl.MainProcedure
    * @generated
    */
-  public Adapter createActionReturnAdapter()
+  public Adapter createMainProcedureAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.ActionBoolReturn <em>Action Bool Return</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Instruction <em>Instruction</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ActionBoolReturn
+   * @see org.xtext.selenium.eliedenis.eDdsl.Instruction
    * @generated
    */
-  public Adapter createActionBoolReturnAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.All <em>All</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.All
-   * @generated
-   */
-  public Adapter createAllAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Attribute <em>Attribute</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Attribute
-   * @generated
-   */
-  public Adapter createAttributeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Browse <em>Browse</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Browse
-   * @generated
-   */
-  public Adapter createBrowseAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Check <em>Check</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Check
-   * @generated
-   */
-  public Adapter createCheckAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Comparison <em>Comparison</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Comparison
-   * @generated
-   */
-  public Adapter createComparisonAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Constraint <em>Constraint</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Constraint
-   * @generated
-   */
-  public Adapter createConstraintAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Count <em>Count</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Count
-   * @generated
-   */
-  public Adapter createCountAdapter()
+  public Adapter createInstructionAdapter()
   {
     return null;
   }
@@ -388,46 +233,61 @@ public class EDdslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Operation <em>Operation</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Fill <em>Fill</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Operation
+   * @see org.xtext.selenium.eliedenis.eDdsl.Fill
    * @generated
    */
-  public Adapter createOperationAdapter()
+  public Adapter createFillAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Parameter <em>Parameter</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Select <em>Select</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Parameter
+   * @see org.xtext.selenium.eliedenis.eDdsl.Select
    * @generated
    */
-  public Adapter createParameterAdapter()
+  public Adapter createSelectAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Parameters <em>Parameters</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Tick <em>Tick</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Parameters
+   * @see org.xtext.selenium.eliedenis.eDdsl.Tick
    * @generated
    */
-  public Adapter createParametersAdapter()
+  public Adapter createTickAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Navigate <em>Navigate</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.selenium.eliedenis.eDdsl.Navigate
+   * @generated
+   */
+  public Adapter createNavigateAdapter()
   {
     return null;
   }
@@ -448,91 +308,31 @@ public class EDdslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Series <em>Series</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Assert <em>Assert</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Series
+   * @see org.xtext.selenium.eliedenis.eDdsl.Assert
    * @generated
    */
-  public Adapter createSeriesAdapter()
+  public Adapter createAssertAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Type <em>Type</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.CallProcedure <em>Call Procedure</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Type
+   * @see org.xtext.selenium.eliedenis.eDdsl.CallProcedure
    * @generated
    */
-  public Adapter createTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Val <em>Val</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Val
-   * @generated
-   */
-  public Adapter createValAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.Value <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.Value
-   * @generated
-   */
-  public Adapter createValueAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.VariableGet <em>Variable Get</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.VariableGet
-   * @generated
-   */
-  public Adapter createVariableGetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.selenium.eliedenis.eDdsl.VariableSet <em>Variable Set</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.selenium.eliedenis.eDdsl.VariableSet
-   * @generated
-   */
-  public Adapter createVariableSetAdapter()
+  public Adapter createCallProcedureAdapter()
   {
     return null;
   }

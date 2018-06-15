@@ -13,69 +13,66 @@ package org.xtext.selenium.eliedenis.eDdsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.Click#getClickableElement <em>Clickable Element</em>}</li>
- *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.Click#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.Click#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.selenium.eliedenis.eDdsl.Click#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getClick()
  * @model
  * @generated
  */
-public interface Click extends ActionNoReturn
+public interface Click extends Instruction
 {
   /**
-   * Returns the value of the '<em><b>Clickable Element</b></em>' attribute.
-   * The literals are from the enumeration {@link org.xtext.selenium.eliedenis.eDdsl.ClickableEnum}.
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Clickable Element</em>' attribute isn't clear,
+   * If the meaning of the '<em>Type</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Clickable Element</em>' attribute.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ClickableEnum
-   * @see #setClickableElement(ClickableEnum)
-   * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getClick_ClickableElement()
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(String)
+   * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getClick_Type()
    * @model
    * @generated
    */
-  ClickableEnum getClickableElement();
+  String getType();
 
   /**
-   * Sets the value of the '{@link org.xtext.selenium.eliedenis.eDdsl.Click#getClickableElement <em>Clickable Element</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.selenium.eliedenis.eDdsl.Click#getType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Clickable Element</em>' attribute.
-   * @see org.xtext.selenium.eliedenis.eDdsl.ClickableEnum
-   * @see #getClickableElement()
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #getType()
    * @generated
    */
-  void setClickableElement(ClickableEnum value);
+  void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameters</em>' containment reference.
-   * @see #setParameters(Parameters)
-   * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getClick_Parameters()
-   * @model containment="true"
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see org.xtext.selenium.eliedenis.eDdsl.EDdslPackage#getClick_Value()
+   * @model
    * @generated
    */
-  Parameters getParameters();
+  String getValue();
 
   /**
-   * Sets the value of the '{@link org.xtext.selenium.eliedenis.eDdsl.Click#getParameters <em>Parameters</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.selenium.eliedenis.eDdsl.Click#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parameters</em>' containment reference.
-   * @see #getParameters()
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
    * @generated
    */
-  void setParameters(Parameters value);
+  void setValue(String value);
 
 } // Click

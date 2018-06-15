@@ -80,79 +80,24 @@ public class EDdslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EDdslPackage.ACTION_NO_RETURN:
+      case EDdslPackage.PROCEDURE:
       {
-        ActionNoReturn actionNoReturn = (ActionNoReturn)theEObject;
-        T result = caseActionNoReturn(actionNoReturn);
+        Procedure procedure = (Procedure)theEObject;
+        T result = caseProcedure(procedure);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EDdslPackage.ACTION_RETURN:
+      case EDdslPackage.MAIN_PROCEDURE:
       {
-        ActionReturn actionReturn = (ActionReturn)theEObject;
-        T result = caseActionReturn(actionReturn);
+        MainProcedure mainProcedure = (MainProcedure)theEObject;
+        T result = caseMainProcedure(mainProcedure);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EDdslPackage.ACTION_BOOL_RETURN:
+      case EDdslPackage.INSTRUCTION:
       {
-        ActionBoolReturn actionBoolReturn = (ActionBoolReturn)theEObject;
-        T result = caseActionBoolReturn(actionBoolReturn);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.ALL:
-      {
-        All all = (All)theEObject;
-        T result = caseAll(all);
-        if (result == null) result = caseActionNoReturn(all);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.ATTRIBUTE:
-      {
-        Attribute attribute = (Attribute)theEObject;
-        T result = caseAttribute(attribute);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.BROWSE:
-      {
-        Browse browse = (Browse)theEObject;
-        T result = caseBrowse(browse);
-        if (result == null) result = caseActionNoReturn(browse);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.CHECK:
-      {
-        Check check = (Check)theEObject;
-        T result = caseCheck(check);
-        if (result == null) result = caseActionNoReturn(check);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.COMPARISON:
-      {
-        Comparison comparison = (Comparison)theEObject;
-        T result = caseComparison(comparison);
-        if (result == null) result = caseActionBoolReturn(comparison);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.CONSTRAINT:
-      {
-        Constraint constraint = (Constraint)theEObject;
-        T result = caseConstraint(constraint);
-        if (result == null) result = caseActionBoolReturn(constraint);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.COUNT:
-      {
-        Count count = (Count)theEObject;
-        T result = caseCount(count);
-        if (result == null) result = caseActionReturn(count);
+        Instruction instruction = (Instruction)theEObject;
+        T result = caseInstruction(instruction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -160,28 +105,39 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         Click click = (Click)theEObject;
         T result = caseClick(click);
-        if (result == null) result = caseActionNoReturn(click);
+        if (result == null) result = caseInstruction(click);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EDdslPackage.OPERATION:
+      case EDdslPackage.FILL:
       {
-        Operation operation = (Operation)theEObject;
-        T result = caseOperation(operation);
+        Fill fill = (Fill)theEObject;
+        T result = caseFill(fill);
+        if (result == null) result = caseInstruction(fill);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EDdslPackage.PARAMETER:
+      case EDdslPackage.SELECT:
       {
-        Parameter parameter = (Parameter)theEObject;
-        T result = caseParameter(parameter);
+        Select select = (Select)theEObject;
+        T result = caseSelect(select);
+        if (result == null) result = caseInstruction(select);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EDdslPackage.PARAMETERS:
+      case EDdslPackage.TICK:
       {
-        Parameters parameters = (Parameters)theEObject;
-        T result = caseParameters(parameters);
+        Tick tick = (Tick)theEObject;
+        T result = caseTick(tick);
+        if (result == null) result = caseInstruction(tick);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EDdslPackage.NAVIGATE:
+      {
+        Navigate navigate = (Navigate)theEObject;
+        T result = caseNavigate(navigate);
+        if (result == null) result = caseInstruction(navigate);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -189,52 +145,23 @@ public class EDdslSwitch<T> extends Switch<T>
       {
         Read read = (Read)theEObject;
         T result = caseRead(read);
-        if (result == null) result = caseActionReturn(read);
+        if (result == null) result = caseInstruction(read);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EDdslPackage.SERIES:
+      case EDdslPackage.ASSERT:
       {
-        Series series = (Series)theEObject;
-        T result = caseSeries(series);
+        Assert assert_ = (Assert)theEObject;
+        T result = caseAssert(assert_);
+        if (result == null) result = caseInstruction(assert_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EDdslPackage.TYPE:
+      case EDdslPackage.CALL_PROCEDURE:
       {
-        Type type = (Type)theEObject;
-        T result = caseType(type);
-        if (result == null) result = caseActionNoReturn(type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.VAL:
-      {
-        Val val = (Val)theEObject;
-        T result = caseVal(val);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.VALUE:
-      {
-        Value value = (Value)theEObject;
-        T result = caseValue(value);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.VARIABLE_GET:
-      {
-        VariableGet variableGet = (VariableGet)theEObject;
-        T result = caseVariableGet(variableGet);
-        if (result == null) result = caseVal(variableGet);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EDdslPackage.VARIABLE_SET:
-      {
-        VariableSet variableSet = (VariableSet)theEObject;
-        T result = caseVariableSet(variableSet);
-        if (result == null) result = caseActionNoReturn(variableSet);
+        CallProcedure callProcedure = (CallProcedure)theEObject;
+        T result = caseCallProcedure(callProcedure);
+        if (result == null) result = caseInstruction(callProcedure);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -259,161 +186,49 @@ public class EDdslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Action No Return</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Procedure</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action No Return</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Procedure</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseActionNoReturn(ActionNoReturn object)
+  public T caseProcedure(Procedure object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Action Return</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Main Procedure</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action Return</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Main Procedure</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseActionReturn(ActionReturn object)
+  public T caseMainProcedure(MainProcedure object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Action Bool Return</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Instruction</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action Bool Return</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Instruction</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseActionBoolReturn(ActionBoolReturn object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>All</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>All</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAll(All object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAttribute(Attribute object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Browse</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Browse</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBrowse(Browse object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Check</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Check</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCheck(Check object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Comparison</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Comparison</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseComparison(Comparison object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Constraint</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constraint</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConstraint(Constraint object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Count</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Count</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCount(Count object)
+  public T caseInstruction(Instruction object)
   {
     return null;
   }
@@ -435,49 +250,65 @@ public class EDdslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Fill</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Fill</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOperation(Operation object)
+  public T caseFill(Fill object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Select</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Select</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseParameter(Parameter object)
+  public T caseSelect(Select object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameters</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Tick</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameters</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Tick</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseParameters(Parameters object)
+  public T caseTick(Tick object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Navigate</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Navigate</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNavigate(Navigate object)
   {
     return null;
   }
@@ -499,97 +330,33 @@ public class EDdslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Series</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Assert</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Series</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Assert</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSeries(Series object)
+  public T caseAssert(Assert object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Call Procedure</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Call Procedure</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseType(Type object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Val</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Val</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVal(Val object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Value</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseValue(Value object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Get</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Get</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariableGet(VariableGet object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Set</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Set</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariableSet(VariableSet object)
+  public T caseCallProcedure(CallProcedure object)
   {
     return null;
   }
